@@ -139,6 +139,34 @@ DWELL/
 
 ---
 
+## Updating images
+
+Images live in the `01_WEBSITE/assets/` folder. You can add or replace them directly through Finder or VS Code's file explorer — both work the same way.
+
+**Always keep the exact same filename** when replacing a photo. If the site uses `cover.jpg`, name your new file `cover.jpg` too — the HTML won't need to change.
+
+Image folders:
+- `01_WEBSITE/assets/dwell/images/` — team photos and hero image
+- `01_WEBSITE/assets/projects/formentera/images/` — Formentera property photos
+- `01_WEBSITE/assets/projects/linkebeek/images/` — Linkebeek property photos
+
+### Example — replacing a cover photo
+
+1. Drop the new `cover.jpg` into the right folder
+2. Open the VS Code terminal and run:
+
+```bash
+git add .
+git commit -m "Update Formentera cover photo"
+git push origin main
+```
+
+3. Matteo runs `git pull origin main` on his machine — he gets the new image instantly.
+
+You don't need to push after every single file. You can batch several changes into one commit. But always push before the other person starts working, and always pull before you start.
+
+---
+
 ## Important notes
 
 - **Never commit sensitive files** — credentials, passwords, or `.env` files should never be pushed.
