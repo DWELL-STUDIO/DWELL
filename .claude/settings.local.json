@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git --version)",
+      "Bash(code --version)",
+      "Bash(export PATH=\"$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin\")",
+      "Bash(cp -R /tmp/dwell_temp/.git /Users/romeomaigraijbotta/Desktop/dwell/)",
+      "Bash(cp -R /tmp/dwell_temp/.gitignore /Users/romeomaigraijbotta/Desktop/dwell/)",
+      "Bash(cp -R /tmp/dwell_temp/01_WEBSITE /Users/romeomaigraijbotta/Desktop/dwell/)",
+      "Bash(cp /tmp/dwell_temp/BRAND.md /Users/romeomaigraijbotta/Desktop/dwell/)",
+      "Bash(cp /tmp/dwell_temp/IMAGES.md /Users/romeomaigraijbotta/Desktop/dwell/)",
+      "Bash(code --install-extension ritwickdey.LiveServer --force)",
+      "Bash(code --install-extension esbenp.prettier-vscode --force)",
+      "Bash(code --install-extension ecmel.vscode-html-css --force)",
+      "Bash(code --install-extension formulahendry.auto-rename-tag --force)",
+      "Bash(code --install-extension christian-kohler.path-intellisense --force)",
+      "Bash(git config:*)",
+      "Bash(ln -sf \"/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code\" /usr/local/bin/code)",
+      "Bash(sudo ln:*)",
+      "Bash(mkdir -p ~/bin)",
+      "Bash(ln -sf \"/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code\" ~/bin/code)",
+      "Read(//Users/romeomaigraijbotta/**)",
+      "Bash(export PATH=\"$HOME/bin:$PATH\")"
+    ]
+  }
+}
