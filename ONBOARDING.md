@@ -16,9 +16,9 @@ Before you start, make sure you have the following installed on your machine:
 
 ## Step 1 — Get access to the repository
 
-1. Make sure you have a GitHub account and share your **GitHub username** with Matteo.
-2. Matteo will add you as a collaborator on the private repo: `https://github.com/Ttui81/DWELL`
-3. You will receive an **email invitation** from GitHub — accept it.
+You have already been added as a collaborator on the private repo: `https://github.com/Ttui81/DWELL`
+
+Check your email for a **GitHub invitation** and accept it. Once accepted, you'll have full read/write access.
 
 ---
 
@@ -63,7 +63,33 @@ git config --global user.email "your@email.com"
 
 ---
 
-## Step 5 — Day-to-day workflow
+## Step 5 — Live collaboration with VS Code Live Share
+
+Live Share lets you and Matteo edit the same files in real time, share a terminal, and see each other's cursors live.
+
+### Install Live Share
+
+1. Open VS Code
+2. Press `Cmd+Shift+X` (Mac) or `Ctrl+Shift+X` (Windows) to open Extensions
+3. Search for **"Live Share"** by Microsoft and click **Install**
+
+### Sign in to Live Share
+
+1. Click the **Live Share** button in the bottom status bar
+2. Choose **"Sign in with GitHub"** — it will open the browser to authenticate with your GitHub account (`romeomaigray`)
+
+### Join a session
+
+When Matteo starts a session, he'll send you a link that looks like:
+`https://prod.liveshare.vsengsaas.visualstudio.com/join?...`
+
+1. Press `Cmd+Shift+P` → type **"Live Share: Join Collaboration Session"**
+2. Paste the link Matteo sent you and press Enter
+3. You're in — you'll see Matteo's cursor and he'll see yours
+
+---
+
+## Step 6 — Day-to-day workflow
 
 ### Pull the latest changes before you start working
 
