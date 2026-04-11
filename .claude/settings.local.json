@@ -20,7 +20,8 @@
       "Bash(mkdir -p ~/bin)",
       "Bash(ln -sf \"/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code\" ~/bin/code)",
       "Read(//Users/romeomaigraijbotta/**)",
-      "Bash(export PATH=\"$HOME/bin:$PATH\")"
+      "Bash(export PATH=\"$HOME/bin:$PATH\")",
+      "Bash(git pull:*)"
     ]
   }
 }
