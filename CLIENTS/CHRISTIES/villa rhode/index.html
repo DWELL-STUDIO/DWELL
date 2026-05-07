@@ -373,14 +373,6 @@
     .rv-up   { opacity: 0; transform: translateY(36px); will-change: opacity,transform; }
     .rv-fade { opacity: 0; will-change: opacity; }
 
-    /* ── VIEWPORT FRAME ── */
-    .vp-frame {
-      position: fixed;
-      inset: 0;
-      border: 14px solid rgba(248, 242, 228, 0.14);
-      pointer-events: none;
-      z-index: 8000;
-    }
   </style>
 
   <script>
@@ -402,8 +394,6 @@
 <!-- GRAIN -->
 <div class="grain" aria-hidden="true"></div>
 
-<!-- VIEWPORT FRAME -->
-<div class="vp-frame" aria-hidden="true"></div>
 
 <!-- NAV -->
 <nav class="nav-pill">
@@ -514,243 +504,192 @@
 
 
 <!-- ════════════════════════════════════════
-     ACT I — L'ARRIVÉE
+     GALLERY — vertical portrait carousel
 ════════════════════════════════════════ -->
 
-<!-- Opening text -->
-<section class="py-[clamp(6rem,12vw,12rem)] px-[clamp(2rem,5.5vw,5.5rem)]">
-  <div class="max-w-[560px]">
-    <h2 class="section-title text-[clamp(32px,4.8vw,64px)]">
-      Il y a des maisons<br>que l'on n'oublie pas
-    </h2>
-    <p class="rv-up mt-9 text-[13px] leading-[2.1] text-[rgba(248,242,228,0.35)] max-w-[440px]" data-delay="0.1">
-      Celles où le silence a du volume. Où la lumière entre comme une invitation. À Rhode-Saint-Genèse, aux portes de la Forêt de Soignes.
-    </p>
+<section id="gallery" class="pt-[clamp(6rem,12vw,12rem)] pb-[clamp(6rem,12vw,12rem)]">
+
+  <div class="w-full max-w-[860px] mx-auto px-6 md:px-0 mb-[clamp(5rem,9vw,10rem)] rv-fade">
+    <figure>
+      <div class="overflow-hidden" style="aspect-ratio:2/3">
+        <img src="images/8906584_27_20260408150641.jpg" alt="Entrée principale" class="w-full h-full object-cover" loading="lazy">
+      </div>
+      <figcaption class="mt-4 flex items-center justify-between">
+        <span class="text-[9px] tracking-[0.2em] text-[rgba(248,242,228,0.16)]">01</span>
+        <span class="text-[9px] tracking-[0.12em] text-[rgba(248,242,228,0.16)]">Entrée principale</span>
+      </figcaption>
+    </figure>
   </div>
+
+  <div class="w-full max-w-[860px] mx-auto px-6 md:px-0 mb-[clamp(5rem,9vw,10rem)] rv-fade">
+    <figure>
+      <div class="overflow-hidden" style="aspect-ratio:2/3">
+        <img src="images/8906584_1_20260408150341.jpg" alt="Façade" class="w-full h-full object-cover" loading="lazy">
+      </div>
+      <figcaption class="mt-4 flex items-center justify-between">
+        <span class="text-[9px] tracking-[0.2em] text-[rgba(248,242,228,0.16)]">02</span>
+        <span class="text-[9px] tracking-[0.12em] text-[rgba(248,242,228,0.16)]">Façade sud · Rhode-Saint-Genèse</span>
+      </figcaption>
+    </figure>
+  </div>
+
+  <div class="w-full max-w-[860px] mx-auto px-6 md:px-0 mb-[clamp(5rem,9vw,10rem)] rv-fade">
+    <figure>
+      <div class="overflow-hidden" style="aspect-ratio:2/3">
+        <img src="images/8906584_5_20260408150637.jpg" alt="Hall" class="w-full h-full object-cover" loading="lazy">
+      </div>
+      <figcaption class="mt-4 flex items-center justify-between">
+        <span class="text-[9px] tracking-[0.2em] text-[rgba(248,242,228,0.16)]">03</span>
+        <span class="text-[9px] tracking-[0.12em] text-[rgba(248,242,228,0.16)]">Hall · double hauteur</span>
+      </figcaption>
+    </figure>
+  </div>
+
+  <div class="w-full max-w-[860px] mx-auto px-6 md:px-0 mb-[clamp(5rem,9vw,10rem)] rv-fade">
+    <figure>
+      <div class="overflow-hidden" style="aspect-ratio:2/3">
+        <img src="images/8906584_2_20260408150553.jpg" alt="Le séjour" class="w-full h-full object-cover" loading="lazy">
+      </div>
+      <figcaption class="mt-4 flex items-center justify-between">
+        <span class="text-[9px] tracking-[0.2em] text-[rgba(248,242,228,0.16)]">04</span>
+        <span class="text-[9px] tracking-[0.12em] text-[rgba(248,242,228,0.16)]">Le séjour</span>
+      </figcaption>
+    </figure>
+  </div>
+
+  <div class="w-full max-w-[860px] mx-auto px-6 md:px-0 mb-[clamp(5rem,9vw,10rem)] rv-fade">
+    <figure>
+      <div class="overflow-hidden" style="aspect-ratio:2/3">
+        <img src="images/8906584_6_20260408150638.jpg" alt="Séjour" class="w-full h-full object-cover" loading="lazy">
+      </div>
+      <figcaption class="mt-4 flex items-center justify-between">
+        <span class="text-[9px] tracking-[0.2em] text-[rgba(248,242,228,0.16)]">05</span>
+        <span class="text-[9px] tracking-[0.12em] text-[rgba(248,242,228,0.16)]">Séjour · vue jardin</span>
+      </figcaption>
+    </figure>
+  </div>
+
+  <div class="w-full max-w-[860px] mx-auto px-6 md:px-0 mb-[clamp(5rem,9vw,10rem)] rv-fade">
+    <figure>
+      <div class="overflow-hidden" style="aspect-ratio:2/3">
+        <img src="images/8906584_3_20260408150549.jpg" alt="La cuisine" class="w-full h-full object-cover" loading="lazy">
+      </div>
+      <figcaption class="mt-4 flex items-center justify-between">
+        <span class="text-[9px] tracking-[0.2em] text-[rgba(248,242,228,0.16)]">06</span>
+        <span class="text-[9px] tracking-[0.12em] text-[rgba(248,242,228,0.16)]">La cuisine · îlot circulaire</span>
+      </figcaption>
+    </figure>
+  </div>
+
+  <div class="w-full max-w-[860px] mx-auto px-6 md:px-0 mb-[clamp(5rem,9vw,10rem)] rv-fade">
+    <figure>
+      <div class="overflow-hidden" style="aspect-ratio:2/3">
+        <img src="images/8906584_4_20260408150642.jpg" alt="Intérieur" class="w-full h-full object-cover" loading="lazy">
+      </div>
+      <figcaption class="mt-4 flex items-center justify-between">
+        <span class="text-[9px] tracking-[0.2em] text-[rgba(248,242,228,0.16)]">07</span>
+        <span class="text-[9px] tracking-[0.12em] text-[rgba(248,242,228,0.16)]">Détail intérieur</span>
+      </figcaption>
+    </figure>
+  </div>
+
+  <div class="w-full max-w-[860px] mx-auto px-6 md:px-0 mb-[clamp(5rem,9vw,10rem)] rv-fade">
+    <figure>
+      <div class="overflow-hidden" style="aspect-ratio:2/3">
+        <img src="images/8906584_8_20260408150638.jpg" alt="Bureau" class="w-full h-full object-cover" loading="lazy">
+      </div>
+      <figcaption class="mt-4 flex items-center justify-between">
+        <span class="text-[9px] tracking-[0.2em] text-[rgba(248,242,228,0.16)]">08</span>
+        <span class="text-[9px] tracking-[0.12em] text-[rgba(248,242,228,0.16)]">Bureau</span>
+      </figcaption>
+    </figure>
+  </div>
+
+  <div class="w-full max-w-[860px] mx-auto px-6 md:px-0 mb-[clamp(5rem,9vw,10rem)] rv-fade">
+    <figure>
+      <div class="overflow-hidden" style="aspect-ratio:2/3">
+        <img src="images/8906584_11_20260408150638.jpg" alt="Chambre principale" class="w-full h-full object-cover" loading="lazy">
+      </div>
+      <figcaption class="mt-4 flex items-center justify-between">
+        <span class="text-[9px] tracking-[0.2em] text-[rgba(248,242,228,0.16)]">09</span>
+        <span class="text-[9px] tracking-[0.12em] text-[rgba(248,242,228,0.16)]">Chambre principale</span>
+      </figcaption>
+    </figure>
+  </div>
+
+  <div class="w-full max-w-[860px] mx-auto px-6 md:px-0 mb-[clamp(5rem,9vw,10rem)] rv-fade">
+    <figure>
+      <div class="overflow-hidden" style="aspect-ratio:2/3">
+        <img src="images/8906584_12_20260408150639.jpg" alt="Chambre" class="w-full h-full object-cover" loading="lazy">
+      </div>
+      <figcaption class="mt-4 flex items-center justify-between">
+        <span class="text-[9px] tracking-[0.2em] text-[rgba(248,242,228,0.16)]">10</span>
+        <span class="text-[9px] tracking-[0.12em] text-[rgba(248,242,228,0.16)]">Chambre</span>
+      </figcaption>
+    </figure>
+  </div>
+
+  <div class="w-full max-w-[860px] mx-auto px-6 md:px-0 mb-[clamp(5rem,9vw,10rem)] rv-fade">
+    <figure>
+      <div class="overflow-hidden" style="aspect-ratio:2/3">
+        <img src="images/8906584_14_20260408150639.jpg" alt="Salle de bain" class="w-full h-full object-cover" loading="lazy">
+      </div>
+      <figcaption class="mt-4 flex items-center justify-between">
+        <span class="text-[9px] tracking-[0.2em] text-[rgba(248,242,228,0.16)]">11</span>
+        <span class="text-[9px] tracking-[0.12em] text-[rgba(248,242,228,0.16)]">Salle de bain principale</span>
+      </figcaption>
+    </figure>
+  </div>
+
+  <div class="w-full max-w-[860px] mx-auto px-6 md:px-0 mb-[clamp(5rem,9vw,10rem)] rv-fade">
+    <figure>
+      <div class="overflow-hidden" style="aspect-ratio:2/3">
+        <img src="images/8906584_21_20260408150640.jpg" alt="Piscine" class="w-full h-full object-cover" loading="lazy">
+      </div>
+      <figcaption class="mt-4 flex items-center justify-between">
+        <span class="text-[9px] tracking-[0.2em] text-[rgba(248,242,228,0.16)]">12</span>
+        <span class="text-[9px] tracking-[0.12em] text-[rgba(248,242,228,0.16)]">Piscine · liner anthracite</span>
+      </figcaption>
+    </figure>
+  </div>
+
+  <div class="w-full max-w-[860px] mx-auto px-6 md:px-0 mb-[clamp(5rem,9vw,10rem)] rv-fade">
+    <figure>
+      <div class="overflow-hidden" style="aspect-ratio:2/3">
+        <img src="images/8906584_25_20260408150641.jpg" alt="Terrasse" class="w-full h-full object-cover" loading="lazy">
+      </div>
+      <figcaption class="mt-4 flex items-center justify-between">
+        <span class="text-[9px] tracking-[0.2em] text-[rgba(248,242,228,0.16)]">13</span>
+        <span class="text-[9px] tracking-[0.12em] text-[rgba(248,242,228,0.16)]">Terrasse · vue piscine</span>
+      </figcaption>
+    </figure>
+  </div>
+
+  <div class="w-full max-w-[860px] mx-auto px-6 md:px-0 mb-[clamp(5rem,9vw,10rem)] rv-fade">
+    <figure>
+      <div class="overflow-hidden" style="aspect-ratio:2/3">
+        <img src="images/8906584_26_20260408150641.jpg" alt="Jardin" class="w-full h-full object-cover" loading="lazy">
+      </div>
+      <figcaption class="mt-4 flex items-center justify-between">
+        <span class="text-[9px] tracking-[0.2em] text-[rgba(248,242,228,0.16)]">14</span>
+        <span class="text-[9px] tracking-[0.12em] text-[rgba(248,242,228,0.16)]">Jardin paysager</span>
+      </figcaption>
+    </figure>
+  </div>
+
+  <div class="w-full max-w-[860px] mx-auto px-6 md:px-0 rv-fade">
+    <figure>
+      <div class="overflow-hidden" style="aspect-ratio:2/3">
+        <img src="images/8906584_28_20260408150421.jpg" alt="Terrasse" class="w-full h-full object-cover" loading="lazy">
+      </div>
+      <figcaption class="mt-4 flex items-center justify-between">
+        <span class="text-[9px] tracking-[0.2em] text-[rgba(248,242,228,0.16)]">15</span>
+        <span class="text-[9px] tracking-[0.12em] text-[rgba(248,242,228,0.16)]">Terrasse extérieure</span>
+      </figcaption>
+    </figure>
+  </div>
+
 </section>
-
-<!-- Exterior — portrait, full bleed -->
-<figure class="rv-fade px-[clamp(1.25rem,2.5vw,2.5rem)]">
-  <div class="overflow-hidden rounded-[3px]">
-    <img src="images/8906584_1_20260408150341.jpg"
-         alt="Villa Rhode — façade"
-         class="img-natural mx-auto max-h-[92vh] w-auto" style="max-width:100%" loading="lazy">
-  </div>
-  <figcaption class="mt-4 px-1 text-[10px] tracking-[0.1em] text-[rgba(248,242,228,0.25)]">
-    Façade sud — Rhode-Saint-Genèse
-  </figcaption>
-</figure>
-
-<!-- Two exterior views — asymmetric (wide + narrow) -->
-<div class="mt-[clamp(1rem,2vw,2rem)] px-[clamp(1.25rem,2.5vw,2.5rem)] grid grid-cols-12 gap-[clamp(0.75rem,1.5vw,1.5rem)] items-end">
-  <figure class="col-span-12 md:col-span-8 rv-fade">
-    <div class="overflow-hidden rounded-[3px]">
-      <img src="images/8906584_27_20260408150641.jpg" alt="" class="img-natural" loading="lazy">
-    </div>
-    <figcaption class="mt-3 text-[10px] tracking-[0.1em] text-[rgba(248,242,228,0.25)]">Entrée principale</figcaption>
-  </figure>
-  <figure class="col-span-12 md:col-span-4 rv-fade" data-delay="0.1">
-    <div class="overflow-hidden rounded-[3px]">
-      <img src="images/8906584_28_20260408150421.jpg" alt="" class="img-natural" loading="lazy">
-    </div>
-    <figcaption class="mt-3 text-[10px] tracking-[0.1em] text-[rgba(248,242,228,0.25)]">Terrasse</figcaption>
-  </figure>
-</div>
-
-
-<!-- ════════════════════════════════════════
-     ACT II — L'ARCHITECTURE
-════════════════════════════════════════ -->
-
-<!-- Breathing space + text -->
-<div class="mt-[clamp(7rem,14vw,14rem)] px-[clamp(2rem,5.5vw,5.5rem)] flex flex-col md:flex-row items-start gap-[clamp(3rem,8vw,8rem)]">
-  <div class="md:w-1/2">
-    <span class="chapter-label mb-5 inline-block">L'Architecture</span>
-    <h2 class="section-title text-[clamp(30px,4.2vw,56px)]">La verticalité<br>du vide</h2>
-  </div>
-  <p class="rv-up md:w-1/2 md:pt-[3.5rem] text-[13px] leading-[2.1] text-[rgba(248,242,228,0.35)]" data-delay="0.1">
-    La double hauteur du hall instaure une verticalité rare. L'espace respire. Le puits de lumière zénithal compose des tableaux changeants au fil des heures — la maison vit avec le soleil.
-  </p>
-</div>
-
-<!-- Staircase — full width -->
-<figure class="rv-fade mt-[clamp(3rem,5vw,5rem)] px-[clamp(1.25rem,2.5vw,2.5rem)]">
-  <div class="overflow-hidden rounded-[3px]">
-    <img src="images/8906584_5_20260408150637.jpg" alt="Hall double-hauteur" class="img-natural" loading="lazy">
-  </div>
-  <figcaption class="mt-4 px-1 text-[10px] tracking-[0.1em] text-[rgba(248,242,228,0.25)]">Hall · double hauteur · puits de lumière zénithal</figcaption>
-</figure>
-
-<!-- Specs + supporting image -->
-<div class="mt-[clamp(1rem,2vw,2rem)] px-[clamp(1.25rem,2.5vw,2.5rem)] grid grid-cols-1 md:grid-cols-2 gap-[clamp(1rem,2vw,2rem)]">
-  <div class="rv-up flex flex-col justify-between p-[clamp(2.5rem,5vw,5rem)] bg-[rgba(248,242,228,0.02)] rounded-[3px]">
-    <div class="grid grid-cols-2 gap-x-8 gap-y-8">
-      <div class="spec-row"><div class="spec-num" data-target="780">0</div><div class="spec-label">m² habitables</div></div>
-      <div class="spec-row"><div class="spec-num" data-target="5">0</div><div class="spec-label">chambres</div></div>
-      <div class="spec-row"><div class="spec-num" data-target="3">0</div><div class="spec-label">salles de bain</div></div>
-      <div class="spec-row"><div class="spec-num" data-target="1800">0</div><div class="spec-label">m² terrain</div></div>
-    </div>
-  </div>
-  <figure class="rv-fade" data-delay="0.1">
-    <div class="overflow-hidden rounded-[3px] h-full">
-      <img src="images/8906584_4_20260408150642.jpg" alt="" class="w-full h-full object-cover" loading="lazy">
-    </div>
-  </figure>
-</div>
-
-
-<!-- ════════════════════════════════════════
-     ACT III — LES INTÉRIEURS
-════════════════════════════════════════ -->
-
-<!-- Breathing text -->
-<div class="mt-[clamp(7rem,14vw,14rem)] px-[clamp(2rem,5.5vw,5.5rem)]">
-  <span class="chapter-label mb-5 inline-block">Les Intérieurs</span>
-</div>
-
-<!-- Living room — full width -->
-<figure class="rv-fade px-[clamp(1.25rem,2.5vw,2.5rem)]">
-  <div class="overflow-hidden rounded-[3px]">
-    <img src="images/8906584_2_20260408150553.jpg" alt="Le séjour" class="img-natural" loading="lazy">
-  </div>
-  <figcaption class="mt-4 px-1 text-[10px] tracking-[0.1em] text-[rgba(248,242,228,0.25)]">Le séjour</figcaption>
-</figure>
-
-<!-- Two rooms side by side — unequal -->
-<div class="mt-[clamp(1rem,2vw,2rem)] px-[clamp(1.25rem,2.5vw,2.5rem)] grid grid-cols-12 gap-[clamp(0.75rem,1.5vw,1.5rem)]">
-  <figure class="col-span-12 md:col-span-5 rv-fade">
-    <div class="overflow-hidden rounded-[3px]">
-      <img src="images/8906584_6_20260408150638.jpg" alt="" class="img-natural" loading="lazy">
-    </div>
-    <figcaption class="mt-3 text-[10px] tracking-[0.1em] text-[rgba(248,242,228,0.25)]">Salle de séjour</figcaption>
-  </figure>
-  <figure class="col-span-12 md:col-span-7 rv-fade" data-delay="0.08">
-    <div class="overflow-hidden rounded-[3px]">
-      <img src="images/8906584_7_20260408150638.jpg" alt="" class="img-natural" loading="lazy">
-    </div>
-    <figcaption class="mt-3 text-[10px] tracking-[0.1em] text-[rgba(248,242,228,0.25)]">Vue vers le jardin</figcaption>
-  </figure>
-</div>
-
-<!-- Kitchen skylight — full width -->
-<figure class="rv-fade mt-[clamp(1rem,2vw,2rem)] px-[clamp(1.25rem,2.5vw,2.5rem)]">
-  <div class="overflow-hidden rounded-[3px]">
-    <img src="images/8906584_3_20260408150549.jpg" alt="La cuisine" class="img-natural" loading="lazy">
-  </div>
-  <figcaption class="mt-4 px-1 text-[10px] tracking-[0.1em] text-[rgba(248,242,228,0.25)]">La cuisine — îlot circulaire · skylight zénithal</figcaption>
-</figure>
-
-<!-- Two interior details -->
-<div class="mt-[clamp(1rem,2vw,2rem)] px-[clamp(1.25rem,2.5vw,2.5rem)] grid grid-cols-2 gap-[clamp(0.75rem,1.5vw,1.5rem)]">
-  <figure class="rv-fade">
-    <div class="overflow-hidden rounded-[3px]">
-      <img src="images/8906584_8_20260408150638.jpg" alt="" class="img-natural" loading="lazy">
-    </div>
-    <figcaption class="mt-3 text-[10px] tracking-[0.1em] text-[rgba(248,242,228,0.25)]">Bureau</figcaption>
-  </figure>
-  <figure class="rv-fade" data-delay="0.08">
-    <div class="overflow-hidden rounded-[3px]">
-      <img src="images/8906584_9_20260408150638.jpg" alt="" class="img-natural" loading="lazy">
-    </div>
-    <figcaption class="mt-3 text-[10px] tracking-[0.1em] text-[rgba(248,242,228,0.25)]">Détail</figcaption>
-  </figure>
-</div>
-
-
-<!-- ════════════════════════════════════════
-     ACT IV — LES CHAMBRES
-════════════════════════════════════════ -->
-
-<div class="mt-[clamp(7rem,14vw,14rem)] px-[clamp(2rem,5.5vw,5.5rem)] flex flex-col md:flex-row items-end justify-between gap-6">
-  <div>
-    <span class="chapter-label mb-5 inline-block">Les Chambres</span>
-    <h2 class="section-title text-[clamp(30px,4.2vw,56px)]">Cinq chambres.<br>Autant de refuges.</h2>
-  </div>
-</div>
-
-<!-- Primary bedroom — full width -->
-<figure class="rv-fade mt-[clamp(3rem,5vw,5rem)] px-[clamp(1.25rem,2.5vw,2.5rem)]">
-  <div class="overflow-hidden rounded-[3px]">
-    <img src="images/8906584_11_20260408150638.jpg" alt="Chambre principale" class="img-natural" loading="lazy">
-  </div>
-  <figcaption class="mt-4 px-1 text-[10px] tracking-[0.1em] text-[rgba(248,242,228,0.25)]">Chambre principale</figcaption>
-</figure>
-
-<!-- Two bedrooms -->
-<div class="mt-[clamp(1rem,2vw,2rem)] px-[clamp(1.25rem,2.5vw,2.5rem)] grid grid-cols-2 gap-[clamp(0.75rem,1.5vw,1.5rem)]">
-  <figure class="rv-fade">
-    <div class="overflow-hidden rounded-[3px]">
-      <img src="images/8906584_12_20260408150639.jpg" alt="" class="img-natural" loading="lazy">
-    </div>
-    <figcaption class="mt-3 text-[10px] tracking-[0.1em] text-[rgba(248,242,228,0.25)]">Chambre 2</figcaption>
-  </figure>
-  <figure class="rv-fade" data-delay="0.08">
-    <div class="overflow-hidden rounded-[3px]">
-      <img src="images/8906584_13_20260408150639.jpg" alt="" class="img-natural" loading="lazy">
-    </div>
-    <figcaption class="mt-3 text-[10px] tracking-[0.1em] text-[rgba(248,242,228,0.25)]">Chambre 3</figcaption>
-  </figure>
-</div>
-
-<!-- Bathroom -->
-<figure class="rv-fade mt-[clamp(1rem,2vw,2rem)] px-[clamp(1.25rem,2.5vw,2.5rem)] md:w-2/3">
-  <div class="overflow-hidden rounded-[3px]">
-    <img src="images/8906584_14_20260408150639.jpg" alt="Salle de bain" class="img-natural" loading="lazy">
-  </div>
-  <figcaption class="mt-3 text-[10px] tracking-[0.1em] text-[rgba(248,242,228,0.25)]">Salle de bain principale</figcaption>
-</figure>
-
-
-<!-- ════════════════════════════════════════
-     ACT V — LE JARDIN & LA PISCINE
-════════════════════════════════════════ -->
-
-<div class="mt-[clamp(7rem,14vw,14rem)] px-[clamp(2rem,5.5vw,5.5rem)]">
-  <span class="chapter-label mb-5 inline-block">Le Jardin · La Piscine</span>
-  <h2 class="section-title text-[clamp(30px,4.2vw,56px)]">La piscine s'étend<br>en miroir anthracite</h2>
-  <p class="rv-up mt-8 text-[13px] leading-[2.1] text-[rgba(248,242,228,0.35)] max-w-[440px]" data-delay="0.1">
-    Le jardin isole du monde. On n'entend que le vent dans les arbres de la Forêt de Soignes.
-  </p>
-</div>
-
-<!-- Pool portrait — centered, intentional white space -->
-<figure class="rv-fade mt-[clamp(3rem,5vw,5rem)] px-[clamp(1.25rem,2.5vw,2.5rem)] flex justify-center">
-  <div class="overflow-hidden rounded-[3px] w-full md:w-3/4">
-    <img src="images/8906584_21_20260408150640.jpg" alt="Piscine" class="img-natural" loading="lazy">
-  </div>
-</figure>
-
-<!-- Two outdoor views -->
-<div class="mt-[clamp(1rem,2vw,2rem)] px-[clamp(1.25rem,2.5vw,2.5rem)] grid grid-cols-12 gap-[clamp(0.75rem,1.5vw,1.5rem)]">
-  <figure class="col-span-12 md:col-span-7 rv-fade">
-    <div class="overflow-hidden rounded-[3px]">
-      <img src="images/8906584_25_20260408150641.jpg" alt="" class="img-natural" loading="lazy">
-    </div>
-    <figcaption class="mt-3 text-[10px] tracking-[0.1em] text-[rgba(248,242,228,0.25)]">Terrasse — vue piscine</figcaption>
-  </figure>
-  <figure class="col-span-12 md:col-span-5 rv-fade" data-delay="0.1">
-    <div class="overflow-hidden rounded-[3px]">
-      <img src="images/8906584_26_20260408150641.jpg" alt="" class="img-natural" loading="lazy">
-    </div>
-    <figcaption class="mt-3 text-[10px] tracking-[0.1em] text-[rgba(248,242,228,0.25)]">Jardin paysager</figcaption>
-  </figure>
-</div>
-
-<!-- Two more exterior details -->
-<div class="mt-[clamp(1rem,2vw,2rem)] px-[clamp(1.25rem,2.5vw,2.5rem)] grid grid-cols-2 gap-[clamp(0.75rem,1.5vw,1.5rem)]">
-  <figure class="rv-fade">
-    <div class="overflow-hidden rounded-[3px]">
-      <img src="images/8906584_22_20260408150641.jpg" alt="" class="img-natural" loading="lazy">
-    </div>
-  </figure>
-  <figure class="rv-fade" data-delay="0.08">
-    <div class="overflow-hidden rounded-[3px]">
-      <img src="images/8906584_23_20260408150641.jpg" alt="" class="img-natural" loading="lazy">
-    </div>
-  </figure>
-</div>
-
-<div class="mt-[clamp(5rem,10vw,10rem)]"></div>
 
 
 <!-- ════════════════════════════════════════
