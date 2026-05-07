@@ -429,24 +429,33 @@
 
 
 <!-- ════════════════════════════════════════
-     KITCHEN & DINING — scroll scrub
+     KITCHEN & DINING — side by side, scroll scrub
 ════════════════════════════════════════ -->
 <section class="vid-scrub-section relative" style="height:320vh">
-  <div class="sticky top-0 h-[100dvh] overflow-hidden bg-[#060504]">
-    <video class="w-full h-full object-cover" muted playsinline preload="auto">
-      <source src="videos/villa%20rhodes_Export_2026-05-05_20-45-28.mp4" type="video/mp4">
-    </video>
-    <!-- bottom-left: chapter label -->
-    <div class="absolute bottom-8 left-[clamp(2rem,5.5vw,5.5rem)] flex items-center gap-3 pointer-events-none">
-      <div class="w-5 h-px bg-[rgba(248,242,228,0.18)]"></div>
-      <p class="text-[9px] tracking-[0.22em] uppercase text-[rgba(248,242,228,0.25)]">01</p>
+  <div class="sticky top-0 h-[100dvh] bg-[#060504] flex gap-[3px]">
+
+    <!-- Kitchen -->
+    <div class="relative flex-1 overflow-hidden">
+      <video class="w-full h-full object-cover" muted playsinline preload="auto">
+        <source src="videos/villa%20rhodes_Export_2026-05-05_20-45-28.mp4" type="video/mp4">
+      </video>
+      <div class="absolute bottom-7 left-[clamp(1.25rem,2.5vw,2.5rem)] pointer-events-none">
+        <p class="font-display italic text-[clamp(18px,2.2vw,30px)] font-light leading-[1.1] text-[rgba(248,242,228,0.7)]"
+           style="font-variation-settings:'opsz' 144">La Cuisine</p>
+      </div>
     </div>
-    <!-- bottom-right: room description -->
-    <div class="absolute bottom-7 right-[clamp(2rem,5.5vw,5.5rem)] text-right pointer-events-none">
-      <p class="font-display italic text-[clamp(22px,2.8vw,38px)] font-light leading-[1.1] text-[rgba(248,242,228,0.72)]"
-         style="font-variation-settings:'opsz' 144">La Cuisine<br>&amp; la Salle à Manger</p>
-      <p class="mt-2 text-[9px] tracking-[0.18em] uppercase text-[rgba(248,242,228,0.22)]">Rhode-Saint-Genèse</p>
+
+    <!-- Dining -->
+    <div class="relative flex-1 overflow-hidden">
+      <video class="w-full h-full object-cover" muted playsinline preload="auto">
+        <source src="videos/villa%20rhodes_Export_2026-05-06_15-35-14.mp4" type="video/mp4">
+      </video>
+      <div class="absolute bottom-7 left-[clamp(1.25rem,2.5vw,2.5rem)] pointer-events-none">
+        <p class="font-display italic text-[clamp(18px,2.2vw,30px)] font-light leading-[1.1] text-[rgba(248,242,228,0.7)]"
+           style="font-variation-settings:'opsz' 144">La Salle à Manger</p>
+      </div>
     </div>
+
   </div>
 </section>
 
@@ -981,7 +990,7 @@ document.querySelectorAll('.acc-toggle').forEach(toggle => {
 
 /* ── SCROLL-SCRUB VIDEOS ── */
 document.querySelectorAll('.vid-scrub-section').forEach(section => {
-  const video = section.querySelector('video');
+  const videos = Array.from(section.querySelectorAll('video'));
 
   function init() {
     ScrollTrigger.create({
@@ -990,13 +999,19 @@ document.querySelectorAll('.vid-scrub-section').forEach(section => {
       end:     'bottom bottom',
       scrub:   0.5,
       onUpdate(self) {
-        if (video.duration) video.currentTime = video.duration * self.progress;
+        videos.forEach(v => {
+          if (v.duration) v.currentTime = v.duration * self.progress;
+        });
       },
     });
   }
 
-  if (video.readyState >= 1) { init(); }
-  else { video.addEventListener('loadedmetadata', init, { once: true }); }
+  let ready = 0;
+  videos.forEach(v => {
+    const check = () => { if (++ready === videos.length) init(); };
+    if (v.readyState >= 1) { check(); }
+    else { v.addEventListener('loadedmetadata', check, { once: true }); }
+  });
 });
 </script>
 
