@@ -429,54 +429,61 @@
 
 
 <!-- ════════════════════════════════════════
-     KITCHEN & DINING — side by side, scroll scrub
+     ROOMS — kitchen → dining → salon
+     scroll scrub with text stops
 ════════════════════════════════════════ -->
-<section class="vid-scrub-section relative" style="height:320vh">
-  <div class="sticky top-0 h-[100dvh] bg-[#060504] flex gap-[3px]">
-
-    <!-- Kitchen -->
-    <div class="relative flex-1 overflow-hidden">
-      <video class="w-full h-full object-cover" muted playsinline preload="auto">
-        <source src="videos/villa%20rhodes_Export_2026-05-05_20-45-28.mp4" type="video/mp4">
-      </video>
-      <div class="absolute bottom-7 left-[clamp(1.25rem,2.5vw,2.5rem)] pointer-events-none">
-        <p class="font-display italic text-[clamp(18px,2.2vw,30px)] font-light leading-[1.1] text-[rgba(248,242,228,0.7)]"
-           style="font-variation-settings:'opsz' 144">La Cuisine</p>
-      </div>
-    </div>
-
-    <!-- Dining -->
-    <div class="relative flex-1 overflow-hidden">
-      <video class="w-full h-full object-cover" muted playsinline preload="auto">
-        <source src="videos/villa%20rhodes_Export_2026-05-06_15-35-14.mp4" type="video/mp4">
-      </video>
-      <div class="absolute bottom-7 left-[clamp(1.25rem,2.5vw,2.5rem)] pointer-events-none">
-        <p class="font-display italic text-[clamp(18px,2.2vw,30px)] font-light leading-[1.1] text-[rgba(248,242,228,0.7)]"
-           style="font-variation-settings:'opsz' 144">La Salle à Manger</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ════════════════════════════════════════
-     LIVING ROOM — scroll scrub
-════════════════════════════════════════ -->
-<section class="vid-scrub-section relative" style="height:280vh">
+<section id="rooms-section" class="relative" style="height:700vh">
   <div class="sticky top-0 h-[100dvh] overflow-hidden bg-[#060504]">
-    <video class="w-full h-full object-cover" muted playsinline preload="auto">
+
+    <!-- Kitchen video (cuisine + salle à manger) -->
+    <video id="vid-kitchen" class="absolute inset-0 w-full h-full object-cover" muted playsinline preload="auto">
+      <source src="videos/villa%20rhodes_Export_2026-05-05_20-45-28.mp4" type="video/mp4">
+    </video>
+
+    <!-- Salon video — fades in at scroll 55% -->
+    <video id="vid-salon" class="absolute inset-0 w-full h-full object-cover" muted playsinline preload="auto" style="opacity:0">
       <source src="videos/villa%20rhodes_Seedance%20V1.0_2026-05-06_15-49-12.mp4" type="video/mp4">
     </video>
-    <!-- bottom-left: chapter label -->
-    <div class="absolute bottom-8 left-[clamp(2rem,5.5vw,5.5rem)] flex items-center gap-3 pointer-events-none">
-      <div class="w-5 h-px bg-[rgba(248,242,228,0.18)]"></div>
-      <p class="text-[9px] tracking-[0.22em] uppercase text-[rgba(248,242,228,0.25)]">02</p>
-    </div>
-    <!-- bottom-right: room description -->
-    <div class="absolute bottom-7 right-[clamp(2rem,5.5vw,5.5rem)] text-right pointer-events-none">
-      <p class="font-display italic text-[clamp(22px,2.8vw,38px)] font-light leading-[1.1] text-[rgba(248,242,228,0.72)]"
-         style="font-variation-settings:'opsz' 144">Le Salon</p>
-      <p class="mt-2 text-[9px] tracking-[0.18em] uppercase text-[rgba(248,242,228,0.22)]">Double hauteur · 780 m²</p>
+
+    <!-- Bottom veil so text is always readable -->
+    <div class="absolute inset-0 bg-gradient-to-t from-[rgba(6,5,4,0.75)] via-[rgba(6,5,4,0.0)] to-transparent pointer-events-none" style="background:linear-gradient(to top, rgba(6,5,4,0.72) 0%, rgba(6,5,4,0.0) 45%)"></div>
+
+    <!-- Text labels — all stacked at same bottom-left position -->
+    <div class="absolute bottom-0 left-0 right-0 px-[clamp(2rem,5.5vw,5.5rem)] pb-[clamp(3.5rem,7vh,7rem)] pointer-events-none">
+
+      <div id="label-cuisine" style="opacity:0;transform:translateY(28px)">
+        <p class="text-[9px] tracking-[0.24em] uppercase text-[rgba(248,242,228,0.38)] mb-4">01 — La Cuisine</p>
+        <h3 class="font-display italic font-light leading-[0.9] text-[rgba(248,242,228,0.9)]"
+            style="font-size:clamp(44px,7.5vw,108px);font-variation-settings:'opsz' 144">
+          Îlot circulaire.<br>Skylight zénithal.
+        </h3>
+        <p class="mt-5 text-[11.5px] leading-[1.85] tracking-[0.03em] text-[rgba(248,242,228,0.32)] max-w-[360px]">
+          Noyer massif sur mesure. La lumière descend du plafond comme une présence.
+        </p>
+      </div>
+
+      <div id="label-dining" style="position:absolute;inset:0;bottom:clamp(3.5rem,7vh,7rem);left:clamp(2rem,5.5vw,5.5rem);right:clamp(2rem,5.5vw,5.5rem);opacity:0;transform:translateY(28px)">
+        <p class="text-[9px] tracking-[0.24em] uppercase text-[rgba(248,242,228,0.38)] mb-4">02 — La Salle à Manger</p>
+        <h3 class="font-display italic font-light leading-[0.9] text-[rgba(248,242,228,0.9)]"
+            style="font-size:clamp(44px,7.5vw,108px);font-variation-settings:'opsz' 144">
+          Vue sur jardin.<br>Lumière naturelle.
+        </h3>
+        <p class="mt-5 text-[11.5px] leading-[1.85] tracking-[0.03em] text-[rgba(248,242,228,0.32)] max-w-[360px]">
+          La table familiale face à la Forêt de Soignes.
+        </p>
+      </div>
+
+      <div id="label-salon" style="position:absolute;inset:0;bottom:clamp(3.5rem,7vh,7rem);left:clamp(2rem,5.5vw,5.5rem);right:clamp(2rem,5.5vw,5.5rem);opacity:0;transform:translateY(28px)">
+        <p class="text-[9px] tracking-[0.24em] uppercase text-[rgba(248,242,228,0.38)] mb-4">03 — Le Salon</p>
+        <h3 class="font-display italic font-light leading-[0.9] text-[rgba(248,242,228,0.9)]"
+            style="font-size:clamp(44px,7.5vw,108px);font-variation-settings:'opsz' 144">
+          Double hauteur.<br>Volumes rares.
+        </h3>
+        <p class="mt-5 text-[11.5px] leading-[1.85] tracking-[0.03em] text-[rgba(248,242,228,0.32)] max-w-[360px]">
+          La lumière entre par le haut, l'espace respire tout seul.
+        </p>
+      </div>
+
     </div>
   </div>
 </section>
@@ -986,6 +993,91 @@ document.querySelectorAll('.acc-toggle').forEach(toggle => {
     if (!isOpen) item.classList.add('open');
   });
 });
+
+
+/* ── ROOMS SECTION — kitchen → salon, scroll scrub with text stops ── */
+(function () {
+  const section  = document.getElementById('rooms-section');
+  const vK       = document.getElementById('vid-kitchen');
+  const vS       = document.getElementById('vid-salon');
+  const lCuisine = document.getElementById('label-cuisine');
+  const lDining  = document.getElementById('label-dining');
+  const lSalon   = document.getElementById('label-salon');
+
+  let ready = 0;
+  function onMeta() { if (++ready === 2) init(); }
+  if (vK.readyState >= 1) onMeta(); else vK.addEventListener('loadedmetadata', onMeta, { once: true });
+  if (vS.readyState >= 1) onMeta(); else vS.addEventListener('loadedmetadata', onMeta, { once: true });
+
+  function piecewise(p, keys) {
+    if (p <= keys[0].p) return keys[0].v;
+    if (p >= keys[keys.length - 1].p) return keys[keys.length - 1].v;
+    for (let i = 0; i < keys.length - 1; i++) {
+      if (p <= keys[i + 1].p) {
+        const t = (p - keys[i].p) / (keys[i + 1].p - keys[i].p);
+        return keys[i].v + t * (keys[i + 1].v - keys[i].v);
+      }
+    }
+    return keys[keys.length - 1].v;
+  }
+
+  function init() {
+    const kDur = vK.duration;
+    const sDur = vS.duration;
+
+    // Kitchen: advance → pause (cuisine) → advance → pause (dining) → finish
+    const kKeys = [
+      { p: 0.00, v: 0            },
+      { p: 0.14, v: kDur * 0.28 }, // arrive at cuisine frame
+      { p: 0.36, v: kDur * 0.28 }, // hold — cuisine text
+      { p: 0.52, v: kDur * 0.64 }, // arrive at dining frame
+      { p: 0.66, v: kDur * 0.64 }, // hold — dining text
+      { p: 0.70, v: kDur        }, // finish kitchen
+    ];
+
+    // Salon: fades in at ~62%, advances to salon frame, pauses, then finishes
+    const sKeys = [
+      { p: 0.62, v: 0            },
+      { p: 0.78, v: sDur * 0.42 }, // arrive at salon frame
+      { p: 0.90, v: sDur * 0.42 }, // hold — salon text
+      { p: 1.00, v: sDur        }, // finish
+    ];
+
+    // Timeline scrubbed manually — positions are in seconds (total = 1.0s)
+    const tl = gsap.timeline({ paused: true });
+
+    // Cuisine label: in at 12%, out at 34%
+    tl.to(lCuisine, { opacity: 1, y: 0,   duration: 0.12, ease: 'power3.out' }, 0.12)
+      .to(lCuisine, { opacity: 0, y: -22, duration: 0.06, ease: 'power2.in'  }, 0.38);
+
+    // Dining label: in at 48%, out at 63%
+    tl.to(lDining,  { opacity: 1, y: 0,   duration: 0.12, ease: 'power3.out' }, 0.48)
+      .to(lDining,  { opacity: 0, y: -22, duration: 0.06, ease: 'power2.in'  }, 0.63);
+
+    // Salon video crossfade: 61% → 69%
+    tl.to(vS, { opacity: 1, duration: 0.08, ease: 'power2.inOut' }, 0.61);
+
+    // Salon label: in at 72%, out at 87%
+    tl.to(lSalon,   { opacity: 1, y: 0,   duration: 0.12, ease: 'power3.out' }, 0.72)
+      .to(lSalon,   { opacity: 0, y: -22, duration: 0.05, ease: 'power2.in'  }, 0.87);
+
+    // Extend timeline to 1.0 so seek(1) reaches the end
+    tl.set({}, {}, 1.0);
+
+    ScrollTrigger.create({
+      trigger: section,
+      start:   'top top',
+      end:     'bottom bottom',
+      scrub:   0.8,
+      onUpdate(self) {
+        const p = self.progress;
+        if (vK.duration) vK.currentTime = piecewise(p, kKeys);
+        if (vS.duration) vS.currentTime = piecewise(p, sKeys);
+        tl.seek(p * tl.totalDuration());
+      },
+    });
+  }
+})();
 
 
 /* ── SCROLL-SCRUB VIDEOS ── */
