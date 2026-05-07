@@ -5,9 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Villa Rhode — Christie's International Real Estate</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..700;1,9..144,200..700&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'KH Teka';
+      src: url('fonts/KHTeka-Light.woff2') format('woff2'),
+           url('fonts/KHTeka-Light.woff')  format('woff');
+      font-weight: 300;
+      font-style:  normal;
+      font-display: swap;
+    }
+  </style>
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -28,7 +35,7 @@
     html {
       background: var(--bg);
       color: var(--text);
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: 'KH Teka', sans-serif;
       font-weight: 300;
       -webkit-font-smoothing: antialiased;
     }
@@ -158,10 +165,8 @@
     }
 
     .hero-title {
-      font-family: 'Fraunces', serif;
-      font-style: italic;
-      font-variation-settings: 'opsz' 144;
-      font-weight: 250;
+      font-family: 'KH Teka', sans-serif;
+      font-weight: 300;
       font-size: clamp(80px, 15vw, 210px);
       line-height: 0.86;
       letter-spacing: -0.03em;
@@ -189,8 +194,7 @@
     }
 
     .hero-price {
-      font-family: 'Fraunces', serif;
-      font-style: italic;
+      font-family: 'KH Teka', sans-serif;
       font-size: 14px;
       font-weight: 300;
       color: rgba(248,242,228,0.55);
@@ -253,10 +257,8 @@
 
     /* ── SECTION TITLE ── */
     .section-title {
-      font-family: 'Fraunces', serif;
-      font-style: italic;
-      font-variation-settings: 'opsz' 144;
-      font-weight: 250;
+      font-family: 'KH Teka', sans-serif;
+      font-weight: 300;
       line-height: 1.04;
       letter-spacing: -0.025em;
       color: var(--text);
@@ -334,10 +336,8 @@
     }
 
     .spec-num {
-      font-family: 'Fraunces', serif;
-      font-style: italic;
-      font-variation-settings: 'opsz' 144;
-      font-weight: 200;
+      font-family: 'KH Teka', sans-serif;
+      font-weight: 300;
       font-size: clamp(44px, 7vw, 88px);
       line-height: 1;
       color: var(--text);
@@ -372,6 +372,15 @@
     /* ── REVEAL STATES ── */
     .rv-up   { opacity: 0; transform: translateY(36px); will-change: opacity,transform; }
     .rv-fade { opacity: 0; will-change: opacity; }
+
+    /* ── VIEWPORT FRAME ── */
+    .vp-frame {
+      position: fixed;
+      inset: 0;
+      border: 14px solid rgba(248, 242, 228, 0.14);
+      pointer-events: none;
+      z-index: 8000;
+    }
   </style>
 
   <script>
@@ -379,8 +388,8 @@
       theme: {
         extend: {
           fontFamily: {
-            display: ['Fraunces','serif'],
-            sans:    ['Plus Jakarta Sans','sans-serif'],
+            display: ['"KH Teka"','sans-serif'],
+            sans:    ['"KH Teka"','sans-serif'],
           }
         }
       }
@@ -392,6 +401,9 @@
 
 <!-- GRAIN -->
 <div class="grain" aria-hidden="true"></div>
+
+<!-- VIEWPORT FRAME -->
+<div class="vp-frame" aria-hidden="true"></div>
 
 <!-- NAV -->
 <nav class="nav-pill">
@@ -445,8 +457,8 @@
 
       <div id="label-cuisine" style="opacity:0;transform:translateY(28px)">
         <p class="text-[9px] tracking-[0.24em] uppercase text-[rgba(248,242,228,0.38)] mb-4">01 — La Cuisine</p>
-        <h3 class="font-display italic font-light leading-[0.9] text-[rgba(248,242,228,0.9)]"
-            style="font-size:clamp(44px,7.5vw,108px);font-variation-settings:'opsz' 144">
+        <h3 class="font-display font-light leading-[0.9] text-[rgba(248,242,228,0.9)]"
+            style="font-size:clamp(44px,7.5vw,108px)">
           Îlot circulaire.<br>Skylight zénithal.
         </h3>
         <p class="mt-5 text-[11.5px] leading-[1.85] tracking-[0.03em] text-[rgba(248,242,228,0.32)] max-w-[360px]">
@@ -456,8 +468,8 @@
 
       <div id="label-dining" style="position:absolute;inset:0;bottom:clamp(3.5rem,7vh,7rem);left:clamp(2rem,5.5vw,5.5rem);right:clamp(2rem,5.5vw,5.5rem);opacity:0;transform:translateY(28px)">
         <p class="text-[9px] tracking-[0.24em] uppercase text-[rgba(248,242,228,0.38)] mb-4">02 — La Salle à Manger</p>
-        <h3 class="font-display italic font-light leading-[0.9] text-[rgba(248,242,228,0.9)]"
-            style="font-size:clamp(44px,7.5vw,108px);font-variation-settings:'opsz' 144">
+        <h3 class="font-display font-light leading-[0.9] text-[rgba(248,242,228,0.9)]"
+            style="font-size:clamp(44px,7.5vw,108px)">
           Vue sur jardin.<br>Lumière naturelle.
         </h3>
         <p class="mt-5 text-[11.5px] leading-[1.85] tracking-[0.03em] text-[rgba(248,242,228,0.32)] max-w-[360px]">
@@ -487,8 +499,8 @@
 
       <div id="label-salon" style="opacity:0;transform:translateY(28px)">
         <p class="text-[9px] tracking-[0.24em] uppercase text-[rgba(248,242,228,0.38)] mb-4">03 — Le Salon</p>
-        <h3 class="font-display italic font-light leading-[0.9] text-[rgba(248,242,228,0.9)]"
-            style="font-size:clamp(44px,7.5vw,108px);font-variation-settings:'opsz' 144">
+        <h3 class="font-display font-light leading-[0.9] text-[rgba(248,242,228,0.9)]"
+            style="font-size:clamp(44px,7.5vw,108px)">
           Double hauteur.<br>Volumes rares.
         </h3>
         <p class="mt-5 text-[11.5px] leading-[1.85] tracking-[0.03em] text-[rgba(248,242,228,0.32)] max-w-[360px]">
@@ -755,8 +767,7 @@
       <p class="text-[9px] tracking-[0.22em] uppercase text-[rgba(248,242,228,0.25)]">03</p>
     </div>
     <div class="absolute bottom-7 right-[clamp(2rem,5.5vw,5.5rem)] text-right pointer-events-none">
-      <p class="font-display italic text-[clamp(22px,2.8vw,38px)] font-light leading-[1.1] text-[rgba(248,242,228,0.72)]"
-         style="font-variation-settings:'opsz' 144">Vue d'ensemble</p>
+      <p class="font-display text-[clamp(22px,2.8vw,38px)] font-light leading-[1.1] text-[rgba(248,242,228,0.72)]">Vue d'ensemble</p>
       <p class="mt-2 text-[9px] tracking-[0.18em] uppercase text-[rgba(248,242,228,0.22)]">Rhode-Saint-Genèse · Nuit</p>
     </div>
   </div>
