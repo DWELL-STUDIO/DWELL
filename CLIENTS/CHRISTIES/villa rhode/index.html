@@ -429,48 +429,49 @@
 
 
 <!-- ════════════════════════════════════════
-     VIDEO SEQUENCE — cinematic opening
+     KITCHEN — scroll scrub
 ════════════════════════════════════════ -->
-
-<div class="px-[clamp(1.25rem,2.5vw,2.5rem)] mt-[clamp(1.5rem,3vw,3rem)] space-y-[clamp(1rem,2vw,2rem)]">
-
-  <div class="vid-wrap aspect-wide rounded-[3px] overflow-hidden">
-    <video muted loop playsinline preload="metadata" class="seq-vid">
-      <source src="videos/villa%20rhodes_Seedance%20V1.0_2026-05-06_15-49-12.mp4" type="video/mp4">
-    </video>
-  </div>
-
-  <div class="vid-wrap aspect-wide rounded-[3px] overflow-hidden">
-    <video muted loop playsinline preload="metadata" class="seq-vid">
+<section class="vid-scrub-section relative" style="height:260vh">
+  <div class="sticky top-0 h-[100dvh] overflow-hidden bg-[#060504]">
+    <video class="w-full h-full object-cover" muted playsinline preload="auto">
       <source src="videos/villa%20rhodes_Export_2026-05-05_20-45-28.mp4" type="video/mp4">
     </video>
+    <div class="absolute bottom-8 left-[clamp(2rem,5.5vw,5.5rem)] flex items-center gap-3 pointer-events-none">
+      <div class="w-5 h-px bg-[rgba(248,242,228,0.2)]"></div>
+      <p class="text-[9px] tracking-[0.22em] uppercase text-[rgba(248,242,228,0.28)]">La Cuisine</p>
+    </div>
   </div>
+</section>
 
-  <div class="vid-wrap aspect-wide rounded-[3px] overflow-hidden">
-    <video muted loop playsinline preload="metadata" class="seq-vid">
-      <source src="videos/villa%20rhodes_Seedance%20V1.0_2026-05-06_16-23-09.mp4" type="video/mp4">
-    </video>
-  </div>
-
-  <div class="vid-wrap aspect-wide rounded-[3px] overflow-hidden">
-    <video muted loop playsinline preload="metadata" class="seq-vid">
-      <source src="videos/villa%20rhodes_Seedance%20V1.0_2026-05-06_16-11-42.mp4" type="video/mp4">
-    </video>
-  </div>
-
-  <div class="vid-wrap aspect-wide rounded-[3px] overflow-hidden">
-    <video muted loop playsinline preload="metadata" class="seq-vid">
-      <source src="videos/villa%20rhodes_Seedance%20V1.0_2026-05-06_16-40-23.mp4" type="video/mp4">
-    </video>
-  </div>
-
-  <div class="vid-wrap aspect-wide rounded-[3px] overflow-hidden">
-    <video muted loop playsinline preload="metadata" class="seq-vid">
+<!-- ════════════════════════════════════════
+     EATING ROOM — scroll scrub
+════════════════════════════════════════ -->
+<section class="vid-scrub-section relative" style="height:260vh">
+  <div class="sticky top-0 h-[100dvh] overflow-hidden bg-[#060504]">
+    <video class="w-full h-full object-cover" muted playsinline preload="auto">
       <source src="videos/villa%20rhodes_Export_2026-05-06_15-35-14.mp4" type="video/mp4">
     </video>
+    <div class="absolute bottom-8 left-[clamp(2rem,5.5vw,5.5rem)] flex items-center gap-3 pointer-events-none">
+      <div class="w-5 h-px bg-[rgba(248,242,228,0.2)]"></div>
+      <p class="text-[9px] tracking-[0.22em] uppercase text-[rgba(248,242,228,0.28)]">La Salle à Manger</p>
+    </div>
   </div>
+</section>
 
-</div>
+<!-- ════════════════════════════════════════
+     LIVING ROOM — scroll scrub
+════════════════════════════════════════ -->
+<section class="vid-scrub-section relative" style="height:260vh">
+  <div class="sticky top-0 h-[100dvh] overflow-hidden bg-[#060504]">
+    <video class="w-full h-full object-cover" muted playsinline preload="auto">
+      <source src="videos/villa%20rhodes_Seedance%20V1.0_2026-05-06_15-49-12.mp4" type="video/mp4">
+    </video>
+    <div class="absolute bottom-8 left-[clamp(2rem,5.5vw,5.5rem)] flex items-center gap-3 pointer-events-none">
+      <div class="w-5 h-px bg-[rgba(248,242,228,0.2)]"></div>
+      <p class="text-[9px] tracking-[0.22em] uppercase text-[rgba(248,242,228,0.28)]">Le Salon</p>
+    </div>
+  </div>
+</section>
 
 
 <!-- ════════════════════════════════════════
@@ -641,6 +642,23 @@
           <img src="images/8906584_26_20260408150641.jpg" alt="" class="img-natural" loading="lazy">
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     NIGHT MODE — scroll scrub
+════════════════════════════════════════ -->
+<section class="vid-scrub-section relative" style="height:320vh">
+  <div class="sticky top-0 h-[100dvh] overflow-hidden bg-[#060504]">
+    <video class="w-full h-full object-cover" muted playsinline preload="auto">
+      <source src="videos/villa%20rhodes_Seedance%20V1.0_2026-05-06_16-23-09.mp4" type="video/mp4">
+    </video>
+    <div class="absolute inset-0 bg-gradient-to-b from-[rgba(6,5,4,0.0)] via-[rgba(6,5,4,0.0)] to-[rgba(6,5,4,0.55)] pointer-events-none"></div>
+    <div class="absolute bottom-8 left-[clamp(2rem,5.5vw,5.5rem)] flex items-center gap-3 pointer-events-none">
+      <div class="w-5 h-px bg-[rgba(248,242,228,0.2)]"></div>
+      <p class="text-[9px] tracking-[0.22em] uppercase text-[rgba(248,242,228,0.28)]">Vue d'ensemble · Nuit</p>
     </div>
   </div>
 </section>
@@ -941,22 +959,25 @@ document.querySelectorAll('.acc-toggle').forEach(toggle => {
   outer.addEventListener('dragstart', e => e.preventDefault());
 })();
 
-/* ── SEQUENCE VIDEOS — play only when centered in viewport ── */
-const seqObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach(entry => {
-      const v = entry.target;
-      if (entry.isIntersecting) {
-        v.play().catch(() => {});
-      } else {
-        v.pause();
-      }
-    });
-  },
-  { rootMargin: '-20% 0px -20% 0px', threshold: 0 }
-);
+/* ── SCROLL-SCRUB VIDEOS ── */
+document.querySelectorAll('.vid-scrub-section').forEach(section => {
+  const video = section.querySelector('video');
 
-document.querySelectorAll('.seq-vid').forEach(v => seqObserver.observe(v));
+  function init() {
+    ScrollTrigger.create({
+      trigger: section,
+      start:   'top top',
+      end:     'bottom bottom',
+      scrub:   0.5,
+      onUpdate(self) {
+        if (video.duration) video.currentTime = video.duration * self.progress;
+      },
+    });
+  }
+
+  if (video.readyState >= 1) { init(); }
+  else { video.addEventListener('loadedmetadata', init, { once: true }); }
+});
 </script>
 
 </body>
