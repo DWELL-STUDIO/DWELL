@@ -474,176 +474,243 @@
 
 
 <!-- ════════════════════════════════════════
-     NARRATIVE INTERLUDE
+     ACT I — L'ARRIVÉE
 ════════════════════════════════════════ -->
-<section class="py-[clamp(7rem,14vw,14rem)] px-[clamp(2rem,5.5vw,5.5rem)]">
-  <div class="max-w-[680px]">
-    <p class="text-[clamp(11px,1.1vw,13px)] leading-[1.7] tracking-[0.01em] text-[rgba(248,242,228,0.28)] uppercase letter-spacing-[0.08em] mb-7 rv-up">
-      Rhode-Saint-Genèse · Bruxelles
-    </p>
-    <h2 class="section-title text-[clamp(34px,5vw,66px)] max-w-[620px]">
+
+<!-- Opening text -->
+<section class="py-[clamp(6rem,12vw,12rem)] px-[clamp(2rem,5.5vw,5.5rem)]">
+  <div class="max-w-[560px]">
+    <h2 class="section-title text-[clamp(32px,4.8vw,64px)]">
       Il y a des maisons<br>que l'on n'oublie pas
     </h2>
-    <p class="rv-up mt-10 text-[13px] leading-[2] text-[rgba(248,242,228,0.36)] max-w-[500px]"
-       data-delay="0.1">
-      Celles où le silence a du volume. Où la lumière entre comme une invitation. Aux portes de la Forêt de Soignes, cette villa contemporaine raconte une architecture qui refuse le compromis — chaque espace conçu pour qu'une vie rare puisse s'y déposer.
+    <p class="rv-up mt-9 text-[13px] leading-[2.1] text-[rgba(248,242,228,0.35)] max-w-[440px]" data-delay="0.1">
+      Celles où le silence a du volume. Où la lumière entre comme une invitation. À Rhode-Saint-Genèse, aux portes de la Forêt de Soignes.
     </p>
   </div>
 </section>
 
-
-<!-- ════════════════════════════════════════
-     IMAGES — EXTERIOR SEQUENCE
-════════════════════════════════════════ -->
-
-<!-- Portrait exterior — full width, uncropped -->
-<div class="px-[clamp(1.25rem,2.5vw,2.5rem)]">
-  <div class="rv-fade overflow-hidden rounded-[3px]">
+<!-- Exterior — portrait, full bleed -->
+<figure class="rv-fade px-[clamp(1.25rem,2.5vw,2.5rem)]">
+  <div class="overflow-hidden rounded-[3px]">
     <img src="images/8906584_1_20260408150341.jpg"
-         alt="Villa Rhode — vue extérieure"
-         class="img-natural mx-auto max-h-[92vh] w-auto" style="max-width:100%">
+         alt="Villa Rhode — façade"
+         class="img-natural mx-auto max-h-[92vh] w-auto" style="max-width:100%" loading="lazy">
   </div>
-</div>
+  <figcaption class="mt-4 px-1 text-[10px] tracking-[0.1em] text-[rgba(248,242,228,0.25)]">
+    Façade sud — Rhode-Saint-Genèse
+  </figcaption>
+</figure>
 
-<!-- Exterior image pair -->
-<div class="grid grid-cols-2 gap-[3px] mt-[3px] px-[clamp(1.25rem,2.5vw,2.5rem)]">
-  <div class="rv-fade overflow-hidden rounded-[3px]" data-delay="0">
-    <img src="images/8906584_27_20260408150641.jpg" alt="" class="img-natural" loading="lazy">
-  </div>
-  <div class="rv-fade overflow-hidden rounded-[3px]" data-delay="0.08">
-    <img src="images/8906584_28_20260408150421.jpg" alt="" class="img-natural" loading="lazy">
-  </div>
-</div>
-
-<!-- Kitchen still -->
-<div class="mt-[3px] px-[clamp(1.25rem,2.5vw,2.5rem)]">
-  <div class="rv-fade overflow-hidden rounded-[3px]">
-    <img src="images/8906584_3_20260408150549.jpg" alt="" class="img-natural" loading="lazy">
-  </div>
+<!-- Two exterior views — asymmetric (wide + narrow) -->
+<div class="mt-[clamp(1rem,2vw,2rem)] px-[clamp(1.25rem,2.5vw,2.5rem)] grid grid-cols-12 gap-[clamp(0.75rem,1.5vw,1.5rem)] items-end">
+  <figure class="col-span-12 md:col-span-8 rv-fade">
+    <div class="overflow-hidden rounded-[3px]">
+      <img src="images/8906584_27_20260408150641.jpg" alt="" class="img-natural" loading="lazy">
+    </div>
+    <figcaption class="mt-3 text-[10px] tracking-[0.1em] text-[rgba(248,242,228,0.25)]">Entrée principale</figcaption>
+  </figure>
+  <figure class="col-span-12 md:col-span-4 rv-fade" data-delay="0.1">
+    <div class="overflow-hidden rounded-[3px]">
+      <img src="images/8906584_28_20260408150421.jpg" alt="" class="img-natural" loading="lazy">
+    </div>
+    <figcaption class="mt-3 text-[10px] tracking-[0.1em] text-[rgba(248,242,228,0.25)]">Terrasse</figcaption>
+  </figure>
 </div>
 
 
 <!-- ════════════════════════════════════════
-     CHAPTER 01 — GALERIE (CAROUSEL)
+     ACT II — L'ARCHITECTURE
 ════════════════════════════════════════ -->
-<section class="mt-[clamp(7rem,13vw,13rem)]">
-  <div class="px-[clamp(2rem,5.5vw,5.5rem)] mb-9 flex items-end justify-between gap-4">
-    <div>
-      <span class="chapter-label mb-4 inline-block">01 — Intérieurs</span>
-      <h2 class="section-title text-[clamp(32px,4.5vw,60px)]">Chaque espace, une scène</h2>
-    </div>
-    <p class="text-[10px] tracking-[0.14em] uppercase text-[rgba(248,242,228,0.2)] pb-1 shrink-0">Glissez →</p>
-  </div>
 
-  <div class="carousel-outer pb-[clamp(3rem,5vw,5rem)]" id="carousel">
-    <div class="carousel-rail" id="carouselRail">
-      <div class="c-slide"><img src="images/8906584_2_20260408150553.jpg"  alt="" loading="lazy"></div>
-      <div class="c-slide"><img src="images/8906584_4_20260408150642.jpg"  alt="" loading="lazy"></div>
-      <div class="c-slide"><img src="images/8906584_5_20260408150637.jpg"  alt="" loading="lazy"></div>
-      <div class="c-slide"><img src="images/8906584_6_20260408150638.jpg"  alt="" loading="lazy"></div>
-      <div class="c-slide"><img src="images/8906584_7_20260408150638.jpg"  alt="" loading="lazy"></div>
-      <div class="c-slide"><img src="images/8906584_8_20260408150638.jpg"  alt="" loading="lazy"></div>
-      <div class="c-slide"><img src="images/8906584_9_20260408150638.jpg"  alt="" loading="lazy"></div>
-      <div class="c-slide"><img src="images/8906584_10_20260408150638.jpg" alt="" loading="lazy"></div>
-      <div class="c-slide"><img src="images/8906584_11_20260408150638.jpg" alt="" loading="lazy"></div>
-      <div class="c-slide"><img src="images/8906584_12_20260408150639.jpg" alt="" loading="lazy"></div>
-      <div class="c-slide"><img src="images/8906584_13_20260408150639.jpg" alt="" loading="lazy"></div>
-      <div class="c-slide"><img src="images/8906584_14_20260408150639.jpg" alt="" loading="lazy"></div>
-      <div class="c-slide"><img src="images/8906584_15_20260408150639.jpg" alt="" loading="lazy"></div>
-      <div class="c-slide"><img src="images/8906584_16_20260408150640.jpg" alt="" loading="lazy"></div>
-      <div class="c-slide"><img src="images/8906584_17_20260408150640.jpg" alt="" loading="lazy"></div>
-      <div class="c-slide"><img src="images/8906584_18_20260408150640.jpg" alt="" loading="lazy"></div>
-      <div class="c-slide"><img src="images/8906584_19_20260408150640.jpg" alt="" loading="lazy"></div>
-      <div class="c-slide"><img src="images/8906584_20_20260408150640.jpg" alt="" loading="lazy"></div>
-      <div class="c-slide"><img src="images/8906584_21_20260408150640.jpg" alt="" loading="lazy"></div>
-      <div class="c-slide"><img src="images/8906584_22_20260408150641.jpg" alt="" loading="lazy"></div>
-      <div class="c-slide"><img src="images/8906584_23_20260408150641.jpg" alt="" loading="lazy"></div>
-      <div class="c-slide"><img src="images/8906584_24_20260408150641.jpg" alt="" loading="lazy"></div>
-      <div class="c-slide"><img src="images/8906584_25_20260408150641.jpg" alt="" loading="lazy"></div>
-      <div class="c-slide"><img src="images/8906584_26_20260408150641.jpg" alt="" loading="lazy"></div>
+<!-- Breathing space + text -->
+<div class="mt-[clamp(7rem,14vw,14rem)] px-[clamp(2rem,5.5vw,5.5rem)] flex flex-col md:flex-row items-start gap-[clamp(3rem,8vw,8rem)]">
+  <div class="md:w-1/2">
+    <span class="chapter-label mb-5 inline-block">L'Architecture</span>
+    <h2 class="section-title text-[clamp(30px,4.2vw,56px)]">La verticalité<br>du vide</h2>
+  </div>
+  <p class="rv-up md:w-1/2 md:pt-[3.5rem] text-[13px] leading-[2.1] text-[rgba(248,242,228,0.35)]" data-delay="0.1">
+    La double hauteur du hall instaure une verticalité rare. L'espace respire. Le puits de lumière zénithal compose des tableaux changeants au fil des heures — la maison vit avec le soleil.
+  </p>
+</div>
+
+<!-- Staircase — full width -->
+<figure class="rv-fade mt-[clamp(3rem,5vw,5rem)] px-[clamp(1.25rem,2.5vw,2.5rem)]">
+  <div class="overflow-hidden rounded-[3px]">
+    <img src="images/8906584_5_20260408150637.jpg" alt="Hall double-hauteur" class="img-natural" loading="lazy">
+  </div>
+  <figcaption class="mt-4 px-1 text-[10px] tracking-[0.1em] text-[rgba(248,242,228,0.25)]">Hall · double hauteur · puits de lumière zénithal</figcaption>
+</figure>
+
+<!-- Specs + supporting image -->
+<div class="mt-[clamp(1rem,2vw,2rem)] px-[clamp(1.25rem,2.5vw,2.5rem)] grid grid-cols-1 md:grid-cols-2 gap-[clamp(1rem,2vw,2rem)]">
+  <div class="rv-up flex flex-col justify-between p-[clamp(2.5rem,5vw,5rem)] bg-[rgba(248,242,228,0.02)] rounded-[3px]">
+    <div class="grid grid-cols-2 gap-x-8 gap-y-8">
+      <div class="spec-row"><div class="spec-num" data-target="780">0</div><div class="spec-label">m² habitables</div></div>
+      <div class="spec-row"><div class="spec-num" data-target="5">0</div><div class="spec-label">chambres</div></div>
+      <div class="spec-row"><div class="spec-num" data-target="3">0</div><div class="spec-label">salles de bain</div></div>
+      <div class="spec-row"><div class="spec-num" data-target="1800">0</div><div class="spec-label">m² terrain</div></div>
     </div>
   </div>
-</section>
-
-
-<!-- ════════════════════════════════════════
-     CHAPTER 02 — L'ARCHITECTURE
-════════════════════════════════════════ -->
-<section class="mt-[clamp(4rem,8vw,8rem)]">
-  <div class="px-[clamp(2rem,5.5vw,5.5rem)] mb-9">
-    <span class="chapter-label mb-4 inline-block">02 — L'Architecture</span>
-    <h2 class="section-title text-[clamp(32px,4.5vw,60px)]">La verticalité du vide</h2>
-  </div>
-
-  <div class="px-[clamp(1.25rem,2.5vw,2.5rem)]">
-    <div class="rv-fade overflow-hidden rounded-[3px]">
-      <img src="images/8906584_5_20260408150637.jpg"
-           alt="Hall double-hauteur"
-           class="img-natural" loading="lazy">
-    </div>
-  </div>
-
-  <div class="mt-[3px] px-[clamp(1.25rem,2.5vw,2.5rem)] grid grid-cols-1 md:grid-cols-2 gap-[3px]">
-
-    <div class="rv-up flex flex-col justify-between p-[clamp(2.5rem,5vw,5rem)] bg-[rgba(248,242,228,0.02)] rounded-[3px]"
-         data-delay="0">
-      <p class="text-[12.5px] leading-[2] text-[rgba(248,242,228,0.38)] max-w-[380px]">
-        La double hauteur du hall instaure une verticalité rare. L'espace respire. Le puits de lumière zénithal compose des tableaux changeants au fil des heures — la maison vit avec le soleil.
-      </p>
-
-      <div class="grid grid-cols-2 gap-x-8 gap-y-7 mt-12">
-        <div class="spec-row">
-          <div class="spec-num" data-target="780">0</div>
-          <div class="spec-label">m² habitables</div>
-        </div>
-        <div class="spec-row">
-          <div class="spec-num" data-target="5">0</div>
-          <div class="spec-label">chambres</div>
-        </div>
-        <div class="spec-row">
-          <div class="spec-num" data-target="3">0</div>
-          <div class="spec-label">salles de bain</div>
-        </div>
-        <div class="spec-row">
-          <div class="spec-num" data-target="1800">0</div>
-          <div class="spec-label">m² terrain</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="rv-fade overflow-hidden rounded-[3px]" data-delay="0.1">
+  <figure class="rv-fade" data-delay="0.1">
+    <div class="overflow-hidden rounded-[3px] h-full">
       <img src="images/8906584_4_20260408150642.jpg" alt="" class="w-full h-full object-cover" loading="lazy">
     </div>
-
-  </div>
-</section>
+  </figure>
+</div>
 
 
 <!-- ════════════════════════════════════════
-     CHAPTER 03 — L'EXTÉRIEUR
+     ACT III — LES INTÉRIEURS
 ════════════════════════════════════════ -->
-<section class="mt-[clamp(7rem,13vw,13rem)]">
-  <div class="px-[clamp(2rem,5.5vw,5.5rem)] mb-9">
-    <span class="chapter-label mb-4 inline-block">03 — L'Extérieur</span>
-    <h2 class="section-title text-[clamp(32px,4.5vw,60px)]">La piscine, le jardin,<br>le silence</h2>
-  </div>
 
-  <div class="px-[clamp(1.25rem,2.5vw,2.5rem)]">
-    <div class="grid grid-cols-12 gap-[3px]">
-      <div class="col-span-12 md:col-span-7 rv-fade overflow-hidden rounded-[3px]" data-delay="0">
-        <img src="images/8906584_21_20260408150640.jpg" alt="Piscine" class="img-natural" loading="lazy">
-      </div>
-      <div class="col-span-12 md:col-span-5 flex flex-col gap-[3px]">
-        <div class="rv-fade overflow-hidden rounded-[3px]" data-delay="0.08">
-          <img src="images/8906584_25_20260408150641.jpg" alt="" class="img-natural" loading="lazy">
-        </div>
-        <div class="rv-fade overflow-hidden rounded-[3px]" data-delay="0.16">
-          <img src="images/8906584_26_20260408150641.jpg" alt="" class="img-natural" loading="lazy">
-        </div>
-      </div>
-    </div>
+<!-- Breathing text -->
+<div class="mt-[clamp(7rem,14vw,14rem)] px-[clamp(2rem,5.5vw,5.5rem)]">
+  <span class="chapter-label mb-5 inline-block">Les Intérieurs</span>
+</div>
+
+<!-- Living room — full width -->
+<figure class="rv-fade px-[clamp(1.25rem,2.5vw,2.5rem)]">
+  <div class="overflow-hidden rounded-[3px]">
+    <img src="images/8906584_2_20260408150553.jpg" alt="Le séjour" class="img-natural" loading="lazy">
   </div>
-</section>
+  <figcaption class="mt-4 px-1 text-[10px] tracking-[0.1em] text-[rgba(248,242,228,0.25)]">Le séjour</figcaption>
+</figure>
+
+<!-- Two rooms side by side — unequal -->
+<div class="mt-[clamp(1rem,2vw,2rem)] px-[clamp(1.25rem,2.5vw,2.5rem)] grid grid-cols-12 gap-[clamp(0.75rem,1.5vw,1.5rem)]">
+  <figure class="col-span-12 md:col-span-5 rv-fade">
+    <div class="overflow-hidden rounded-[3px]">
+      <img src="images/8906584_6_20260408150638.jpg" alt="" class="img-natural" loading="lazy">
+    </div>
+    <figcaption class="mt-3 text-[10px] tracking-[0.1em] text-[rgba(248,242,228,0.25)]">Salle de séjour</figcaption>
+  </figure>
+  <figure class="col-span-12 md:col-span-7 rv-fade" data-delay="0.08">
+    <div class="overflow-hidden rounded-[3px]">
+      <img src="images/8906584_7_20260408150638.jpg" alt="" class="img-natural" loading="lazy">
+    </div>
+    <figcaption class="mt-3 text-[10px] tracking-[0.1em] text-[rgba(248,242,228,0.25)]">Vue vers le jardin</figcaption>
+  </figure>
+</div>
+
+<!-- Kitchen skylight — full width -->
+<figure class="rv-fade mt-[clamp(1rem,2vw,2rem)] px-[clamp(1.25rem,2.5vw,2.5rem)]">
+  <div class="overflow-hidden rounded-[3px]">
+    <img src="images/8906584_3_20260408150549.jpg" alt="La cuisine" class="img-natural" loading="lazy">
+  </div>
+  <figcaption class="mt-4 px-1 text-[10px] tracking-[0.1em] text-[rgba(248,242,228,0.25)]">La cuisine — îlot circulaire · skylight zénithal</figcaption>
+</figure>
+
+<!-- Two interior details -->
+<div class="mt-[clamp(1rem,2vw,2rem)] px-[clamp(1.25rem,2.5vw,2.5rem)] grid grid-cols-2 gap-[clamp(0.75rem,1.5vw,1.5rem)]">
+  <figure class="rv-fade">
+    <div class="overflow-hidden rounded-[3px]">
+      <img src="images/8906584_8_20260408150638.jpg" alt="" class="img-natural" loading="lazy">
+    </div>
+    <figcaption class="mt-3 text-[10px] tracking-[0.1em] text-[rgba(248,242,228,0.25)]">Bureau</figcaption>
+  </figure>
+  <figure class="rv-fade" data-delay="0.08">
+    <div class="overflow-hidden rounded-[3px]">
+      <img src="images/8906584_9_20260408150638.jpg" alt="" class="img-natural" loading="lazy">
+    </div>
+    <figcaption class="mt-3 text-[10px] tracking-[0.1em] text-[rgba(248,242,228,0.25)]">Détail</figcaption>
+  </figure>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     ACT IV — LES CHAMBRES
+════════════════════════════════════════ -->
+
+<div class="mt-[clamp(7rem,14vw,14rem)] px-[clamp(2rem,5.5vw,5.5rem)] flex flex-col md:flex-row items-end justify-between gap-6">
+  <div>
+    <span class="chapter-label mb-5 inline-block">Les Chambres</span>
+    <h2 class="section-title text-[clamp(30px,4.2vw,56px)]">Cinq chambres.<br>Autant de refuges.</h2>
+  </div>
+</div>
+
+<!-- Primary bedroom — full width -->
+<figure class="rv-fade mt-[clamp(3rem,5vw,5rem)] px-[clamp(1.25rem,2.5vw,2.5rem)]">
+  <div class="overflow-hidden rounded-[3px]">
+    <img src="images/8906584_11_20260408150638.jpg" alt="Chambre principale" class="img-natural" loading="lazy">
+  </div>
+  <figcaption class="mt-4 px-1 text-[10px] tracking-[0.1em] text-[rgba(248,242,228,0.25)]">Chambre principale</figcaption>
+</figure>
+
+<!-- Two bedrooms -->
+<div class="mt-[clamp(1rem,2vw,2rem)] px-[clamp(1.25rem,2.5vw,2.5rem)] grid grid-cols-2 gap-[clamp(0.75rem,1.5vw,1.5rem)]">
+  <figure class="rv-fade">
+    <div class="overflow-hidden rounded-[3px]">
+      <img src="images/8906584_12_20260408150639.jpg" alt="" class="img-natural" loading="lazy">
+    </div>
+    <figcaption class="mt-3 text-[10px] tracking-[0.1em] text-[rgba(248,242,228,0.25)]">Chambre 2</figcaption>
+  </figure>
+  <figure class="rv-fade" data-delay="0.08">
+    <div class="overflow-hidden rounded-[3px]">
+      <img src="images/8906584_13_20260408150639.jpg" alt="" class="img-natural" loading="lazy">
+    </div>
+    <figcaption class="mt-3 text-[10px] tracking-[0.1em] text-[rgba(248,242,228,0.25)]">Chambre 3</figcaption>
+  </figure>
+</div>
+
+<!-- Bathroom -->
+<figure class="rv-fade mt-[clamp(1rem,2vw,2rem)] px-[clamp(1.25rem,2.5vw,2.5rem)] md:w-2/3">
+  <div class="overflow-hidden rounded-[3px]">
+    <img src="images/8906584_14_20260408150639.jpg" alt="Salle de bain" class="img-natural" loading="lazy">
+  </div>
+  <figcaption class="mt-3 text-[10px] tracking-[0.1em] text-[rgba(248,242,228,0.25)]">Salle de bain principale</figcaption>
+</figure>
+
+
+<!-- ════════════════════════════════════════
+     ACT V — LE JARDIN & LA PISCINE
+════════════════════════════════════════ -->
+
+<div class="mt-[clamp(7rem,14vw,14rem)] px-[clamp(2rem,5.5vw,5.5rem)]">
+  <span class="chapter-label mb-5 inline-block">Le Jardin · La Piscine</span>
+  <h2 class="section-title text-[clamp(30px,4.2vw,56px)]">La piscine s'étend<br>en miroir anthracite</h2>
+  <p class="rv-up mt-8 text-[13px] leading-[2.1] text-[rgba(248,242,228,0.35)] max-w-[440px]" data-delay="0.1">
+    Le jardin isole du monde. On n'entend que le vent dans les arbres de la Forêt de Soignes.
+  </p>
+</div>
+
+<!-- Pool portrait — centered, intentional white space -->
+<figure class="rv-fade mt-[clamp(3rem,5vw,5rem)] px-[clamp(1.25rem,2.5vw,2.5rem)] flex justify-center">
+  <div class="overflow-hidden rounded-[3px] w-full md:w-3/4">
+    <img src="images/8906584_21_20260408150640.jpg" alt="Piscine" class="img-natural" loading="lazy">
+  </div>
+</figure>
+
+<!-- Two outdoor views -->
+<div class="mt-[clamp(1rem,2vw,2rem)] px-[clamp(1.25rem,2.5vw,2.5rem)] grid grid-cols-12 gap-[clamp(0.75rem,1.5vw,1.5rem)]">
+  <figure class="col-span-12 md:col-span-7 rv-fade">
+    <div class="overflow-hidden rounded-[3px]">
+      <img src="images/8906584_25_20260408150641.jpg" alt="" class="img-natural" loading="lazy">
+    </div>
+    <figcaption class="mt-3 text-[10px] tracking-[0.1em] text-[rgba(248,242,228,0.25)]">Terrasse — vue piscine</figcaption>
+  </figure>
+  <figure class="col-span-12 md:col-span-5 rv-fade" data-delay="0.1">
+    <div class="overflow-hidden rounded-[3px]">
+      <img src="images/8906584_26_20260408150641.jpg" alt="" class="img-natural" loading="lazy">
+    </div>
+    <figcaption class="mt-3 text-[10px] tracking-[0.1em] text-[rgba(248,242,228,0.25)]">Jardin paysager</figcaption>
+  </figure>
+</div>
+
+<!-- Two more exterior details -->
+<div class="mt-[clamp(1rem,2vw,2rem)] px-[clamp(1.25rem,2.5vw,2.5rem)] grid grid-cols-2 gap-[clamp(0.75rem,1.5vw,1.5rem)]">
+  <figure class="rv-fade">
+    <div class="overflow-hidden rounded-[3px]">
+      <img src="images/8906584_22_20260408150641.jpg" alt="" class="img-natural" loading="lazy">
+    </div>
+  </figure>
+  <figure class="rv-fade" data-delay="0.08">
+    <div class="overflow-hidden rounded-[3px]">
+      <img src="images/8906584_23_20260408150641.jpg" alt="" class="img-natural" loading="lazy">
+    </div>
+  </figure>
+</div>
+
+<div class="mt-[clamp(5rem,10vw,10rem)]"></div>
 
 
 <!-- ════════════════════════════════════════
@@ -911,57 +978,6 @@ document.querySelectorAll('.acc-toggle').forEach(toggle => {
   });
 });
 
-/* ── MOMENTUM CAROUSEL ── */
-(function () {
-  const outer = document.getElementById('carousel');
-  const rail  = document.getElementById('carouselRail');
-
-  let drag = false, startX = 0, lastX = 0, vel = 0, pos = 0, lastT = 0, rafId = null;
-
-  const maxScroll = () => -(rail.scrollWidth - outer.offsetWidth);
-  const clamp     = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
-  const setPos    = (x) => { pos = clamp(x, maxScroll(), 0); gsap.set(rail, { x: pos }); };
-
-  function down(e) {
-    drag = true;
-    startX = lastX = e.touches ? e.touches[0].clientX : e.clientX;
-    vel = 0; lastT = performance.now();
-    outer.classList.add('is-dragging');
-    if (rafId) cancelAnimationFrame(rafId);
-    lenis.stop();
-  }
-
-  function move(e) {
-    if (!drag) return;
-    const x  = e.touches ? e.touches[0].clientX : e.clientX;
-    const dt = performance.now() - lastT;
-    vel = dt > 0 ? (x - lastX) / dt * 16 : 0;
-    lastX = x; lastT = performance.now();
-    setPos(pos + (x - startX));
-    startX = x;
-  }
-
-  function up() {
-    if (!drag) return;
-    drag = false;
-    outer.classList.remove('is-dragging');
-    lenis.start();
-    let v = vel * 1.9;
-    (function tick() {
-      v *= 0.935;
-      setPos(pos + v);
-      if (Math.abs(v) > 0.4) rafId = requestAnimationFrame(tick);
-    })();
-  }
-
-  outer.addEventListener('mousedown',  down);
-  outer.addEventListener('touchstart', down, { passive: true });
-  window.addEventListener('mousemove',  move);
-  window.addEventListener('touchmove',  move, { passive: true });
-  window.addEventListener('mouseup',    up);
-  window.addEventListener('touchend',   up);
-  outer.addEventListener('dragstart', e => e.preventDefault());
-})();
 
 /* ── SCROLL-SCRUB VIDEOS ── */
 document.querySelectorAll('.vid-scrub-section').forEach(section => {
