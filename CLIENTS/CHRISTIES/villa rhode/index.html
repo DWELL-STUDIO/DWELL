@@ -429,26 +429,18 @@
 
 
 <!-- ════════════════════════════════════════
-     ROOMS — kitchen → dining → salon
+     KITCHEN — cuisine + salle à manger
      scroll scrub with text stops
 ════════════════════════════════════════ -->
-<section id="rooms-section" class="relative" style="height:700vh">
+<section id="section-kitchen" class="relative" style="height:450vh">
   <div class="sticky top-0 h-[100dvh] overflow-hidden bg-[#060504]">
 
-    <!-- Kitchen video (cuisine + salle à manger) -->
     <video id="vid-kitchen" class="absolute inset-0 w-full h-full object-cover" muted playsinline preload="auto">
       <source src="videos/villa%20rhodes_Export_2026-05-05_20-45-28.mp4" type="video/mp4">
     </video>
 
-    <!-- Salon video — fades in at scroll 55% -->
-    <video id="vid-salon" class="absolute inset-0 w-full h-full object-cover" muted playsinline preload="auto" style="opacity:0">
-      <source src="videos/villa%20rhodes_Seedance%20V1.0_2026-05-06_15-49-12.mp4" type="video/mp4">
-    </video>
+    <div class="absolute inset-0 pointer-events-none" style="background:linear-gradient(to top, rgba(6,5,4,0.72) 0%, rgba(6,5,4,0.0) 45%)"></div>
 
-    <!-- Bottom veil so text is always readable -->
-    <div class="absolute inset-0 bg-gradient-to-t from-[rgba(6,5,4,0.75)] via-[rgba(6,5,4,0.0)] to-transparent pointer-events-none" style="background:linear-gradient(to top, rgba(6,5,4,0.72) 0%, rgba(6,5,4,0.0) 45%)"></div>
-
-    <!-- Text labels — all stacked at same bottom-left position -->
     <div class="absolute bottom-0 left-0 right-0 px-[clamp(2rem,5.5vw,5.5rem)] pb-[clamp(3.5rem,7vh,7rem)] pointer-events-none">
 
       <div id="label-cuisine" style="opacity:0;transform:translateY(28px)">
@@ -473,7 +465,27 @@
         </p>
       </div>
 
-      <div id="label-salon" style="position:absolute;inset:0;bottom:clamp(3.5rem,7vh,7rem);left:clamp(2rem,5.5vw,5.5rem);right:clamp(2rem,5.5vw,5.5rem);opacity:0;transform:translateY(28px)">
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SALON — livingroom
+     scroll scrub with text stop
+════════════════════════════════════════ -->
+<section id="section-salon" class="relative" style="height:350vh">
+  <div class="sticky top-0 h-[100dvh] overflow-hidden bg-[#060504]">
+
+    <video id="vid-salon" class="absolute inset-0 w-full h-full object-cover" muted playsinline preload="auto">
+      <source src="videos/villa%20rhodes_Seedance%20V1.0_2026-05-06_15-49-12.mp4" type="video/mp4">
+    </video>
+
+    <div class="absolute inset-0 pointer-events-none" style="background:linear-gradient(to top, rgba(6,5,4,0.72) 0%, rgba(6,5,4,0.0) 45%)"></div>
+
+    <div class="absolute bottom-0 left-0 right-0 px-[clamp(2rem,5.5vw,5.5rem)] pb-[clamp(3.5rem,7vh,7rem)] pointer-events-none">
+
+      <div id="label-salon" style="opacity:0;transform:translateY(28px)">
         <p class="text-[9px] tracking-[0.24em] uppercase text-[rgba(248,242,228,0.38)] mb-4">03 — Le Salon</p>
         <h3 class="font-display italic font-light leading-[0.9] text-[rgba(248,242,228,0.9)]"
             style="font-size:clamp(44px,7.5vw,108px);font-variation-settings:'opsz' 144">
@@ -995,19 +1007,12 @@ document.querySelectorAll('.acc-toggle').forEach(toggle => {
 });
 
 
-/* ── ROOMS SECTION — kitchen → salon, scroll scrub with text stops ── */
+/* ── KITCHEN SECTION — cuisine + salle à manger, scroll scrub with text stops ── */
 (function () {
-  const section  = document.getElementById('rooms-section');
-  const vK       = document.getElementById('vid-kitchen');
-  const vS       = document.getElementById('vid-salon');
+  const section  = document.getElementById('section-kitchen');
+  const vid      = document.getElementById('vid-kitchen');
   const lCuisine = document.getElementById('label-cuisine');
   const lDining  = document.getElementById('label-dining');
-  const lSalon   = document.getElementById('label-salon');
-
-  let ready = 0;
-  function onMeta() { if (++ready === 2) init(); }
-  if (vK.readyState >= 1) onMeta(); else vK.addEventListener('loadedmetadata', onMeta, { once: true });
-  if (vS.readyState >= 1) onMeta(); else vS.addEventListener('loadedmetadata', onMeta, { once: true });
 
   function piecewise(p, keys) {
     if (p <= keys[0].p) return keys[0].v;
@@ -1018,50 +1023,24 @@ document.querySelectorAll('.acc-toggle').forEach(toggle => {
         return keys[i].v + t * (keys[i + 1].v - keys[i].v);
       }
     }
-    return keys[keys.length - 1].v;
   }
 
   function init() {
-    const kDur = vK.duration;
-    const sDur = vS.duration;
-
-    // Kitchen: advance → pause (cuisine) → advance → pause (dining) → finish
-    const kKeys = [
-      { p: 0.00, v: 0            },
-      { p: 0.14, v: kDur * 0.28 }, // arrive at cuisine frame
-      { p: 0.36, v: kDur * 0.28 }, // hold — cuisine text
-      { p: 0.52, v: kDur * 0.64 }, // arrive at dining frame
-      { p: 0.66, v: kDur * 0.64 }, // hold — dining text
-      { p: 0.70, v: kDur        }, // finish kitchen
+    const dur = vid.duration;
+    const keys = [
+      { p: 0.00, v: 0          },
+      { p: 0.14, v: dur * 0.28 }, // arrive at cuisine frame
+      { p: 0.38, v: dur * 0.28 }, // hold — cuisine text
+      { p: 0.55, v: dur * 0.66 }, // arrive at dining frame
+      { p: 0.75, v: dur * 0.66 }, // hold — dining text
+      { p: 1.00, v: dur        },
     ];
 
-    // Salon: fades in at ~62%, advances to salon frame, pauses, then finishes
-    const sKeys = [
-      { p: 0.62, v: 0            },
-      { p: 0.78, v: sDur * 0.42 }, // arrive at salon frame
-      { p: 0.90, v: sDur * 0.42 }, // hold — salon text
-      { p: 1.00, v: sDur        }, // finish
-    ];
-
-    // Timeline scrubbed manually — positions are in seconds (total = 1.0s)
     const tl = gsap.timeline({ paused: true });
-
-    // Cuisine label: in at 12%, out at 34%
-    tl.to(lCuisine, { opacity: 1, y: 0,   duration: 0.12, ease: 'power3.out' }, 0.12)
-      .to(lCuisine, { opacity: 0, y: -22, duration: 0.06, ease: 'power2.in'  }, 0.38);
-
-    // Dining label: in at 48%, out at 63%
-    tl.to(lDining,  { opacity: 1, y: 0,   duration: 0.12, ease: 'power3.out' }, 0.48)
-      .to(lDining,  { opacity: 0, y: -22, duration: 0.06, ease: 'power2.in'  }, 0.63);
-
-    // Salon video crossfade: 61% → 69%
-    tl.to(vS, { opacity: 1, duration: 0.08, ease: 'power2.inOut' }, 0.61);
-
-    // Salon label: in at 72%, out at 87%
-    tl.to(lSalon,   { opacity: 1, y: 0,   duration: 0.12, ease: 'power3.out' }, 0.72)
-      .to(lSalon,   { opacity: 0, y: -22, duration: 0.05, ease: 'power2.in'  }, 0.87);
-
-    // Extend timeline to 1.0 so seek(1) reaches the end
+    tl.to(lCuisine, { opacity: 1, y: 0,   duration: 0.12, ease: 'power3.out' }, 0.14)
+      .to(lCuisine, { opacity: 0, y: -22, duration: 0.06, ease: 'power2.in'  }, 0.36);
+    tl.to(lDining,  { opacity: 1, y: 0,   duration: 0.12, ease: 'power3.out' }, 0.55)
+      .to(lDining,  { opacity: 0, y: -22, duration: 0.06, ease: 'power2.in'  }, 0.73);
     tl.set({}, {}, 1.0);
 
     ScrollTrigger.create({
@@ -1071,12 +1050,63 @@ document.querySelectorAll('.acc-toggle').forEach(toggle => {
       scrub:   0.8,
       onUpdate(self) {
         const p = self.progress;
-        if (vK.duration) vK.currentTime = piecewise(p, kKeys);
-        if (vS.duration) vS.currentTime = piecewise(p, sKeys);
+        if (vid.duration) vid.currentTime = piecewise(p, keys);
         tl.seek(p * tl.totalDuration());
       },
     });
   }
+
+  if (vid.readyState >= 1) init();
+  else vid.addEventListener('loadedmetadata', init, { once: true });
+})();
+
+
+/* ── SALON SECTION — livingroom, scroll scrub with text stop ── */
+(function () {
+  const section = document.getElementById('section-salon');
+  const vid     = document.getElementById('vid-salon');
+  const lSalon  = document.getElementById('label-salon');
+
+  function piecewise(p, keys) {
+    if (p <= keys[0].p) return keys[0].v;
+    if (p >= keys[keys.length - 1].p) return keys[keys.length - 1].v;
+    for (let i = 0; i < keys.length - 1; i++) {
+      if (p <= keys[i + 1].p) {
+        const t = (p - keys[i].p) / (keys[i + 1].p - keys[i].p);
+        return keys[i].v + t * (keys[i + 1].v - keys[i].v);
+      }
+    }
+  }
+
+  function init() {
+    const dur = vid.duration;
+    const keys = [
+      { p: 0.00, v: 0          },
+      { p: 0.28, v: dur * 0.40 }, // arrive at salon frame
+      { p: 0.60, v: dur * 0.40 }, // hold — salon text
+      { p: 1.00, v: dur        },
+    ];
+
+    const tl = gsap.timeline({ paused: true });
+    tl.to(lSalon, { opacity: 1, y: 0,   duration: 0.14, ease: 'power3.out' }, 0.28)
+      .to(lSalon, { opacity: 0, y: -22, duration: 0.06, ease: 'power2.in'  }, 0.58);
+    tl.set({}, {}, 1.0);
+
+    ScrollTrigger.create({
+      trigger: section,
+      start:   'top top',
+      end:     'bottom bottom',
+      scrub:   0.8,
+      onUpdate(self) {
+        const p = self.progress;
+        if (vid.duration) vid.currentTime = piecewise(p, keys);
+        tl.seek(p * tl.totalDuration());
+      },
+    });
+  }
+
+  if (vid.readyState >= 1) init();
+  else vid.addEventListener('loadedmetadata', init, { once: true });
 })();
 
 
