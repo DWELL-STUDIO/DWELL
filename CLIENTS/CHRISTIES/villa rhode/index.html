@@ -23,9 +23,9 @@
 
   <style>
     :root {
-      --bg:        #060504;
-      --text:      rgba(248, 242, 228, 0.85);
-      --muted:     rgba(248, 242, 228, 0.32);
+      --bg:        #f8f6f2;
+      --text:      rgba(14, 14, 14, 0.88);
+      --muted:     rgba(14, 14, 14, 0.38);
       --accent:    #9B7A3E;
       --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
     }
@@ -50,7 +50,7 @@
       height: 200%;
       pointer-events: none;
       z-index: 9000;
-      opacity: 0.032;
+      opacity: 0.016;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
       background-size: 180px 180px;
       animation: grain 7s steps(8) infinite;
@@ -79,28 +79,31 @@
       gap: 1.75rem;
       padding: 0.7rem 1.75rem;
       border-radius: 9999px;
-      background: rgba(6, 5, 4, 0.52);
+      background: rgba(248, 246, 242, 0.72);
       backdrop-filter: blur(22px);
       -webkit-backdrop-filter: blur(22px);
-      border: 1px solid rgba(248, 242, 228, 0.07);
+      border: 1px solid rgba(14, 14, 14, 0.08);
       white-space: nowrap;
-      transition: background 500ms var(--ease-expo);
+      transition: background 500ms var(--ease-expo), box-shadow 500ms var(--ease-expo);
     }
 
-    .nav-pill.scrolled { background: rgba(6, 5, 4, 0.9); }
+    .nav-pill.scrolled {
+      background: rgba(248, 246, 242, 0.96);
+      box-shadow: 0 2px 20px rgba(14,14,14,0.07);
+    }
 
     .nav-logo {
       font-size: 10px;
       font-weight: 400;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: rgba(248,242,228,0.45);
+      color: rgba(14,14,14,0.4);
     }
 
     .nav-sep {
       width: 1px;
       height: 12px;
-      background: rgba(248,242,228,0.1);
+      background: rgba(14,14,14,0.12);
       flex-shrink: 0;
     }
 
@@ -109,7 +112,7 @@
       font-weight: 400;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: rgba(248,242,228,0.4);
+      color: rgba(14,14,14,0.45);
       text-decoration: none;
       transition: color 300ms;
     }
@@ -364,7 +367,7 @@
       display: inline-block;
       line-height: 1;
       transition: transform 420ms var(--ease-expo);
-      color: rgba(248,242,228,0.25);
+      color: rgba(14,14,14,0.25);
     }
 
     .acc-item.open .acc-icon { transform: rotate(45deg); }
@@ -389,7 +392,7 @@
   </script>
 </head>
 
-<body class="bg-[#060504] overflow-x-hidden">
+<body class="overflow-x-hidden">
 
 <!-- GRAIN -->
 <div class="grain" aria-hidden="true"></div>
@@ -514,11 +517,11 @@
       <div class="overflow-hidden" style="aspect-ratio:2/3">
         <img src="images/8906584_27_20260408150641.jpg" alt="" class="w-full h-full object-cover" loading="lazy">
       </div>
-      <figcaption class="mt-4 border-t border-[rgba(248,242,228,0.06)] pt-3 flex items-start justify-between gap-6">
-        <span class="text-[8px] tracking-[0.22em] uppercase text-[rgba(248,242,228,0.2)] shrink-0 mt-px">01</span>
+      <figcaption class="mt-4 border-t border-[rgba(14,14,14,0.09)] pt-3 flex items-start justify-between gap-6">
+        <span class="text-[8px] tracking-[0.22em] uppercase text-[rgba(14,14,14,0.3)] shrink-0 mt-px">01</span>
         <div class="text-right">
-          <p class="text-[8px] tracking-[0.18em] uppercase text-[rgba(248,242,228,0.38)]">Entrée</p>
-          <p class="mt-1 text-[9px] leading-[1.6] text-[rgba(248,242,228,0.2)]">La porte s'ouvre sur un hall de double hauteur.</p>
+          <p class="text-[8px] tracking-[0.18em] uppercase text-[rgba(14,14,14,0.55)]">Entrée</p>
+          <p class="mt-1 text-[9px] leading-[1.6] text-[rgba(14,14,14,0.3)]">La porte s'ouvre sur un hall de double hauteur.</p>
         </div>
       </figcaption>
     </figure>
@@ -529,11 +532,11 @@
       <div class="overflow-hidden" style="aspect-ratio:2/3">
         <img src="images/8906584_1_20260408150341.jpg" alt="" class="w-full h-full object-cover" loading="lazy">
       </div>
-      <figcaption class="mt-4 border-t border-[rgba(248,242,228,0.06)] pt-3 flex items-start justify-between gap-6">
-        <span class="text-[8px] tracking-[0.22em] uppercase text-[rgba(248,242,228,0.2)] shrink-0 mt-px">02</span>
+      <figcaption class="mt-4 border-t border-[rgba(14,14,14,0.09)] pt-3 flex items-start justify-between gap-6">
+        <span class="text-[8px] tracking-[0.22em] uppercase text-[rgba(14,14,14,0.3)] shrink-0 mt-px">02</span>
         <div class="text-right">
-          <p class="text-[8px] tracking-[0.18em] uppercase text-[rgba(248,242,228,0.38)]">Façade</p>
-          <p class="mt-1 text-[9px] leading-[1.6] text-[rgba(248,242,228,0.2)]">Façade sud, Rhode-Saint-Genèse.</p>
+          <p class="text-[8px] tracking-[0.18em] uppercase text-[rgba(14,14,14,0.55)]">Façade</p>
+          <p class="mt-1 text-[9px] leading-[1.6] text-[rgba(14,14,14,0.3)]">Façade sud, Rhode-Saint-Genèse.</p>
         </div>
       </figcaption>
     </figure>
@@ -544,11 +547,11 @@
       <div class="overflow-hidden" style="aspect-ratio:2/3">
         <img src="images/8906584_5_20260408150637.jpg" alt="" class="w-full h-full object-cover" loading="lazy">
       </div>
-      <figcaption class="mt-4 border-t border-[rgba(248,242,228,0.06)] pt-3 flex items-start justify-between gap-6">
-        <span class="text-[8px] tracking-[0.22em] uppercase text-[rgba(248,242,228,0.2)] shrink-0 mt-px">03</span>
+      <figcaption class="mt-4 border-t border-[rgba(14,14,14,0.09)] pt-3 flex items-start justify-between gap-6">
+        <span class="text-[8px] tracking-[0.22em] uppercase text-[rgba(14,14,14,0.3)] shrink-0 mt-px">03</span>
         <div class="text-right">
-          <p class="text-[8px] tracking-[0.18em] uppercase text-[rgba(248,242,228,0.38)]">Hall</p>
-          <p class="mt-1 text-[9px] leading-[1.6] text-[rgba(248,242,228,0.2)]">Double hauteur. Puits de lumière zénithal.</p>
+          <p class="text-[8px] tracking-[0.18em] uppercase text-[rgba(14,14,14,0.55)]">Hall</p>
+          <p class="mt-1 text-[9px] leading-[1.6] text-[rgba(14,14,14,0.3)]">Double hauteur. Puits de lumière zénithal.</p>
         </div>
       </figcaption>
     </figure>
@@ -559,11 +562,11 @@
       <div class="overflow-hidden" style="aspect-ratio:2/3">
         <img src="images/8906584_2_20260408150553.jpg" alt="" class="w-full h-full object-cover" loading="lazy">
       </div>
-      <figcaption class="mt-4 border-t border-[rgba(248,242,228,0.06)] pt-3 flex items-start justify-between gap-6">
-        <span class="text-[8px] tracking-[0.22em] uppercase text-[rgba(248,242,228,0.2)] shrink-0 mt-px">04</span>
+      <figcaption class="mt-4 border-t border-[rgba(14,14,14,0.09)] pt-3 flex items-start justify-between gap-6">
+        <span class="text-[8px] tracking-[0.22em] uppercase text-[rgba(14,14,14,0.3)] shrink-0 mt-px">04</span>
         <div class="text-right">
-          <p class="text-[8px] tracking-[0.18em] uppercase text-[rgba(248,242,228,0.38)]">Salon</p>
-          <p class="mt-1 text-[9px] leading-[1.6] text-[rgba(248,242,228,0.2)]">Volumes rares, lumière naturelle tout au long du jour.</p>
+          <p class="text-[8px] tracking-[0.18em] uppercase text-[rgba(14,14,14,0.55)]">Salon</p>
+          <p class="mt-1 text-[9px] leading-[1.6] text-[rgba(14,14,14,0.3)]">Volumes rares, lumière naturelle tout au long du jour.</p>
         </div>
       </figcaption>
     </figure>
@@ -574,11 +577,11 @@
       <div class="overflow-hidden" style="aspect-ratio:2/3">
         <img src="images/8906584_6_20260408150638.jpg" alt="" class="w-full h-full object-cover" loading="lazy">
       </div>
-      <figcaption class="mt-4 border-t border-[rgba(248,242,228,0.06)] pt-3 flex items-start justify-between gap-6">
-        <span class="text-[8px] tracking-[0.22em] uppercase text-[rgba(248,242,228,0.2)] shrink-0 mt-px">05</span>
+      <figcaption class="mt-4 border-t border-[rgba(14,14,14,0.09)] pt-3 flex items-start justify-between gap-6">
+        <span class="text-[8px] tracking-[0.22em] uppercase text-[rgba(14,14,14,0.3)] shrink-0 mt-px">05</span>
         <div class="text-right">
-          <p class="text-[8px] tracking-[0.18em] uppercase text-[rgba(248,242,228,0.38)]">Salon</p>
-          <p class="mt-1 text-[9px] leading-[1.6] text-[rgba(248,242,228,0.2)]">Vue sur le jardin et la Forêt de Soignes.</p>
+          <p class="text-[8px] tracking-[0.18em] uppercase text-[rgba(14,14,14,0.55)]">Salon</p>
+          <p class="mt-1 text-[9px] leading-[1.6] text-[rgba(14,14,14,0.3)]">Vue sur le jardin et la Forêt de Soignes.</p>
         </div>
       </figcaption>
     </figure>
@@ -589,11 +592,11 @@
       <div class="overflow-hidden" style="aspect-ratio:2/3">
         <img src="images/8906584_3_20260408150549.jpg" alt="" class="w-full h-full object-cover" loading="lazy">
       </div>
-      <figcaption class="mt-4 border-t border-[rgba(248,242,228,0.06)] pt-3 flex items-start justify-between gap-6">
-        <span class="text-[8px] tracking-[0.22em] uppercase text-[rgba(248,242,228,0.2)] shrink-0 mt-px">06</span>
+      <figcaption class="mt-4 border-t border-[rgba(14,14,14,0.09)] pt-3 flex items-start justify-between gap-6">
+        <span class="text-[8px] tracking-[0.22em] uppercase text-[rgba(14,14,14,0.3)] shrink-0 mt-px">06</span>
         <div class="text-right">
-          <p class="text-[8px] tracking-[0.18em] uppercase text-[rgba(248,242,228,0.38)]">Cuisine</p>
-          <p class="mt-1 text-[9px] leading-[1.6] text-[rgba(248,242,228,0.2)]">Îlot circulaire en noyer massif. Skylight zénithal.</p>
+          <p class="text-[8px] tracking-[0.18em] uppercase text-[rgba(14,14,14,0.55)]">Cuisine</p>
+          <p class="mt-1 text-[9px] leading-[1.6] text-[rgba(14,14,14,0.3)]">Îlot circulaire en noyer massif. Skylight zénithal.</p>
         </div>
       </figcaption>
     </figure>
@@ -604,11 +607,11 @@
       <div class="overflow-hidden" style="aspect-ratio:2/3">
         <img src="images/8906584_7_20260408150638.jpg" alt="" class="w-full h-full object-cover" loading="lazy">
       </div>
-      <figcaption class="mt-4 border-t border-[rgba(248,242,228,0.06)] pt-3 flex items-start justify-between gap-6">
-        <span class="text-[8px] tracking-[0.22em] uppercase text-[rgba(248,242,228,0.2)] shrink-0 mt-px">07</span>
+      <figcaption class="mt-4 border-t border-[rgba(14,14,14,0.09)] pt-3 flex items-start justify-between gap-6">
+        <span class="text-[8px] tracking-[0.22em] uppercase text-[rgba(14,14,14,0.3)] shrink-0 mt-px">07</span>
         <div class="text-right">
-          <p class="text-[8px] tracking-[0.18em] uppercase text-[rgba(248,242,228,0.38)]">Salle à manger</p>
-          <p class="mt-1 text-[9px] leading-[1.6] text-[rgba(248,242,228,0.2)]">La table familiale face au jardin paysager.</p>
+          <p class="text-[8px] tracking-[0.18em] uppercase text-[rgba(14,14,14,0.55)]">Salle à manger</p>
+          <p class="mt-1 text-[9px] leading-[1.6] text-[rgba(14,14,14,0.3)]">La table familiale face au jardin paysager.</p>
         </div>
       </figcaption>
     </figure>
@@ -619,11 +622,11 @@
       <div class="overflow-hidden" style="aspect-ratio:2/3">
         <img src="images/8906584_4_20260408150642.jpg" alt="" class="w-full h-full object-cover" loading="lazy">
       </div>
-      <figcaption class="mt-4 border-t border-[rgba(248,242,228,0.06)] pt-3 flex items-start justify-between gap-6">
-        <span class="text-[8px] tracking-[0.22em] uppercase text-[rgba(248,242,228,0.2)] shrink-0 mt-px">08</span>
+      <figcaption class="mt-4 border-t border-[rgba(14,14,14,0.09)] pt-3 flex items-start justify-between gap-6">
+        <span class="text-[8px] tracking-[0.22em] uppercase text-[rgba(14,14,14,0.3)] shrink-0 mt-px">08</span>
         <div class="text-right">
-          <p class="text-[8px] tracking-[0.18em] uppercase text-[rgba(248,242,228,0.38)]">Bureau</p>
-          <p class="mt-1 text-[9px] leading-[1.6] text-[rgba(248,242,228,0.2)]">Espace de travail indépendant au rez-de-chaussée.</p>
+          <p class="text-[8px] tracking-[0.18em] uppercase text-[rgba(14,14,14,0.55)]">Bureau</p>
+          <p class="mt-1 text-[9px] leading-[1.6] text-[rgba(14,14,14,0.3)]">Espace de travail indépendant au rez-de-chaussée.</p>
         </div>
       </figcaption>
     </figure>
@@ -634,11 +637,11 @@
       <div class="overflow-hidden" style="aspect-ratio:2/3">
         <img src="images/8906584_11_20260408150638.jpg" alt="" class="w-full h-full object-cover" loading="lazy">
       </div>
-      <figcaption class="mt-4 border-t border-[rgba(248,242,228,0.06)] pt-3 flex items-start justify-between gap-6">
-        <span class="text-[8px] tracking-[0.22em] uppercase text-[rgba(248,242,228,0.2)] shrink-0 mt-px">09</span>
+      <figcaption class="mt-4 border-t border-[rgba(14,14,14,0.09)] pt-3 flex items-start justify-between gap-6">
+        <span class="text-[8px] tracking-[0.22em] uppercase text-[rgba(14,14,14,0.3)] shrink-0 mt-px">09</span>
         <div class="text-right">
-          <p class="text-[8px] tracking-[0.18em] uppercase text-[rgba(248,242,228,0.38)]">Chambre</p>
-          <p class="mt-1 text-[9px] leading-[1.6] text-[rgba(248,242,228,0.2)]">Suite parentale, plein sud.</p>
+          <p class="text-[8px] tracking-[0.18em] uppercase text-[rgba(14,14,14,0.55)]">Chambre</p>
+          <p class="mt-1 text-[9px] leading-[1.6] text-[rgba(14,14,14,0.3)]">Suite parentale, plein sud.</p>
         </div>
       </figcaption>
     </figure>
@@ -649,11 +652,11 @@
       <div class="overflow-hidden" style="aspect-ratio:2/3">
         <img src="images/8906584_12_20260408150639.jpg" alt="" class="w-full h-full object-cover" loading="lazy">
       </div>
-      <figcaption class="mt-4 border-t border-[rgba(248,242,228,0.06)] pt-3 flex items-start justify-between gap-6">
-        <span class="text-[8px] tracking-[0.22em] uppercase text-[rgba(248,242,228,0.2)] shrink-0 mt-px">10</span>
+      <figcaption class="mt-4 border-t border-[rgba(14,14,14,0.09)] pt-3 flex items-start justify-between gap-6">
+        <span class="text-[8px] tracking-[0.22em] uppercase text-[rgba(14,14,14,0.3)] shrink-0 mt-px">10</span>
         <div class="text-right">
-          <p class="text-[8px] tracking-[0.18em] uppercase text-[rgba(248,242,228,0.38)]">Chambre</p>
-          <p class="mt-1 text-[9px] leading-[1.6] text-[rgba(248,242,228,0.2)]">Lumière filtrée, calme absolu.</p>
+          <p class="text-[8px] tracking-[0.18em] uppercase text-[rgba(14,14,14,0.55)]">Chambre</p>
+          <p class="mt-1 text-[9px] leading-[1.6] text-[rgba(14,14,14,0.3)]">Lumière filtrée, calme absolu.</p>
         </div>
       </figcaption>
     </figure>
@@ -664,11 +667,11 @@
       <div class="overflow-hidden" style="aspect-ratio:2/3">
         <img src="images/8906584_14_20260408150639.jpg" alt="" class="w-full h-full object-cover" loading="lazy">
       </div>
-      <figcaption class="mt-4 border-t border-[rgba(248,242,228,0.06)] pt-3 flex items-start justify-between gap-6">
-        <span class="text-[8px] tracking-[0.22em] uppercase text-[rgba(248,242,228,0.2)] shrink-0 mt-px">11</span>
+      <figcaption class="mt-4 border-t border-[rgba(14,14,14,0.09)] pt-3 flex items-start justify-between gap-6">
+        <span class="text-[8px] tracking-[0.22em] uppercase text-[rgba(14,14,14,0.3)] shrink-0 mt-px">11</span>
         <div class="text-right">
-          <p class="text-[8px] tracking-[0.18em] uppercase text-[rgba(248,242,228,0.38)]">Salle de bain</p>
-          <p class="mt-1 text-[9px] leading-[1.6] text-[rgba(248,242,228,0.2)]">Marbre, double vasque, baignoire îlot.</p>
+          <p class="text-[8px] tracking-[0.18em] uppercase text-[rgba(14,14,14,0.55)]">Salle de bain</p>
+          <p class="mt-1 text-[9px] leading-[1.6] text-[rgba(14,14,14,0.3)]">Marbre, double vasque, baignoire îlot.</p>
         </div>
       </figcaption>
     </figure>
@@ -679,11 +682,11 @@
       <div class="overflow-hidden" style="aspect-ratio:2/3">
         <img src="images/8906584_21_20260408150640.jpg" alt="" class="w-full h-full object-cover" loading="lazy">
       </div>
-      <figcaption class="mt-4 border-t border-[rgba(248,242,228,0.06)] pt-3 flex items-start justify-between gap-6">
-        <span class="text-[8px] tracking-[0.22em] uppercase text-[rgba(248,242,228,0.2)] shrink-0 mt-px">12</span>
+      <figcaption class="mt-4 border-t border-[rgba(14,14,14,0.09)] pt-3 flex items-start justify-between gap-6">
+        <span class="text-[8px] tracking-[0.22em] uppercase text-[rgba(14,14,14,0.3)] shrink-0 mt-px">12</span>
         <div class="text-right">
-          <p class="text-[8px] tracking-[0.18em] uppercase text-[rgba(248,242,228,0.38)]">Piscine</p>
-          <p class="mt-1 text-[9px] leading-[1.6] text-[rgba(248,242,228,0.2)]">12 × 5 m, liner anthracite. Chauffée.</p>
+          <p class="text-[8px] tracking-[0.18em] uppercase text-[rgba(14,14,14,0.55)]">Piscine</p>
+          <p class="mt-1 text-[9px] leading-[1.6] text-[rgba(14,14,14,0.3)]">12 × 5 m, liner anthracite. Chauffée.</p>
         </div>
       </figcaption>
     </figure>
@@ -694,11 +697,11 @@
       <div class="overflow-hidden" style="aspect-ratio:2/3">
         <img src="images/8906584_25_20260408150641.jpg" alt="" class="w-full h-full object-cover" loading="lazy">
       </div>
-      <figcaption class="mt-4 border-t border-[rgba(248,242,228,0.06)] pt-3 flex items-start justify-between gap-6">
-        <span class="text-[8px] tracking-[0.22em] uppercase text-[rgba(248,242,228,0.2)] shrink-0 mt-px">13</span>
+      <figcaption class="mt-4 border-t border-[rgba(14,14,14,0.09)] pt-3 flex items-start justify-between gap-6">
+        <span class="text-[8px] tracking-[0.22em] uppercase text-[rgba(14,14,14,0.3)] shrink-0 mt-px">13</span>
         <div class="text-right">
-          <p class="text-[8px] tracking-[0.18em] uppercase text-[rgba(248,242,228,0.38)]">Terrasse</p>
-          <p class="mt-1 text-[9px] leading-[1.6] text-[rgba(248,242,228,0.2)]">Dalles travertin, vue directe sur piscine.</p>
+          <p class="text-[8px] tracking-[0.18em] uppercase text-[rgba(14,14,14,0.55)]">Terrasse</p>
+          <p class="mt-1 text-[9px] leading-[1.6] text-[rgba(14,14,14,0.3)]">Dalles travertin, vue directe sur piscine.</p>
         </div>
       </figcaption>
     </figure>
@@ -709,11 +712,11 @@
       <div class="overflow-hidden" style="aspect-ratio:2/3">
         <img src="images/8906584_26_20260408150641.jpg" alt="" class="w-full h-full object-cover" loading="lazy">
       </div>
-      <figcaption class="mt-4 border-t border-[rgba(248,242,228,0.06)] pt-3 flex items-start justify-between gap-6">
-        <span class="text-[8px] tracking-[0.22em] uppercase text-[rgba(248,242,228,0.2)] shrink-0 mt-px">14</span>
+      <figcaption class="mt-4 border-t border-[rgba(14,14,14,0.09)] pt-3 flex items-start justify-between gap-6">
+        <span class="text-[8px] tracking-[0.22em] uppercase text-[rgba(14,14,14,0.3)] shrink-0 mt-px">14</span>
         <div class="text-right">
-          <p class="text-[8px] tracking-[0.18em] uppercase text-[rgba(248,242,228,0.38)]">Jardin</p>
-          <p class="mt-1 text-[9px] leading-[1.6] text-[rgba(248,242,228,0.2)]">1 800 m² paysagés, bordés par la Forêt de Soignes.</p>
+          <p class="text-[8px] tracking-[0.18em] uppercase text-[rgba(14,14,14,0.55)]">Jardin</p>
+          <p class="mt-1 text-[9px] leading-[1.6] text-[rgba(14,14,14,0.3)]">1 800 m² paysagés, bordés par la Forêt de Soignes.</p>
         </div>
       </figcaption>
     </figure>
@@ -724,11 +727,11 @@
       <div class="overflow-hidden" style="aspect-ratio:2/3">
         <img src="images/8906584_28_20260408150421.jpg" alt="" class="w-full h-full object-cover" loading="lazy">
       </div>
-      <figcaption class="mt-4 border-t border-[rgba(248,242,228,0.06)] pt-3 flex items-start justify-between gap-6">
-        <span class="text-[8px] tracking-[0.22em] uppercase text-[rgba(248,242,228,0.2)] shrink-0 mt-px">15</span>
+      <figcaption class="mt-4 border-t border-[rgba(14,14,14,0.09)] pt-3 flex items-start justify-between gap-6">
+        <span class="text-[8px] tracking-[0.22em] uppercase text-[rgba(14,14,14,0.3)] shrink-0 mt-px">15</span>
         <div class="text-right">
-          <p class="text-[8px] tracking-[0.18em] uppercase text-[rgba(248,242,228,0.38)]">Terrasse</p>
-          <p class="mt-1 text-[9px] leading-[1.6] text-[rgba(248,242,228,0.2)]">Entre intérieur et jardin, le seuil qui disparaît.</p>
+          <p class="text-[8px] tracking-[0.18em] uppercase text-[rgba(14,14,14,0.55)]">Terrasse</p>
+          <p class="mt-1 text-[9px] leading-[1.6] text-[rgba(14,14,14,0.3)]">Entre intérieur et jardin, le seuil qui disparaît.</p>
         </div>
       </figcaption>
     </figure>
@@ -747,7 +750,7 @@
     </video>
     <div class="absolute inset-0 bg-gradient-to-b from-[rgba(6,5,4,0.0)] via-[rgba(6,5,4,0.0)] to-[rgba(6,5,4,0.55)] pointer-events-none"></div>
     <div class="absolute bottom-8 left-[clamp(2rem,5.5vw,5.5rem)] flex items-center gap-3 pointer-events-none">
-      <div class="w-5 h-px bg-[rgba(248,242,228,0.18)]"></div>
+      <div class="w-5 h-px bg-[rgba(14,14,14,0.28)]"></div>
       <p class="text-[9px] tracking-[0.22em] uppercase text-[rgba(248,242,228,0.25)]">03</p>
     </div>
     <div class="absolute bottom-7 right-[clamp(2rem,5.5vw,5.5rem)] text-right pointer-events-none">
@@ -766,7 +769,7 @@
     <span class="chapter-label mb-4 inline-block">04 — Prestations</span>
     <h2 class="section-title text-[clamp(32px,4.5vw,60px)] mb-14">Le détail qui change tout</h2>
 
-    <div class="divide-y divide-[rgba(248,242,228,0.06)]">
+    <div class="divide-y divide-[rgba(14,14,14,0.07)]">
 
       <div class="acc-item">
         <button class="acc-toggle w-full flex items-center justify-between py-[1.1rem] text-left gap-4">
@@ -774,7 +777,7 @@
           <span class="acc-icon text-[18px]">+</span>
         </button>
         <div class="acc-body">
-          <p class="pb-6 text-[11.5px] leading-[1.85] text-[rgba(248,242,228,0.35)]">
+          <p class="pb-6 text-[11.5px] leading-[1.85] text-[rgba(14,14,14,0.5)]">
             Construction 2012. Double hauteur en séjour. Puits de lumière zénithal. Isolation renforcée haute performance. Toiture plate avec éléments végétalisés.
           </p>
         </div>
@@ -786,7 +789,7 @@
           <span class="acc-icon text-[18px]">+</span>
         </button>
         <div class="acc-body">
-          <p class="pb-6 text-[11.5px] leading-[1.85] text-[rgba(248,242,228,0.35)]">
+          <p class="pb-6 text-[11.5px] leading-[1.85] text-[rgba(14,14,14,0.5)]">
             Cuisine sur mesure en noyer massif avec îlot circulaire et skylight. Électroménager intégré Miele. Domotique KNX complète. Système audio distribué.
           </p>
         </div>
@@ -798,7 +801,7 @@
           <span class="acc-icon text-[18px]">+</span>
         </button>
         <div class="acc-body">
-          <p class="pb-6 text-[11.5px] leading-[1.85] text-[rgba(248,242,228,0.35)]">
+          <p class="pb-6 text-[11.5px] leading-[1.85] text-[rgba(14,14,14,0.5)]">
             Piscine chauffée 12×5m, liner anthracite. Terrasse en dalles de travertin. Jardin paysager 1800m². Éclairage extérieur domotisé.
           </p>
         </div>
@@ -810,7 +813,7 @@
           <span class="acc-icon text-[18px]">+</span>
         </button>
         <div class="acc-body">
-          <p class="pb-6 text-[11.5px] leading-[1.85] text-[rgba(248,242,228,0.35)]">
+          <p class="pb-6 text-[11.5px] leading-[1.85] text-[rgba(14,14,14,0.5)]">
             Chauffage par le sol intégral. Pompe à chaleur air/eau. 24 panneaux photovoltaïques. Certificat PEB B. Bornes de recharge véhicule électrique.
           </p>
         </div>
@@ -830,32 +833,32 @@
   <div class="grid grid-cols-1 md:grid-cols-2 gap-[clamp(3rem,7vw,7rem)] items-start">
     <div>
       <h2 class="section-title text-[clamp(30px,4vw,52px)]">Rhode-Saint-Genèse</h2>
-      <p class="rv-up mt-7 text-[12.5px] leading-[2] text-[rgba(248,242,228,0.38)]" data-delay="0.1">
+      <p class="rv-up mt-7 text-[12.5px] leading-[2] text-[rgba(14,14,14,0.55)]" data-delay="0.1">
         Quinze minutes séparent cette résidence du centre de Bruxelles. La Forêt de Soignes est à cinq. Entre les deux, un calme absolu que peu d'endroits en Belgique peuvent encore offrir.
       </p>
       <div class="mt-9 space-y-4 rv-up" data-delay="0.18">
         <div class="flex items-baseline gap-5">
           <span class="text-[9px] font-medium tracking-[0.22em] uppercase text-[var(--accent)] w-14 shrink-0">15 min</span>
-          <span class="text-[12px] text-[rgba(248,242,228,0.35)]">Bruxelles centre</span>
+          <span class="text-[12px] text-[rgba(14,14,14,0.5)]">Bruxelles centre</span>
         </div>
         <div class="flex items-baseline gap-5">
           <span class="text-[9px] font-medium tracking-[0.22em] uppercase text-[var(--accent)] w-14 shrink-0">5 min</span>
-          <span class="text-[12px] text-[rgba(248,242,228,0.35)]">Forêt de Soignes</span>
+          <span class="text-[12px] text-[rgba(14,14,14,0.5)]">Forêt de Soignes</span>
         </div>
         <div class="flex items-baseline gap-5">
           <span class="text-[9px] font-medium tracking-[0.22em] uppercase text-[var(--accent)] w-14 shrink-0">Écoles</span>
-          <span class="text-[12px] text-[rgba(248,242,228,0.35)]">Internationales à proximité</span>
+          <span class="text-[12px] text-[rgba(14,14,14,0.5)]">Internationales à proximité</span>
         </div>
         <div class="flex items-baseline gap-5">
           <span class="text-[9px] font-medium tracking-[0.22em] uppercase text-[var(--accent)] w-14 shrink-0">Golf</span>
-          <span class="text-[12px] text-[rgba(248,242,228,0.35)]">Royal Golf Club à 3 km</span>
+          <span class="text-[12px] text-[rgba(14,14,14,0.5)]">Royal Golf Club à 3 km</span>
         </div>
       </div>
     </div>
 
-    <div class="rv-fade aspect-[4/3] bg-[rgba(248,242,228,0.03)] border border-[rgba(248,242,228,0.05)] rounded-[3px] flex items-center justify-center"
+    <div class="rv-fade aspect-[4/3] bg-[rgba(14,14,14,0.04)] border border-[rgba(14,14,14,0.07)] rounded-[3px] flex items-center justify-center"
          data-delay="0.1">
-      <p class="text-[9px] tracking-[0.18em] uppercase text-[rgba(248,242,228,0.12)]">Rhode-Saint-Genèse</p>
+      <p class="text-[9px] tracking-[0.18em] uppercase text-[rgba(14,14,14,0.25)]">Rhode-Saint-Genèse</p>
     </div>
   </div>
 </section>
@@ -865,22 +868,22 @@
      CONTACT
 ════════════════════════════════════════ -->
 <section id="contact"
-  class="mt-[clamp(8rem,15vw,15rem)] px-[clamp(2rem,5.5vw,5.5rem)] pb-[clamp(6rem,12vw,12rem)] border-t border-[rgba(248,242,228,0.05)] pt-[clamp(6rem,10vw,10rem)]">
+  class="mt-[clamp(8rem,15vw,15rem)] px-[clamp(2rem,5.5vw,5.5rem)] pb-[clamp(6rem,12vw,12rem)] border-t border-[rgba(14,14,14,0.07)] pt-[clamp(6rem,10vw,10rem)]">
   <div class="max-w-[700px]">
     <span class="chapter-label mb-6 inline-block">Visite privée</span>
     <h2 class="section-title text-[clamp(44px,7vw,96px)]">
       Votre prochaine<br>résidence
     </h2>
-    <p class="rv-up mt-9 text-[12.5px] leading-[1.9] text-[rgba(248,242,228,0.35)] max-w-[440px]" data-delay="0.1">
+    <p class="rv-up mt-9 text-[12.5px] leading-[1.9] text-[rgba(14,14,14,0.5)] max-w-[440px]" data-delay="0.1">
       Pour organiser une visite privée ou recevoir un dossier confidentiel complet, contactez l'équipe Christie's International Real Estate.
     </p>
     <div class="rv-up mt-10 flex flex-col sm:flex-row gap-3" data-delay="0.18">
       <a href="tel:+3225551234"
-         class="inline-flex items-center justify-center px-7 py-[1.05rem] rounded-full border border-[rgba(248,242,228,0.12)] text-[10px] tracking-[0.14em] uppercase text-[rgba(248,242,228,0.55)] hover:border-[rgba(248,242,228,0.28)] hover:text-[rgba(248,242,228,0.85)] transition-all duration-300">
+         class="inline-flex items-center justify-center px-7 py-[1.05rem] rounded-full border border-[rgba(14,14,14,0.25)] text-[10px] tracking-[0.14em] uppercase text-[rgba(14,14,14,0.6)] hover:border-[rgba(14,14,14,0.35)] hover:text-[rgba(14,14,14,0.9)] transition-all duration-300">
         +32 2 555 12 34
       </a>
       <a href="mailto:belgium@christies.com"
-         class="inline-flex items-center justify-center px-7 py-[1.05rem] rounded-full bg-[rgba(248,242,228,0.06)] text-[10px] tracking-[0.14em] uppercase text-[rgba(248,242,228,0.6)] hover:bg-[rgba(248,242,228,0.1)] hover:text-[rgba(248,242,228,0.85)] transition-all duration-300">
+         class="inline-flex items-center justify-center px-7 py-[1.05rem] rounded-full bg-[rgba(14,14,14,0.07)] text-[10px] tracking-[0.14em] uppercase text-[rgba(14,14,14,0.65)] hover:bg-[rgba(14,14,14,0.18)] hover:text-[rgba(14,14,14,0.9)] transition-all duration-300">
         belgium@christies.com
       </a>
     </div>
@@ -889,10 +892,10 @@
 
 
 <!-- FOOTER -->
-<footer class="px-[clamp(2rem,5.5vw,5.5rem)] py-7 border-t border-[rgba(248,242,228,0.04)]">
+<footer class="px-[clamp(2rem,5.5vw,5.5rem)] py-7 border-t border-[rgba(14,14,14,0.07)]">
   <div class="flex items-center justify-between gap-4">
-    <p class="text-[9px] tracking-[0.14em] uppercase text-[rgba(248,242,228,0.18)]">Christie's International Real Estate</p>
-    <p class="text-[9px] tracking-[0.1em] text-[rgba(248,242,228,0.1)]">Villa Rhode · Rhode-Saint-Genèse</p>
+    <p class="text-[9px] tracking-[0.14em] uppercase text-[rgba(14,14,14,0.28)]">Christie's International Real Estate</p>
+    <p class="text-[9px] tracking-[0.1em] text-[rgba(14,14,14,0.18)]">Villa Rhode · Rhode-Saint-Genèse</p>
   </div>
 </footer>
 
