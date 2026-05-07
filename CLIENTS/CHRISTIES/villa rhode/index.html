@@ -405,7 +405,7 @@
      HERO
 ════════════════════════════════════════ -->
 <section id="hero">
-  <video class="hero-video" autoplay muted loop playsinline
+  <video class="hero-video" autoplay muted playsinline
     poster="images/8906584_1_20260408150341.jpg">
     <source src="videos/villa%20rhodes_Topaz%20Video%20Upscaler_2026-05-06_16-29-01.mp4" type="video/mp4">
   </video>
@@ -429,20 +429,76 @@
 
 
 <!-- ════════════════════════════════════════
-     CHAPTER 01 — LA RÉSIDENCE
+     VIDEO SEQUENCE — cinematic opening
 ════════════════════════════════════════ -->
-<section class="pt-[clamp(6rem,13vw,13rem)] pb-[clamp(4rem,7vw,7rem)] px-[clamp(2rem,5.5vw,5.5rem)]">
-  <span class="chapter-label mb-5 inline-block">01 — La Résidence</span>
-  <h2 class="section-title text-[clamp(38px,5.5vw,72px)] max-w-[740px]">
-    Une résidence à l'orée<br>de la Forêt de Soignes
-  </h2>
-  <p class="rv-up mt-8 text-[12.5px] leading-[1.9] text-[rgba(248,242,228,0.38)] max-w-[480px]"
-     data-delay="0.12">
-    Au cœur de Rhode-Saint-Genèse, cette villa contemporaine dialogue avec le paysage naturel qui l'entoure. Volumes généreux, matériaux nobles, lumière travaillée — chaque espace compose une vie rare.
-  </p>
+
+<!-- Pair 1: living room + kitchen -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-[3px] mt-[3px]">
+  <div class="vid-wrap aspect-wide">
+    <video autoplay muted loop playsinline>
+      <source src="videos/villa%20rhodes_Seedance%20V1.0_2026-05-06_15-49-12.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="vid-wrap aspect-wide">
+    <video autoplay muted loop playsinline>
+      <source src="videos/villa%20rhodes_Export_2026-05-05_20-45-28.mp4" type="video/mp4">
+    </video>
+  </div>
+</div>
+
+<!-- Aerial — full-width cinematic -->
+<div class="vid-wrap aspect-cinema mt-[3px]">
+  <video autoplay muted loop playsinline>
+    <source src="videos/villa%20rhodes_Seedance%20V1.0_2026-05-06_16-23-09.mp4" type="video/mp4">
+  </video>
+</div>
+
+<!-- Pair 2: two atmospheres -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-[3px] mt-[3px]">
+  <div class="vid-wrap aspect-wide">
+    <video autoplay muted loop playsinline>
+      <source src="videos/villa%20rhodes_Seedance%20V1.0_2026-05-06_16-11-42.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="vid-wrap aspect-wide">
+    <video autoplay muted loop playsinline>
+      <source src="videos/villa%20rhodes_Seedance%20V1.0_2026-05-06_16-40-23.mp4" type="video/mp4">
+    </video>
+  </div>
+</div>
+
+<!-- Sixth video — full width -->
+<div class="vid-wrap aspect-wide mt-[3px]">
+  <video autoplay muted loop playsinline>
+    <source src="videos/villa%20rhodes_Export_2026-05-06_15-35-14.mp4" type="video/mp4">
+  </video>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     NARRATIVE INTERLUDE
+════════════════════════════════════════ -->
+<section class="py-[clamp(7rem,14vw,14rem)] px-[clamp(2rem,5.5vw,5.5rem)]">
+  <div class="max-w-[680px]">
+    <p class="text-[clamp(11px,1.1vw,13px)] leading-[1.7] tracking-[0.01em] text-[rgba(248,242,228,0.28)] uppercase letter-spacing-[0.08em] mb-7 rv-up">
+      Rhode-Saint-Genèse · Bruxelles
+    </p>
+    <h2 class="section-title text-[clamp(34px,5vw,66px)] max-w-[620px]">
+      Il y a des maisons<br>que l'on n'oublie pas
+    </h2>
+    <p class="rv-up mt-10 text-[13px] leading-[2] text-[rgba(248,242,228,0.36)] max-w-[500px]"
+       data-delay="0.1">
+      Celles où le silence a du volume. Où la lumière entre comme une invitation. Aux portes de la Forêt de Soignes, cette villa contemporaine raconte une architecture qui refuse le compromis — chaque espace conçu pour qu'une vie rare puisse s'y déposer.
+    </p>
+  </div>
 </section>
 
-<!-- Portrait exterior — full width, natural proportions -->
+
+<!-- ════════════════════════════════════════
+     IMAGES — EXTERIOR SEQUENCE
+════════════════════════════════════════ -->
+
+<!-- Portrait exterior — full width, uncropped -->
 <div class="px-[clamp(1.25rem,2.5vw,2.5rem)]">
   <div class="rv-fade overflow-hidden rounded-[3px]">
     <img src="images/8906584_1_20260408150341.jpg"
@@ -451,7 +507,7 @@
   </div>
 </div>
 
-<!-- Image pair — exterior -->
+<!-- Exterior image pair -->
 <div class="grid grid-cols-2 gap-[3px] mt-[3px] px-[clamp(1.25rem,2.5vw,2.5rem)]">
   <div class="rv-fade overflow-hidden rounded-[3px]" data-delay="0">
     <img src="images/8906584_27_20260408150641.jpg" alt="" class="img-natural" loading="lazy">
@@ -461,37 +517,21 @@
   </div>
 </div>
 
-
-<!-- ════════════════════════════════════════
-     CHAPTER 02 — LA CUISINE  (VIDEO)
-════════════════════════════════════════ -->
-<section class="mt-[clamp(7rem,13vw,13rem)]">
-  <div class="px-[clamp(2rem,5.5vw,5.5rem)] mb-9">
-    <span class="chapter-label mb-4 inline-block">02 — La Cuisine</span>
-    <h2 class="section-title text-[clamp(32px,4.5vw,60px)]">L'art de la précision</h2>
-  </div>
-  <div class="vid-wrap aspect-wide rv-fade">
-    <video autoplay muted loop playsinline>
-      <source src="videos/villa%20rhodes_Export_2026-05-05_20-45-28.mp4" type="video/mp4">
-    </video>
-  </div>
-</section>
-
-<!-- Kitchen still below video -->
+<!-- Kitchen still -->
 <div class="mt-[3px] px-[clamp(1.25rem,2.5vw,2.5rem)]">
   <div class="rv-fade overflow-hidden rounded-[3px]">
-    <img src="images/8906584_3_20260408150549.jpg" alt="Cuisine — vue d'ensemble" class="img-natural" loading="lazy">
+    <img src="images/8906584_3_20260408150549.jpg" alt="" class="img-natural" loading="lazy">
   </div>
 </div>
 
 
 <!-- ════════════════════════════════════════
-     CHAPTER 03 — GALERIE (CAROUSEL)
+     CHAPTER 01 — GALERIE (CAROUSEL)
 ════════════════════════════════════════ -->
 <section class="mt-[clamp(7rem,13vw,13rem)]">
   <div class="px-[clamp(2rem,5.5vw,5.5rem)] mb-9 flex items-end justify-between gap-4">
     <div>
-      <span class="chapter-label mb-4 inline-block">03 — Galerie</span>
+      <span class="chapter-label mb-4 inline-block">01 — Intérieurs</span>
       <h2 class="section-title text-[clamp(32px,4.5vw,60px)]">Chaque espace, une scène</h2>
     </div>
     <p class="text-[10px] tracking-[0.14em] uppercase text-[rgba(248,242,228,0.2)] pb-1 shrink-0">Glissez →</p>
@@ -529,15 +569,14 @@
 
 
 <!-- ════════════════════════════════════════
-     CHAPTER 04 — L'ARCHITECTURE
+     CHAPTER 02 — L'ARCHITECTURE
 ════════════════════════════════════════ -->
 <section class="mt-[clamp(4rem,8vw,8rem)]">
   <div class="px-[clamp(2rem,5.5vw,5.5rem)] mb-9">
-    <span class="chapter-label mb-4 inline-block">04 — L'Architecture</span>
+    <span class="chapter-label mb-4 inline-block">02 — L'Architecture</span>
     <h2 class="section-title text-[clamp(32px,4.5vw,60px)]">La verticalité du vide</h2>
   </div>
 
-  <!-- Full-width image — uncropped -->
   <div class="px-[clamp(1.25rem,2.5vw,2.5rem)]">
     <div class="rv-fade overflow-hidden rounded-[3px]">
       <img src="images/8906584_5_20260408150637.jpg"
@@ -546,13 +585,12 @@
     </div>
   </div>
 
-  <!-- Text + specs + image split -->
   <div class="mt-[3px] px-[clamp(1.25rem,2.5vw,2.5rem)] grid grid-cols-1 md:grid-cols-2 gap-[3px]">
 
     <div class="rv-up flex flex-col justify-between p-[clamp(2.5rem,5vw,5rem)] bg-[rgba(248,242,228,0.02)] rounded-[3px]"
          data-delay="0">
-      <p class="text-[12.5px] leading-[1.9] text-[rgba(248,242,228,0.38)] max-w-[380px]">
-        La double hauteur du hall crée une verticalité saisissante. La lumière naturelle, filtrée par les puits de lumière zénithaux, compose des tableaux changeants au fil des heures.
+      <p class="text-[12.5px] leading-[2] text-[rgba(248,242,228,0.38)] max-w-[380px]">
+        La double hauteur du hall instaure une verticalité rare. L'espace respire. Le puits de lumière zénithal compose des tableaux changeants au fil des heures — la maison vit avec le soleil.
       </p>
 
       <div class="grid grid-cols-2 gap-x-8 gap-y-7 mt-12">
@@ -584,34 +622,11 @@
 
 
 <!-- ════════════════════════════════════════
-     CHAPTER 05 — VUE AÉRIENNE (VIDEO)
+     CHAPTER 03 — L'EXTÉRIEUR
 ════════════════════════════════════════ -->
 <section class="mt-[clamp(7rem,13vw,13rem)]">
   <div class="px-[clamp(2rem,5.5vw,5.5rem)] mb-9">
-    <span class="chapter-label mb-4 inline-block">05 — Vue d'ensemble</span>
-    <h2 class="section-title text-[clamp(32px,4.5vw,60px)]">Depuis les hauteurs</h2>
-  </div>
-  <div class="vid-wrap aspect-cinema rv-fade">
-    <video autoplay muted loop playsinline>
-      <source src="videos/villa%20rhodes_Seedance%20V1.0_2026-05-06_16-23-09.mp4" type="video/mp4">
-    </video>
-  </div>
-</section>
-
-<!-- Interior living room video — edge to edge -->
-<div class="vid-wrap aspect-wide mt-[3px] rv-fade">
-  <video autoplay muted loop playsinline>
-    <source src="videos/villa%20rhodes_Seedance%20V1.0_2026-05-06_15-49-12.mp4" type="video/mp4">
-  </video>
-</div>
-
-
-<!-- ════════════════════════════════════════
-     CHAPTER 06 — L'EXTÉRIEUR
-════════════════════════════════════════ -->
-<section class="mt-[clamp(7rem,13vw,13rem)]">
-  <div class="px-[clamp(2rem,5.5vw,5.5rem)] mb-9">
-    <span class="chapter-label mb-4 inline-block">06 — L'Extérieur</span>
+    <span class="chapter-label mb-4 inline-block">03 — L'Extérieur</span>
     <h2 class="section-title text-[clamp(32px,4.5vw,60px)]">La piscine, le jardin,<br>le silence</h2>
   </div>
 
@@ -629,23 +644,16 @@
         </div>
       </div>
     </div>
-
-    <!-- Fourth video -->
-    <div class="vid-wrap aspect-wide mt-[3px] rv-fade overflow-hidden rounded-[3px]">
-      <video autoplay muted loop playsinline>
-        <source src="videos/villa%20rhodes_Export_2026-05-06_15-35-14.mp4" type="video/mp4">
-      </video>
-    </div>
   </div>
 </section>
 
 
 <!-- ════════════════════════════════════════
-     CHAPTER 07 — PRESTATIONS (ACCORDION)
+     CHAPTER 04 — PRESTATIONS (ACCORDION)
 ════════════════════════════════════════ -->
 <section class="mt-[clamp(7rem,13vw,13rem)] px-[clamp(2rem,5.5vw,5.5rem)]">
   <div class="max-w-[760px]">
-    <span class="chapter-label mb-4 inline-block">07 — Prestations</span>
+    <span class="chapter-label mb-4 inline-block">04 — Prestations</span>
     <h2 class="section-title text-[clamp(32px,4.5vw,60px)] mb-14">Le détail qui change tout</h2>
 
     <div class="divide-y divide-[rgba(248,242,228,0.06)]">
@@ -707,13 +715,13 @@
      CHAPTER 08 — LOCALISATION
 ════════════════════════════════════════ -->
 <section class="mt-[clamp(7rem,13vw,13rem)] px-[clamp(2rem,5.5vw,5.5rem)]">
-  <span class="chapter-label mb-9 inline-block">08 — Localisation</span>
+  <span class="chapter-label mb-9 inline-block">05 — Localisation</span>
 
   <div class="grid grid-cols-1 md:grid-cols-2 gap-[clamp(3rem,7vw,7rem)] items-start">
     <div>
       <h2 class="section-title text-[clamp(30px,4vw,52px)]">Rhode-Saint-Genèse</h2>
-      <p class="rv-up mt-7 text-[12.5px] leading-[1.9] text-[rgba(248,242,228,0.38)]" data-delay="0.1">
-        À 15 minutes du centre de Bruxelles, Rhode-Saint-Genèse est l'une des communes résidentielles les plus prisées de la périphérie. Calme absolu, verdure omniprésente, à deux pas de la Forêt de Soignes.
+      <p class="rv-up mt-7 text-[12.5px] leading-[2] text-[rgba(248,242,228,0.38)]" data-delay="0.1">
+        Quinze minutes séparent cette résidence du centre de Bruxelles. La Forêt de Soignes est à cinq. Entre les deux, un calme absolu que peu d'endroits en Belgique peuvent encore offrir.
       </p>
       <div class="mt-9 space-y-4 rv-up" data-delay="0.18">
         <div class="flex items-baseline gap-5">
