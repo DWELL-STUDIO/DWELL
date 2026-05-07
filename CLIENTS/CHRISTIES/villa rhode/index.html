@@ -432,40 +432,44 @@
      VIDEO SEQUENCE — cinematic opening
 ════════════════════════════════════════ -->
 
-<div class="vid-wrap aspect-wide mt-[3px]">
-  <video autoplay muted loop playsinline>
-    <source src="videos/villa%20rhodes_Seedance%20V1.0_2026-05-06_15-49-12.mp4" type="video/mp4">
-  </video>
-</div>
+<div class="px-[clamp(1.25rem,2.5vw,2.5rem)] mt-[clamp(1.5rem,3vw,3rem)] space-y-[clamp(1rem,2vw,2rem)]">
 
-<div class="vid-wrap aspect-wide mt-[3px]">
-  <video autoplay muted loop playsinline>
-    <source src="videos/villa%20rhodes_Export_2026-05-05_20-45-28.mp4" type="video/mp4">
-  </video>
-</div>
+  <div class="vid-wrap aspect-wide rounded-[3px] overflow-hidden">
+    <video muted loop playsinline preload="metadata" class="seq-vid">
+      <source src="videos/villa%20rhodes_Seedance%20V1.0_2026-05-06_15-49-12.mp4" type="video/mp4">
+    </video>
+  </div>
 
-<div class="vid-wrap aspect-wide mt-[3px]">
-  <video autoplay muted loop playsinline>
-    <source src="videos/villa%20rhodes_Seedance%20V1.0_2026-05-06_16-23-09.mp4" type="video/mp4">
-  </video>
-</div>
+  <div class="vid-wrap aspect-wide rounded-[3px] overflow-hidden">
+    <video muted loop playsinline preload="metadata" class="seq-vid">
+      <source src="videos/villa%20rhodes_Export_2026-05-05_20-45-28.mp4" type="video/mp4">
+    </video>
+  </div>
 
-<div class="vid-wrap aspect-wide mt-[3px]">
-  <video autoplay muted loop playsinline>
-    <source src="videos/villa%20rhodes_Seedance%20V1.0_2026-05-06_16-11-42.mp4" type="video/mp4">
-  </video>
-</div>
+  <div class="vid-wrap aspect-wide rounded-[3px] overflow-hidden">
+    <video muted loop playsinline preload="metadata" class="seq-vid">
+      <source src="videos/villa%20rhodes_Seedance%20V1.0_2026-05-06_16-23-09.mp4" type="video/mp4">
+    </video>
+  </div>
 
-<div class="vid-wrap aspect-wide mt-[3px]">
-  <video autoplay muted loop playsinline>
-    <source src="videos/villa%20rhodes_Seedance%20V1.0_2026-05-06_16-40-23.mp4" type="video/mp4">
-  </video>
-</div>
+  <div class="vid-wrap aspect-wide rounded-[3px] overflow-hidden">
+    <video muted loop playsinline preload="metadata" class="seq-vid">
+      <source src="videos/villa%20rhodes_Seedance%20V1.0_2026-05-06_16-11-42.mp4" type="video/mp4">
+    </video>
+  </div>
 
-<div class="vid-wrap aspect-wide mt-[3px]">
-  <video autoplay muted loop playsinline>
-    <source src="videos/villa%20rhodes_Export_2026-05-06_15-35-14.mp4" type="video/mp4">
-  </video>
+  <div class="vid-wrap aspect-wide rounded-[3px] overflow-hidden">
+    <video muted loop playsinline preload="metadata" class="seq-vid">
+      <source src="videos/villa%20rhodes_Seedance%20V1.0_2026-05-06_16-40-23.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <div class="vid-wrap aspect-wide rounded-[3px] overflow-hidden">
+    <video muted loop playsinline preload="metadata" class="seq-vid">
+      <source src="videos/villa%20rhodes_Export_2026-05-06_15-35-14.mp4" type="video/mp4">
+    </video>
+  </div>
+
 </div>
 
 
@@ -936,6 +940,23 @@ document.querySelectorAll('.acc-toggle').forEach(toggle => {
   window.addEventListener('touchend',   up);
   outer.addEventListener('dragstart', e => e.preventDefault());
 })();
+
+/* ── SEQUENCE VIDEOS — play only when centered in viewport ── */
+const seqObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach(entry => {
+      const v = entry.target;
+      if (entry.isIntersecting) {
+        v.play().catch(() => {});
+      } else {
+        v.pause();
+      }
+    });
+  },
+  { rootMargin: '-20% 0px -20% 0px', threshold: 0 }
+);
+
+document.querySelectorAll('.seq-vid').forEach(v => seqObserver.observe(v));
 </script>
 
 </body>
