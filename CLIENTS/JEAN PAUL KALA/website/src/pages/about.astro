@@ -1,0 +1,226 @@
+---
+import { getCollection, getEntry, render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import ArtworkCard from '../components/ArtworkCard.astro';
+
+const about = await getEntry('pages', 'about');
+if (!about) return Astro.redirect('/');
+
+const { Content } = await render(about);
+const {
+  heroImage, heroImageAlt, heroQuote,
+  born, basedIn, medium, brand, email, phone,
+  exhibitionCities, featuredWorks,
+  seoTitle, seoDescription,
+} = about.data;
+
+const allArtworks = await getCollection('artworks');
+const featured = featuredWorks
+  ? featuredWorks.map((id) => allArtworks.find((a) => a.id === id)).filter(Boolean) as typeof allArtworks
+  : allArtworks.filter((a) => a.data.featured).slice(0, 4);
+---
+
+<BaseLayout
+  title="About"
+  description={seoDescription}
+  ogImage={heroImage}
+>
+  <Navigation slot="nav" />
+
+  <!-- HERO -->
+  {heroImage && (
+    <div class="about-hero">
+      <img src={heroImage} alt={heroImageAlt ?? 'Jean-Paul Kala'} class="about-hero-img" loading="eager" />
+      <div class="about-hero-overlay wrap--wide">
+        {heroQuote && (
+          <blockquote class="t-display hero-quote reveal">
+            &ldquo;{heroQuote}&rdquo;
+          </blockquote>
+        )}
+      </div>
+    </div>
+  )}
+
+  <!-- BIO -->
+  <div class="wrap about-body section">
+    <div class="about-main reveal">
+      <div class="prose">
+        <Content />
+      </div>
+    </div>
+
+    <aside class="about-facts reveal reveal-d2">
+      <dl class="facts-list">
+        {born && (
+          <div class="fact-row">
+            <dt class="t-eyebrow">Born</dt>
+            <dd class="t-body">{born}</dd>
+          </div>
+        )}
+        {basedIn && (
+          <div class="fact-row">
+            <dt class="t-eyebrow">Based in</dt>
+            <dd class="t-body">{basedIn}</dd>
+          </div>
+        )}
+        {medium && (
+          <div class="fact-row">
+            <dt class="t-eyebrow">Medium</dt>
+            <dd class="t-body">{medium}</dd>
+          </div>
+        )}
+        {brand && (
+          <div class="fact-row">
+            <dt class="t-eyebrow">Brand</dt>
+            <dd class="t-body">{brand}</dd>
+          </div>
+        )}
+        {exhibitionCities && exhibitionCities.length > 0 && (
+          <div class="fact-row">
+            <dt class="t-eyebrow">Exhibited in</dt>
+            <dd class="t-body">{exhibitionCities.join(' · ')}</dd>
+          </div>
+        )}
+        {email && (
+          <div class="fact-row">
+            <dt class="t-eyebrow">Email</dt>
+            <dd class="t-body">
+              <a href={`mailto:${email}`} class="link-arrow" style="font-size: 14px;">
+                {email} <span class="arrow">→</span>
+              </a>
+            </dd>
+          </div>
+        )}
+        {phone && (
+          <div class="fact-row">
+            <dt class="t-eyebrow">Phone</dt>
+            <dd class="t-body">{phone}</dd>
+          </div>
+        )}
+      </dl>
+    </aside>
+  </div>
+
+  <!-- FEATURED WORKS -->
+  {featured.length > 0 && (
+    <section class="section">
+      <div class="wrap--wide">
+        <div class="featured-head reveal">
+          <p class="t-eyebrow">Featured pieces</p>
+          <a href="/work" class="link-arrow">View all work <span class="arrow">→</span></a>
+        </div>
+        <div class="featured-grid">
+          {featured.map((a, i) => (
+            <ArtworkCard
+              title={a.data.title}
+              collection={a.data.collection}
+              year={a.data.year}
+              slug={a.id}
+              image={a.data.image}
+              status={a.data.status}
+              delay={i + 1}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <Footer slot="footer" />
+</BaseLayout>
+
+<style>
+  /* HERO */
+  .about-hero {
+    position: relative;
+    padding-top: var(--nav-h);
+    overflow: hidden;
+    max-height: 80vh;
+    background: var(--color-bg-elevated);
+  }
+
+  .about-hero-img {
+    width: 100%;
+    height: 80vh;
+    object-fit: cover;
+    object-position: center 30%;
+    display: block;
+  }
+
+  .about-hero-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding-bottom: clamp(40px, 5vw, 80px);
+    background: linear-gradient(to top, rgba(10,10,10,0.7) 0%, transparent 100%);
+    padding-top: 96px;
+  }
+
+  .hero-quote {
+    color: var(--color-fg);
+    max-width: 640px;
+  }
+
+  /* BIO */
+  .about-body {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: clamp(48px, 6vw, 96px);
+    align-items: start;
+  }
+
+  .prose :global(p) {
+    font-size: clamp(16px, 1.2vw, 19px);
+    font-weight: 400;
+    line-height: 1.7;
+    color: var(--color-fg-muted);
+    margin-bottom: 1.3em;
+    max-width: 62ch;
+  }
+
+  .prose :global(strong) { font-weight: 500; color: var(--color-fg); }
+  .prose :global(em) { font-style: italic; }
+
+  .prose :global(img) {
+    width: 100%;
+    margin-block: 40px;
+  }
+
+  /* FACTS */
+  .facts-list { display: grid; gap: 0; }
+
+  .fact-row {
+    border-top: 1px solid var(--color-line);
+    padding-block: 20px;
+    display: grid;
+    gap: 6px;
+  }
+
+  /* FEATURED */
+  .featured-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 48px;
+  }
+
+  .featured-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 48px;
+  }
+
+  @media (max-width: 1023px) {
+    .about-body { grid-template-columns: 1fr; }
+    .about-facts { border-top: 1px solid var(--color-line); padding-top: 48px; }
+    .featured-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .about-hero-img { height: 60vw; }
+  }
+
+  @media (max-width: 599px) {
+    .featured-grid { grid-template-columns: 1fr; gap: 24px; }
+  }
+</style>

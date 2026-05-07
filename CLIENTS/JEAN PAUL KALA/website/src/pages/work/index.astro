@@ -1,0 +1,144 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navigation from '../../components/Navigation.astro';
+import Footer from '../../components/Footer.astro';
+import ArtworkCard from '../../components/ArtworkCard.astro';
+import { getCollection } from 'astro:content';
+
+const artworks = await getCollection('artworks');
+
+const collectionDefs = [
+  { id: 'animals', label: 'Animals' },
+  { id: 'feminine-figures', label: 'Feminine Figures' },
+  { id: 'cars', label: 'Cars' },
+  { id: 'nature', label: 'Nature' },
+  { id: 'figurative', label: 'Figurative' },
+] as const;
+
+const available = collectionDefs.filter((c) =>
+  artworks.some((a) => a.data.collection === c.id),
+);
+---
+
+<BaseLayout
+  title="Collections"
+  description="Explore the complete works of Jean-Paul Kala — 23 sculptures across Animals, Feminine Figures, Cars, Nature, and Figurative series."
+>
+  <Navigation slot="nav" />
+
+  <section class="page-hero section">
+    <div class="wrap--wide">
+      <h1 class="t-display reveal">Collections</h1>
+      <p class="t-body-l reveal reveal-d1" style="margin-top: 24px;">
+        {artworks.length} works across {available.length} series
+      </p>
+    </div>
+  </section>
+
+  <!-- Filter -->
+  <div class="filter-bar wrap--wide reveal">
+    <button class="filter-btn t-eyebrow active" data-filter="all">All</button>
+    {available.map((c) => (
+      <button class="filter-btn t-eyebrow" data-filter={c.id}>
+        {c.label}
+      </button>
+    ))}
+  </div>
+
+  <!-- Grid -->
+  <div class="work-grid wrap--wide" id="workGrid">
+    {artworks.map((a) => (
+      <div class="grid-item" data-collection={a.data.collection}>
+        <ArtworkCard
+          title={a.data.title}
+          collection={a.data.collection}
+          year={a.data.year}
+          slug={a.id}
+          image={a.data.image}
+          status={a.data.status}
+        />
+      </div>
+    ))}
+  </div>
+
+  <div style="height: 128px;"></div>
+
+  <Footer slot="footer" />
+</BaseLayout>
+
+<style>
+  .page-hero {
+    padding-top: calc(var(--nav-h) + 96px);
+    padding-bottom: 64px;
+  }
+
+  .filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 48px;
+  }
+
+  .filter-btn {
+    background: none;
+    border: 1px solid var(--color-line);
+    padding: 8px 16px;
+    color: var(--color-fg-muted);
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+  }
+
+  .filter-btn:hover {
+    color: var(--color-fg);
+    border-color: var(--color-fg-muted);
+  }
+
+  .filter-btn.active {
+    background: var(--color-fg);
+    color: var(--color-bg);
+    border-color: var(--color-fg);
+  }
+
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 48px;
+  }
+
+  .grid-item {
+    transition: opacity 0.25s ease-out;
+  }
+
+  .grid-item.hidden {
+    display: none;
+  }
+
+  @media (max-width: 1199px) {
+    .work-grid { grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  }
+
+  @media (max-width: 767px) {
+    .work-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  }
+
+  @media (max-width: 479px) {
+    .work-grid { grid-template-columns: 1fr; gap: 24px; }
+  }
+</style>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+  const items   = document.querySelectorAll<HTMLElement>('.grid-item');
+
+  function setFilter(filter: string) {
+    buttons.forEach((btn) => btn.classList.toggle('active', btn.dataset.filter === filter));
+    items.forEach((item) => item.classList.toggle('hidden', filter !== 'all' && item.dataset.collection !== filter));
+    const url = new URL(window.location.href);
+    filter === 'all' ? url.searchParams.delete('collection') : url.searchParams.set('collection', filter);
+    window.history.replaceState({}, '', url.toString());
+  }
+
+  const init = new URLSearchParams(window.location.search).get('collection') ?? 'all';
+  setFilter(init);
+
+  buttons.forEach((btn) => btn.addEventListener('click', () => setFilter(btn.dataset.filter ?? 'all')));
+</script>

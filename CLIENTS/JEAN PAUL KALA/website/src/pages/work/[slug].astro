@@ -1,0 +1,306 @@
+---
+import { getCollection, render } from 'astro:content';
+import { Image } from 'astro:assets';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navigation from '../../components/Navigation.astro';
+import Footer from '../../components/Footer.astro';
+import ArtworkCard from '../../components/ArtworkCard.astro';
+
+export async function getStaticPaths() {
+  const artworks = await getCollection('artworks');
+  return artworks.map((a) => ({ params: { slug: a.id }, props: { artwork: a } }));
+}
+
+const { artwork } = Astro.props;
+const { Content } = await render(artwork);
+const { title, collection, year, dimensions, materials, edition, tagline, status, image, gallery } = artwork.data;
+
+const collectionLabel = collection.replace(/-/g, ' ');
+const statusLabel: Record<string, string> = {
+  available: 'Available',
+  sold: 'Sold',
+  'on-loan': 'On loan',
+  commission: 'Commission',
+};
+
+const allArtworks = await getCollection('artworks');
+const related = allArtworks
+  .filter((a) => a.id !== artwork.id && a.data.collection === collection)
+  .slice(0, 4);
+---
+
+<BaseLayout title={title} description={tagline ?? `${title} — ${collectionLabel} by Jean-Paul Kala`}>
+  <Navigation slot="nav" />
+
+  <!-- HERO IMAGE -->
+  <div class="artwork-hero">
+    <Image
+      src={image}
+      alt={`${title} — ${collectionLabel} by Jean-Paul Kala`}
+      width={1600}
+      height={1067}
+      class="artwork-hero-img"
+      loading="eager"
+    />
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="wrap--wide artwork-body section">
+    <!-- Metadata (left) -->
+    <aside class="artwork-specs reveal">
+      <p class="t-eyebrow specs-collection">{collectionLabel}</p>
+      <h1 class="t-h1 specs-title">{title}</h1>
+      {tagline && <p class="t-body specs-tagline">{tagline}</p>}
+
+      <dl class="specs-dl">
+        {dimensions && (
+          <div class="spec-row">
+            <dt class="t-eyebrow">Dimensions</dt>
+            <dd class="t-caption">{dimensions}</dd>
+          </div>
+        )}
+        {materials && (
+          <div class="spec-row">
+            <dt class="t-eyebrow">Materials</dt>
+            <dd class="t-caption">{materials}</dd>
+          </div>
+        )}
+        {year && (
+          <div class="spec-row">
+            <dt class="t-eyebrow">Year</dt>
+            <dd class="t-caption">{year}</dd>
+          </div>
+        )}
+        {edition && (
+          <div class="spec-row">
+            <dt class="t-eyebrow">Edition</dt>
+            <dd class="t-caption">{edition}</dd>
+          </div>
+        )}
+        <div class="spec-row">
+          <dt class="t-eyebrow">Status</dt>
+          <dd class:list={['t-caption', status === 'sold' && 'status-sold']}>
+            {statusLabel[status]}
+          </dd>
+        </div>
+      </dl>
+
+      <a href={`/contact?piece=${artwork.id}`} class="link-arrow specs-inquire">
+        Inquire about this piece <span class="arrow">→</span>
+      </a>
+    </aside>
+
+    <!-- Description (right) -->
+    <div class="artwork-desc reveal reveal-d1">
+      <div class="prose">
+        <Content />
+      </div>
+    </div>
+  </div>
+
+  <!-- GALLERY -->
+  {gallery && gallery.length > 0 && (
+    <div class="gallery wrap--wide">
+      <p class="t-eyebrow reveal" style="margin-bottom: 32px;">Gallery</p>
+      <div class="gallery-grid">
+        {gallery.map((url, i) => (
+          <div class="gallery-item reveal" style={`transition-delay: ${(i % 4) * 0.06}s`}>
+            <img
+              src={url}
+              alt={`${title} — view ${i + 1}`}
+              loading="lazy"
+              class="gallery-img"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  )}
+
+  <!-- RELATED -->
+  {related.length > 0 && (
+    <section class="section related">
+      <div class="wrap--wide">
+        <div class="related-head reveal">
+          <p class="t-eyebrow">More from {collectionLabel}</p>
+          <a href={`/work?collection=${collection}`} class="link-arrow">
+            See all <span class="arrow">→</span>
+          </a>
+        </div>
+        <div class="related-grid">
+          {related.map((a, i) => (
+            <ArtworkCard
+              title={a.data.title}
+              collection={a.data.collection}
+              year={a.data.year}
+              slug={a.id}
+              image={a.data.image}
+              status={a.data.status}
+              delay={i + 1}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- STICKY CTA (desktop) -->
+  <a href={`/contact?piece=${artwork.id}`} class="sticky-cta link-arrow" id="stickyCta">
+    Inquire about this piece <span class="arrow">→</span>
+  </a>
+
+  <Footer slot="footer" />
+</BaseLayout>
+
+<style>
+  /* HERO */
+  .artwork-hero {
+    padding-top: var(--nav-h);
+    overflow: hidden;
+    max-height: 75vh;
+    background: var(--color-bg-elevated);
+  }
+
+  .artwork-hero-img {
+    width: 100%;
+    height: 75vh;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* BODY */
+  .artwork-body {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: clamp(48px, 6vw, 96px);
+    align-items: start;
+  }
+
+  /* SPECS */
+  .specs-collection {
+    margin-bottom: 12px;
+    text-transform: capitalize;
+  }
+
+  .specs-title { margin-bottom: 16px; }
+
+  .specs-tagline {
+    font-style: italic;
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .specs-dl {
+    display: grid;
+    gap: 0;
+    margin-bottom: 40px;
+  }
+
+  .spec-row {
+    border-top: 1px solid var(--color-line);
+    padding-block: 16px;
+    display: grid;
+    gap: 4px;
+  }
+
+  .status-sold {
+    text-decoration: line-through;
+    color: var(--color-fg-muted);
+    opacity: 0.5;
+  }
+
+  .specs-inquire { display: inline-flex; }
+
+  /* DESCRIPTION */
+  .prose { max-width: 560px; }
+
+  .prose :global(p) {
+    font-size: clamp(16px, 1.2vw, 18px);
+    font-weight: 400;
+    line-height: 1.65;
+    color: var(--color-fg-muted);
+    margin-bottom: 1.2em;
+  }
+
+  .prose :global(strong) { font-weight: 500; color: var(--color-fg); }
+  .prose :global(em) { font-style: italic; }
+
+  /* GALLERY */
+  .gallery {
+    padding-bottom: 128px;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+  }
+
+  .gallery-img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+    background: var(--color-bg-elevated);
+    transition: transform 600ms ease-out;
+  }
+
+  .gallery-item:hover .gallery-img { transform: scale(1.01); }
+
+  /* RELATED */
+  .related-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 48px;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 48px;
+  }
+
+  /* STICKY CTA */
+  .sticky-cta {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 50;
+    padding: 4px 0;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(8px);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  }
+
+  .sticky-cta.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 1023px) {
+    .artwork-body { grid-template-columns: 1fr; }
+    .artwork-specs { border-bottom: 1px solid var(--color-line); padding-bottom: 48px; }
+    .related-grid  { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .sticky-cta    { display: none; }
+  }
+
+  @media (max-width: 767px) {
+    .artwork-hero-img { height: 56vw; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .related-grid  { grid-template-columns: 1fr; gap: 24px; }
+  }
+</style>
+
+<script>
+  const cta  = document.getElementById('stickyCta');
+  const hero = document.querySelector('.artwork-hero');
+
+  if (cta && hero) {
+    const io = new IntersectionObserver(([e]) => cta.classList.toggle('visible', !e.isIntersecting));
+    io.observe(hero);
+  }
+</script>

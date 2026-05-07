@@ -1,0 +1,282 @@
+---
+const pathname = Astro.url.pathname;
+
+const collections = [
+  { id: 'animals', label: 'Animals' },
+  { id: 'feminine-figures', label: 'Feminine Figures' },
+  { id: 'cars', label: 'Cars' },
+  { id: 'nature', label: 'Nature' },
+  { id: 'figurative', label: 'Figurative' },
+];
+
+function isActive(href: string) {
+  if (href === '/') return pathname === '/';
+  return pathname.startsWith(href);
+}
+---
+
+<header class="nav" id="site-nav">
+  <div class="nav-inner wrap--wide">
+    <a href="/" class="nav-logo">Jean-Paul Kala</a>
+
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="/" class:list={['nav-link', { active: isActive('/') }]}>Home</a>
+
+      <div class="nav-item">
+        <a href="/work" class:list={['nav-link', { active: isActive('/work') }]}>
+          Collections
+        </a>
+        <ul class="nav-dropdown" role="list">
+          {collections.map((c) => (
+            <li>
+              <a href={`/work?collection=${c.id}`} class="nav-dropdown-link">
+                {c.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <a href="/about" class:list={['nav-link', { active: isActive('/about') }]}>About</a>
+      <a href="/contact" class:list={['nav-link', { active: isActive('/contact') }]}>Contact</a>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile full-screen overlay -->
+<div class="nav-overlay" id="navOverlay" aria-hidden="true" role="dialog" aria-label="Navigation">
+  <button class="nav-overlay-close t-eyebrow" id="navClose" aria-label="Close menu">Close</button>
+  <nav class="nav-overlay-nav">
+    <a href="/" class="nav-overlay-link t-h1">Home</a>
+    <a href="/work" class="nav-overlay-link t-h1">Collections</a>
+    <div class="nav-overlay-sub-group">
+      {collections.map((c) => (
+        <a href={`/work?collection=${c.id}`} class="nav-overlay-sub t-eyebrow">
+          {c.label}
+        </a>
+      ))}
+    </div>
+    <a href="/about" class="nav-overlay-link t-h1">About</a>
+    <a href="/contact" class="nav-overlay-link t-h1">Contact</a>
+  </nav>
+</div>
+
+<style>
+  /* ── Header ───────────────────────────────── */
+  .nav {
+    position: fixed;
+    inset-block-start: 0;
+    inset-inline: 0;
+    z-index: 100;
+    height: var(--nav-h);
+    border-bottom: 1px solid transparent;
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+
+  .nav.scrolled {
+    background: var(--color-bg);
+    border-bottom-color: var(--color-line);
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  /* ── Logo ─────────────────────────────────── */
+  .nav-logo {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: var(--color-fg);
+  }
+
+  /* ── Desktop links ────────────────────────── */
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .nav-link {
+    position: relative;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: var(--color-fg-muted);
+    padding-bottom: 3px;
+    transition: color 0.2s ease-out;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--color-fg);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.2s ease-out;
+  }
+
+  .nav-link:hover { color: var(--color-fg); }
+  .nav-link.active { color: var(--color-fg); }
+  .nav-link.active::after { transform: scaleX(1); }
+
+  /* ── Collections dropdown ─────────────────── */
+  .nav-item { position: relative; }
+
+  .nav-dropdown {
+    position: absolute;
+    top: calc(100% + 16px);
+    left: -16px;
+    list-style: none;
+    background: var(--color-bg-elevated);
+    border: 1px solid var(--color-line);
+    padding: 8px 0;
+    min-width: 176px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.15s ease-out, visibility 0.15s ease-out;
+  }
+
+  .nav-item:hover .nav-dropdown,
+  .nav-item:focus-within .nav-dropdown {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .nav-dropdown-link {
+    display: block;
+    padding: 9px 20px;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: var(--color-fg-muted);
+    transition: color 0.15s, background 0.15s;
+  }
+
+  .nav-dropdown-link:hover {
+    color: var(--color-fg);
+    background: var(--color-line);
+  }
+
+  /* ── Hamburger ────────────────────────────── */
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 7px;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 1px;
+    background: var(--color-fg);
+    transition: transform 0.3s, opacity 0.3s;
+  }
+
+  /* ── Mobile overlay ───────────────────────── */
+  .nav-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: var(--color-bg);
+    display: flex;
+    flex-direction: column;
+    padding: 32px var(--pad-x);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease-out;
+  }
+
+  .nav-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-overlay-close {
+    align-self: flex-end;
+    background: none;
+    border: none;
+    color: var(--color-fg-muted);
+    margin-bottom: 48px;
+    transition: color 0.2s;
+  }
+
+  .nav-overlay-close:hover { color: var(--color-fg); }
+
+  .nav-overlay-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .nav-overlay-link {
+    color: var(--color-fg);
+    transition: color 0.2s;
+  }
+
+  .nav-overlay-link:hover { color: var(--color-fg-muted); }
+
+  .nav-overlay-sub-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-left: 16px;
+    border-left: 1px solid var(--color-line);
+  }
+
+  .nav-overlay-sub {
+    color: var(--color-fg-muted);
+    transition: color 0.2s;
+  }
+
+  .nav-overlay-sub:hover { color: var(--color-fg); }
+
+  @media (max-width: 767px) {
+    .nav-links { display: none; }
+    .nav-toggle { display: flex; }
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const overlay = document.getElementById('navOverlay');
+  const close = document.getElementById('navClose');
+
+  function openMenu() {
+    overlay?.classList.add('open');
+    overlay?.removeAttribute('aria-hidden');
+    toggle?.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    overlay?.classList.remove('open');
+    overlay?.setAttribute('aria-hidden', 'true');
+    toggle?.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  toggle?.addEventListener('click', openMenu);
+  close?.addEventListener('click', closeMenu);
+
+  // Close on nav link click
+  overlay?.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeMenu));
+</script>

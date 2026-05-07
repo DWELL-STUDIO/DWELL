@@ -1,0 +1,72 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <hr class="divider" />
+  <div class="wrap--wide footer-inner">
+    <div class="footer-row footer-row--top">
+      <a href="/" class="footer-logo">Jean-Paul Kala</a>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="/" class="footer-link t-eyebrow">Home</a>
+        <a href="/work" class="footer-link t-eyebrow">Collections</a>
+        <a href="/about" class="footer-link t-eyebrow">About</a>
+        <a href="/contact" class="footer-link t-eyebrow">Contact</a>
+      </nav>
+    </div>
+    <div class="footer-row footer-row--bottom">
+      <p class="t-caption">&copy; {year} Jean-Paul Kala. All rights reserved.</p>
+      <p class="t-caption">Brussels, Belgium</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    margin-top: 128px;
+    padding-bottom: 48px;
+  }
+
+  @media (max-width: 768px) {
+    .footer { margin-top: 64px; }
+  }
+
+  .footer-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding-top: 40px;
+  }
+
+  .footer-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .footer-logo {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: var(--color-fg);
+  }
+
+  .footer-nav {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .footer-link {
+    color: var(--color-fg-muted);
+    transition: color 0.2s;
+  }
+
+  .footer-link:hover { color: var(--color-fg); }
+
+  @media (max-width: 599px) {
+    .footer-row { flex-direction: column; align-items: flex-start; }
+    .footer-nav { gap: 20px; }
+  }
+</style>

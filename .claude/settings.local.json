@@ -21,7 +21,16 @@
       "Bash(ln -sf \"/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code\" ~/bin/code)",
       "Read(//Users/romeomaigraijbotta/**)",
       "Bash(export PATH=\"$HOME/bin:$PATH\")",
-      "Bash(git pull:*)"
+      "Bash(git pull:*)",
+      "mcp__claude_ai_Figma__get_design_context",
+      "Bash(mkdir -p /Users/matteomaigray/Desktop/DWELL/SITE/design-system)",
+      "Bash(mkdir -p /Users/matteomaigray/Desktop/DWELL/SITE/microsites/real-estate/css)",
+      "Bash(mkdir -p /Users/matteomaigray/Desktop/DWELL/SITE/microsites/real-estate/assets)",
+      "Bash(mkdir -p /Users/matteomaigray/Desktop/DWELL/scripts)",
+      "Bash(mkdir -p /Users/matteomaigray/Desktop/DWELL/SITE/assets/placeholders)",
+      "Bash(pip3 list *)",
+      "Bash(python3 *)",
+      "WebFetch(domain:www.christiesrealestatebelgium.be)"
     ]
   }
 }
