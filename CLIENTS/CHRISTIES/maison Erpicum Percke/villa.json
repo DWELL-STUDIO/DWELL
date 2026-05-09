@@ -1,0 +1,160 @@
+{
+  "_doc": "Maison Erpicum (réf. 12-0193) — Villa Bruno Erpicum à Uccle, quartier Prince d'Orange. Données extraites de https://www.christiesrealestatebelgium.be/fr/property/8715417/12-0193-villa-te-uccle-fr/ + 17 photos téléchargées. AUCUNE vidéo disponible — sections films/aérien adaptées en images statiques.",
+
+  "identity": {
+    "name": "Maison Erpicum",
+    "name_short": "Maison Erpicum",
+    "reference": "12-0193",
+    "status": "Disponible",
+    "tagline": "On n'habite pas une œuvre. On l'éprouve.",
+    "meta_title": "Maison Erpicum — Christie's International Real Estate",
+    "meta_description": "Villa contemporaine signée Bruno Erpicum, quartier Prince d'Orange à Uccle. 622 m² habitables, 1.900 m² de terrain paysager, 5 chambres, piscines intérieure et extérieure."
+  },
+
+  "location": {
+    "city": "Uccle",
+    "country": "Belgique",
+    "region": "quartier Prince d'Orange",
+    "neighborhood_label": "Uccle, quartier Prince d'Orange.",
+    "coordinates": "50.8000° N · 4.3500° E",
+    "intro_paragraph": "Posée dans le quartier recherché du Prince d'Orange, sur un terrain paysager de 18 ares, cette villa contemporaine signée Bruno Erpicum développe ses volumes en porte-à-faux au-dessus de la piscine. Trois niveaux desservis par ascenseur, à quelques minutes du centre de Bruxelles.",
+    "facts": [
+      { "label": "Architecte",            "value": "Bruno Erpicum" },
+      { "label": "Quartier",              "value": "Prince d'Orange" },
+      { "label": "Bruxelles centre",      "value": "± 10 min" },
+      { "label": "Aéroport",              "value": "± 25 min" },
+      { "label": "Écoles internationales","value": "à proximité" }
+    ]
+  },
+
+  "specs": {
+    "surfaces": {
+      "habitable_m2":  "622",
+      "terrain_m2":    "1 900",
+      "jardin_m2":     "1 900"
+    },
+    "distribution": {
+      "chambres":         "5",
+      "salles_de_bains":  "5",
+      "stationnement":    "4"
+    },
+    "construction": {
+      "annee_construction": "2010",
+      "annee_renovation":   "2010",
+      "peb":                "C"
+    }
+  },
+
+  "price": {
+    "amount_display": "3 950 000 €",
+    "amount_numeric": 3950000,
+    "currency": "EUR"
+  },
+
+  "agent": {
+    "name": "Jean-Marc Delcroix",
+    "agency": "Christie's International Real Estate",
+    "biv": "BIV 504471",
+    "phone_office_display": "+32 (0)2 808 03 64",
+    "phone_office_tel":     "tel:+3228080364",
+    "phone_mobile_display": "+32 (0)474 74 08 07",
+    "phone_mobile_tel":     "tel:+32474740807",
+    "email": "jmd@christiesrealestatebelgium.be",
+    "email_subject": "Demande de visite — Maison Erpicum",
+    "portrait_image": "assets/images/8715417_4_20260122143308.jpg"
+  },
+
+  "hero": {
+    "video":  null,
+    "poster": "assets/images/8715417_1_20260122143307.jpg",
+    "title_main": "Maison Erpicum",
+    "_title_alt_index_html": ["Une œuvre", "d'architecture."],
+    "_lede_index_html": "Maison Erpicum. <strong>622 m²</strong> habitables, posés sur <strong>1.900 m²</strong> de terrain paysager, quartier Prince d'Orange."
+  },
+
+  "jour_nuit": {
+    "section_title": "Deux visages de la même villa.",
+    "section_description": "La même architecture, deux lectures : depuis le jardin, le porte-à-faux suspendu au-dessus de la piscine ; depuis la rue, la transparence des baies coulissantes.",
+    "image_jour": "assets/images/8715417_1_20260122143307.jpg",
+    "image_nuit": "assets/images/8715417_3_20260122143308.jpg"
+  },
+
+  "spaces": {
+    "section_title": "Neuf univers, un même langage.",
+    "items": [
+      { "n": "01", "title": "Vue aérienne",            "description": "Toit-terrasse photovoltaïque, parc paysager, volumes blancs émergeant des frondaisons.",       "image": "assets/images/8715417_2_20260122143307.jpg"  },
+      { "n": "02", "title": "Le porte-à-faux",         "description": "Volume blanc suspendu au-dessus du bassin, signature de l'écriture Erpicum.",                  "image": "assets/images/8715417_14_20260122143310.jpg" },
+      { "n": "03", "title": "Le hall béton",           "description": "Escalier sculpté en béton ciré, double hauteur, jardin vertical en arrière-plan.",            "image": "assets/images/8715417_7_20260122143308.jpg"  },
+      { "n": "04", "title": "La cuisine",              "description": "Îlot monolithique en pierre noire, batterie d'électroménager Miele, ouverture sur le jardin.","image": "assets/images/8715417_8_20260122143308.jpg"  },
+      { "n": "05", "title": "La mezzanine",            "description": "Béton ciré, baies pleine hauteur, lecture traversante de l'architecture.",                    "image": "assets/images/8715417_4_20260122143308.jpg"  },
+      { "n": "06", "title": "La terrasse panoramique", "description": "Couverte par le porte-à-faux, dalles cendrées, baies coulissantes pleine hauteur.",          "image": "assets/images/8715417_5_20260122143308.jpg"  },
+      { "n": "07", "title": "La piscine extérieure",   "description": "Bassin allongé en bordure du jardin, transats minéraux, écran végétal continu.",              "image": "assets/images/8715417_6_20260122143308.jpg"  },
+      { "n": "08", "title": "La piscine intérieure",   "description": "Eau bleu turquoise, mur végétal, lumière filtrée — connexion visuelle au jardin.",            "image": "assets/images/8715417_13_20260122143310.jpg" },
+      { "n": "09", "title": "Le spa & hammam",         "description": "Mosaïque cendrée, hammam vitré, ouverture directe sur la piscine intérieure.",                "image": "assets/images/8715417_17_20260122143311.jpg" }
+    ]
+  },
+
+  "amenities": {
+    "section_title": "Douze raisons de visiter.",
+    "items": [
+      { "icon": "Droplet",   "title": "Piscine extérieure" },
+      { "icon": "Waves",     "title": "Piscine intérieure" },
+      { "icon": "Flame",     "title": "Hammam" },
+      { "icon": "Film",      "title": "Salon foyer ouvert" },
+      { "icon": "Car",       "title": "Garage 4 voitures" },
+      { "icon": "Wind",      "title": "Climatisation" },
+      { "icon": "BookOpen",  "title": "Bureau indépendant" },
+      { "icon": "Sparkles",  "title": "Suite parentale" },
+      { "icon": "Maximize2", "title": "Terrasses panoramiques" },
+      { "icon": "Sun",       "title": "34 panneaux photovoltaïques" },
+      { "icon": "ArrowUpDown", "title": "Ascenseur" },
+      { "icon": "Home",      "title": "Appartement indépendant" }
+    ]
+  },
+
+  "films": {
+    "_note": "Aucune vidéo disponible. Section adaptée — les 4 cards utilisent des photos statiques.",
+    "section_title": "Quatre cadrages, un mouvement.",
+    "items": [
+      { "title": "La cuisine.",            "description": "Îlot monolithique en pierre noire, plan continu, batterie Miele intégrée. Ouverture sur la terrasse couverte par le porte-à-faux.", "image": "assets/images/8715417_8_20260122143308.jpg"  },
+      { "title": "La piscine extérieure.", "description": "Bassin allongé sous le volume suspendu, dalles cendrées, transats minéraux, écran végétal continu sur tout le pourtour.",            "image": "assets/images/8715417_14_20260122143310.jpg" },
+      { "title": "La mezzanine.",          "description": "Béton ciré au sol, baies pleine hauteur sur le jardin, jeu de pleins et de vides — la signature Erpicum.",                            "image": "assets/images/8715417_4_20260122143308.jpg"  },
+      { "title": "La piscine intérieure.", "description": "Eau bleu turquoise, mur végétal en vis-à-vis, hammam vitré attenant. La piscine d'hiver, ouverte sur le parc.",                       "image": "assets/images/8715417_13_20260122143310.jpg" }
+    ]
+  },
+
+  "aerial_film": {
+    "_note": "Aucune vidéo aérienne disponible. Remplacée par la photo drone (8715417_2).",
+    "section_title": "La maison, vue d'en haut.",
+    "image": "assets/images/8715417_2_20260122143307.jpg"
+  },
+
+  "gallery": {
+    "section_title": "Dix-sept regards sur la villa.",
+    "count": 17,
+    "images": [
+      "assets/images/8715417_1_20260122143307.jpg",
+      "assets/images/8715417_2_20260122143307.jpg",
+      "assets/images/8715417_3_20260122143308.jpg",
+      "assets/images/8715417_4_20260122143308.jpg",
+      "assets/images/8715417_5_20260122143308.jpg",
+      "assets/images/8715417_6_20260122143308.jpg",
+      "assets/images/8715417_7_20260122143308.jpg",
+      "assets/images/8715417_8_20260122143308.jpg",
+      "assets/images/8715417_9_20260122143309.jpg",
+      "assets/images/8715417_10_20260122143309.jpg",
+      "assets/images/8715417_11_20260122143309.jpg",
+      "assets/images/8715417_12_20260122143310.jpg",
+      "assets/images/8715417_13_20260122143310.jpg",
+      "assets/images/8715417_14_20260122143310.jpg",
+      "assets/images/8715417_15_20260122143310.jpg",
+      "assets/images/8715417_16_20260122143311.jpg",
+      "assets/images/8715417_17_20260122143311.jpg"
+    ]
+  },
+
+  "contextual_images": {
+    "agent_card_interior": "assets/images/8715417_8_20260122143308.jpg",
+    "location_section":    "assets/images/8715417_16_20260122143311.jpg"
+  }
+}

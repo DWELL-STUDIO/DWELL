@@ -1,0 +1,169 @@
+{
+  "_doc": "Single source of truth for villa-specific data. Claude reads _RAW_INPUT/, fills this, then propagates into index.html / v2.html / vtel.html via the token table in CLAUDE.md. Villa Rhode is left here as the reference example — overwrite all values for a new property.",
+
+  "identity": {
+    "name": "Villa Rhode",
+    "name_short": "Villa Rhode",
+    "reference": "12-0301",
+    "status": "Disponible",
+    "tagline": "On n'habite pas une villa. On l'interprète.",
+    "meta_title": "Villa Rhode — Christie's International Real Estate",
+    "meta_description": "Villa d'architecte d'exception à Rhode-Saint-Genèse, en lisière de la Forêt de Soignes. 684 m² habitables, terrain de 2.662 m², 5 chambres."
+  },
+
+  "location": {
+    "city": "Rhode-Saint-Genèse",
+    "country": "Belgique",
+    "region": "en lisière de forêt",
+    "neighborhood_label": "Rhode-Saint-Genèse, en lisière de forêt.",
+    "coordinates": "50.7544° N · 4.3656° E",
+    "intro_paragraph": "Posée dans un clos résidentiel privé, à quelques minutes du centre de Bruxelles, la villa profite d'une adresse rare : quiétude boisée, écoles internationales à proximité, commune préservée.",
+    "facts": [
+      { "label": "Cadre",                 "value": "Clos résidentiel sécurisé" },
+      { "label": "Environnement",         "value": "Forêt de Soignes" },
+      { "label": "Bruxelles",             "value": "± 15 min" },
+      { "label": "Aéroport",              "value": "± 25 min" },
+      { "label": "Écoles internationales","value": "à proximité" }
+    ]
+  },
+
+  "specs": {
+    "surfaces": {
+      "habitable_m2":  "684",
+      "terrain_m2":    "2 662",
+      "jardin_m2":     "2 000"
+    },
+    "distribution": {
+      "chambres":         "5",
+      "salles_de_bains":  "3",
+      "stationnement":    "2 + 3"
+    },
+    "construction": {
+      "annee_construction": "1990",
+      "annee_renovation":   "2020",
+      "peb":                "B"
+    }
+  },
+
+  "price": {
+    "amount_display": "2 650 000 €",
+    "amount_numeric": 2650000,
+    "currency": "EUR"
+  },
+
+  "agent": {
+    "name": "Sylvie Koch",
+    "agency": "Christie's International Real Estate",
+    "biv": "BIV 505256",
+    "phone_office_display": "+32 (0)2 808 03 64",
+    "phone_office_tel":     "tel:+3228080364",
+    "phone_mobile_display": "+32 (0)472 86 96 68",
+    "phone_mobile_tel":     "tel:+32472869668",
+    "email": "sk@christiesrealestatebelgium.be",
+    "email_subject": "Demande de visite — Villa Rhode",
+    "portrait_image": "assets/images/sylvie.jpg"
+  },
+
+  "hero": {
+    "video":  "assets/videos/1.mp4",
+    "poster": "assets/images/8906584_1_20260408150341.jpg",
+    "title_main": "Villa Rhode",
+    "_title_alt_index_html": ["Une œuvre", "d'architecture."],
+    "_lede_index_html": "Villa Rhode. <strong>684 m²</strong> habitables, posés sur <strong>2.662 m²</strong> de terrain, en lisière de la Forêt de Soignes."
+  },
+
+  "jour_nuit": {
+    "section_title": "Deux visages de la même villa.",
+    "section_description": "La même façade, deux atmosphères : la lumière du nord en journée, l'éclairage architectural à la tombée du jour.",
+    "image_jour": "assets/images/villa-jour.jpg",
+    "image_nuit": "assets/images/villa-nuit.png"
+  },
+
+  "spaces": {
+    "section_title": "Neuf univers, un même langage.",
+    "items": [
+      { "n": "01", "title": "Vue aérienne",          "description": "Toiture sombre, panneaux solaires, piscine miroir, jardin paysager.",                            "image": "assets/images/8906584_22_20260408150641.jpg" },
+      { "n": "02", "title": "Le hall double-hauteur","description": "Atrium, mezzanine, garde-corps métallique, baie continue sur le jardin.",                          "image": "assets/images/8906584_5_20260408150637.jpg"  },
+      { "n": "03", "title": "L'escalier sculpté",    "description": "Hélicoïdal, marches en chêne, garde-corps fin en métal noir.",                                    "image": "assets/images/8906584_4_20260408150642.jpg"  },
+      { "n": "04", "title": "La cuisine",            "description": "Îlot incurvé, plan de travail noir, façades en bois, ouverture sur le séjour.",                   "image": "assets/images/8906584_8_20260408150638.jpg"  },
+      { "n": "05", "title": "Le bureau",             "description": "Mezzanine ouverte, colonnes en pierre, lumière zénithale.",                                       "image": "assets/images/8906584_25_20260408150641.jpg" },
+      { "n": "06", "title": "Le home cinéma",        "description": "Pièce rouge, écran de projection, simulateur, traitement acoustique.",                            "image": "assets/images/8906584_18_20260408150640.jpg" },
+      { "n": "07", "title": "Le puits de lumière",   "description": "Bandeau de fenêtres en partie haute, sol clair, sculpture lumineuse.",                            "image": "assets/images/8906584_27_20260408150641.jpg" },
+      { "n": "08", "title": "Une chambre",           "description": "Volume calme, parquet chêne, ouvertures larges sur les frondaisons.",                             "image": "assets/images/8906584_14_20260408150639.jpg" },
+      { "n": "09", "title": "La piscine",            "description": "Bord du bassin : pierre cendrée, margelle nette, eau turquoise.",                                 "image": "assets/images/8906584_21_20260408150640.jpg" }
+    ]
+  },
+
+  "amenities": {
+    "section_title": "Douze raisons de visiter.",
+    "items": [
+      { "icon": "Droplet",   "title": "Piscine extérieure" },
+      { "icon": "Dumbbell",  "title": "Salle de fitness" },
+      { "icon": "Film",      "title": "Home cinéma" },
+      { "icon": "Car",       "title": "Garage double" },
+      { "icon": "Flame",     "title": "Cheminée" },
+      { "icon": "Wind",      "title": "Climatisation" },
+      { "icon": "BookOpen",  "title": "Bureau ouvert" },
+      { "icon": "Sparkles",  "title": "Suite parentale" },
+      { "icon": "Maximize2", "title": "Terrasses multiples" },
+      { "icon": "Trees",     "title": "Lisière de forêt" },
+      { "icon": "Sparkles",  "title": "Sol béton ciré" },
+      { "icon": "Sparkles",  "title": "Cuisine auxiliaire" }
+    ]
+  },
+
+  "films": {
+    "section_title": "Quatre cadrages, un mouvement.",
+    "items": [
+      { "title": "La cuisine.",    "description": "Îlot monolithique, plaque vitrocéramique, plafond sculpté qui guide la lumière. Ouverture directe sur le séjour et le jardin par les baies vitrées.", "video": "assets/videos/villa%20rhodes_Export_2026-05-05_20-45-28.mp4"          },
+      { "title": "Salle à manger.","description": "Sous le luminaire de pampas séché, la table dressée s'ouvre sur le jardin. Pierre, lin, lumière du sud — l'art de recevoir.",                       "video": "assets/videos/villa%20rhodes_Export_2026-05-06_15-35-14.mp4"          },
+      { "title": "Le séjour.",     "description": "Pièce traversante, cheminée à foyer ouvert, parquet chêne, canapés bouclés. La pièce de vie centrale, baignée de lumière.",                          "video": "assets/videos/villa%20rhodes_Seedance%20V1.0_2026-05-06_15-49-12.mp4" },
+      { "title": "Survol aérien.", "description": "La villa vue depuis les airs. Toiture sombre, panneaux solaires, piscine miroir, jardin paysager en lisière de Forêt de Soignes.",                   "video": "assets/videos/villa%20rhodes_Seedance%20V1.0_2026-05-06_16-23-09.mp4" }
+    ]
+  },
+
+  "aerial_film": {
+    "section_title": "La villa, vue d'en haut.",
+    "video": "assets/videos/villa%20rhodes_Topaz%20Video%20Upscaler_2026-05-06_16-29-01.mp4"
+  },
+
+  "gallery": {
+    "section_title": "Vingt-huit regards sur la villa.",
+    "count": 28,
+    "images": [
+      "assets/images/8906584_1_20260408150341.jpg",
+      "assets/images/8906584_2_20260408150553.jpg",
+      "assets/images/8906584_3_20260408150549.jpg",
+      "assets/images/8906584_4_20260408150642.jpg",
+      "assets/images/8906584_5_20260408150637.jpg",
+      "assets/images/8906584_6_20260408150638.jpg",
+      "assets/images/8906584_7_20260408150638.jpg",
+      "assets/images/8906584_8_20260408150638.jpg",
+      "assets/images/8906584_9_20260408150638.jpg",
+      "assets/images/8906584_10_20260408150638.jpg",
+      "assets/images/8906584_11_20260408150638.jpg",
+      "assets/images/8906584_12_20260408150639.jpg",
+      "assets/images/8906584_13_20260408150639.jpg",
+      "assets/images/8906584_14_20260408150639.jpg",
+      "assets/images/8906584_15_20260408150639.jpg",
+      "assets/images/8906584_16_20260408150640.jpg",
+      "assets/images/8906584_17_20260408150640.jpg",
+      "assets/images/8906584_18_20260408150640.jpg",
+      "assets/images/8906584_19_20260408150640.jpg",
+      "assets/images/8906584_20_20260408150640.jpg",
+      "assets/images/8906584_21_20260408150640.jpg",
+      "assets/images/8906584_22_20260408150641.jpg",
+      "assets/images/8906584_23_20260408150641.jpg",
+      "assets/images/8906584_24_20260408150641.jpg",
+      "assets/images/8906584_25_20260408150641.jpg",
+      "assets/images/8906584_26_20260408150641.jpg",
+      "assets/images/8906584_27_20260408150641.jpg",
+      "assets/images/8906584_28_20260408150421.jpg"
+    ]
+  },
+
+  "contextual_images": {
+    "agent_card_interior": "assets/images/8906584_6_20260408150638.jpg",
+    "location_section":    "assets/images/8906584_28_20260408150421.jpg"
+  }
+}
