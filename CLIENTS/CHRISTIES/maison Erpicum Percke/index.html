@@ -401,6 +401,262 @@
       margin: 0;
     }
 
+    /* ── Section CINÉMA — vidéo full-bleed, texte révélé en masque ──
+       Inspirée des "splash films" éditoriaux : un seul plan, une seule phrase.
+       Le titre est cassé en lignes, chaque ligne montée derrière un masque
+       (overflow:hidden) ; les mots remontent en stagger quand la section
+       entre en vue. Le voile combine un radial (centre lumineux) et un
+       vertical (top/bottom plus dense) pour la lisibilité du texte clair. */
+    .cinemo {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      height: 100svh;
+      min-height: 620px;
+      overflow: hidden;
+      isolation: isolate;
+      color: #fdfcf9;
+      background: #0e0c08;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cinemo__media {
+      position: absolute; inset: 0; z-index: 0;
+      overflow: hidden;
+    }
+    .cinemo__svgdefs {
+      position: absolute; width: 0; height: 0; pointer-events: none;
+    }
+    .cinemo__video {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transform: translateZ(0) scale(1.08);
+      animation: cinemoKB 18s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
+      /* Couleurs/netteté d'avant : SVG unsharp mask + boosts couleur. */
+      filter:
+        url(#cinemo-sharpen)
+        saturate(1.34)
+        contrast(1.24)
+        brightness(1.04);
+      pointer-events: none;
+      will-change: transform;
+      backface-visibility: hidden;
+      -webkit-transform-style: preserve-3d;
+      transform-style: preserve-3d;
+    }
+    @keyframes cinemoKB {
+      0%   { transform: translateZ(0) scale(1.08) translate3d(0, 0, 0); }
+      100% { transform: translateZ(0) scale(1.48) translate3d(3%, -2.2%, 0); }
+    }
+    .cinemo__inner {
+      position: relative; z-index: 3;
+      padding: clamp(1.5rem, 4vw, 3rem);
+      max-width: 1100px;
+      text-align: center;
+      /* Sans voile derrière le texte : on lui donne sa propre ombre douce
+         pour qu'il reste lisible sur n'importe quelle teinte de la vidéo. */
+      text-shadow: 0 1px 2px rgba(14,12,8,0.45), 0 6px 24px rgba(14,12,8,0.35);
+    }
+    .cinemo__eyebrow {
+      display: inline-block;
+      font-family: 'Inter Tight', 'Inter', sans-serif;
+      font-size: clamp(0.72rem, 0.92vw, 0.85rem);
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: rgba(253, 252, 249, 0.82);
+      margin: 0 0 clamp(1.6rem, 3.2vh, 2.4rem);
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 1.2s ease 0.12s, transform 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.12s;
+    }
+    .cinemo__eyebrow::before,
+    .cinemo__eyebrow::after {
+      content: '';
+      display: inline-block;
+      width: clamp(28px, 4vw, 56px);
+      height: 1px;
+      background: rgba(253, 252, 249, 0.55);
+      vertical-align: middle;
+      margin: 0 0.85rem;
+      transform-origin: center;
+    }
+    .cinemo__title {
+      font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+      font-weight: 300;
+      font-size: clamp(2.6rem, 8.2vw, 7.4rem);
+      line-height: 0.98;
+      letter-spacing: -0.025em;
+      margin: 0 0 clamp(1.6rem, 3.4vh, 2.6rem);
+      color: #fdfcf9;
+    }
+    .cinemo__title em {
+      font-style: italic;
+      font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+      color: rgba(253, 252, 249, 0.6);
+    }
+    .cinemo__mask {
+      display: block;
+      overflow: hidden;
+      line-height: 1.1;
+      padding: 0.04em 0.02em;
+    }
+    .cinemo__word {
+      display: inline-block;
+      transform: translateY(110%);
+      transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+      will-change: transform;
+    }
+    .cinemo__lede {
+      font-family: 'Inter Tight', 'Inter', sans-serif;
+      font-size: clamp(0.95rem, 1.18vw, 1.05rem);
+      line-height: 1.65;
+      max-width: 50ch;
+      margin: 0 auto;
+      color: rgba(253, 252, 249, 0.74);
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 1.4s ease 0.95s, transform 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.95s;
+    }
+    .cinemo__hairline {
+      display: block;
+      width: 0;
+      height: 1px;
+      background: rgba(253, 252, 249, 0.6);
+      margin: clamp(1.6rem, 3vh, 2.4rem) auto 0;
+      transition: width 1.6s cubic-bezier(0.19, 1, 0.22, 1) 1.1s;
+    }
+    .cinemo.is-active .cinemo__eyebrow,
+    .cinemo.is-active .cinemo__lede {
+      opacity: 1; transform: translateY(0);
+    }
+    .cinemo.is-active .cinemo__mask:nth-of-type(1) .cinemo__word { transition-delay: 0.22s; transform: translateY(0); }
+    .cinemo.is-active .cinemo__mask:nth-of-type(2) .cinemo__word { transition-delay: 0.38s; transform: translateY(0); }
+    .cinemo.is-active .cinemo__mask:nth-of-type(3) .cinemo__word { transition-delay: 0.54s; transform: translateY(0); }
+    .cinemo.is-active .cinemo__hairline { width: clamp(48px, 6vw, 96px); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cinemo__video { animation: none; transform: none; }
+      .cinemo__word { transform: none; transition: none; }
+      .cinemo__eyebrow, .cinemo__lede { opacity: 1; transform: none; transition: none; }
+      .cinemo__hairline { width: clamp(48px, 6vw, 96px); transition: none; }
+    }
+
+
+    /* ───────────────────────────────────────────────────────────
+       MASK-REVEAL UNIFIÉ — titres de section + hero
+       ─────────────────────────────────────────────────────────
+       Tous les éléments [data-anim-title] voient leur contenu
+       découpé en mots ; chaque mot devient un masque (overflow:hidden)
+       avec un span enfant qui remonte de translateY(115%) à 0.
+       La cascade est pilotée par --i (index du mot) en CSS, donc
+       aucune dépendance à GSAP. Un IntersectionObserver ajoute
+       .is-in quand le titre entre dans le viewport. */
+    [data-anim-title] { visibility: hidden; }
+    [data-anim-title].is-prepared { visibility: visible; }
+    .aw {
+      display: inline-block;
+      overflow: hidden;
+      line-height: inherit;
+      padding: 0.06em 0.02em;
+      vertical-align: bottom;
+    }
+    .aw-i {
+      display: inline-block;
+      transform: translateY(115%);
+      transition: transform 1.05s cubic-bezier(0.19, 1, 0.22, 1);
+      transition-delay: calc(var(--i, 0) * 0.07s);
+      will-change: transform;
+    }
+    [data-anim-title].is-in .aw-i { transform: translateY(0); }
+    /* Hero : cascade un peu plus lente + plus poétique au load */
+    .hero__title[data-anim-title] .aw-i {
+      transition-duration: 1.4s;
+      transition-delay: calc(0.2s + var(--i, 0) * 0.12s);
+    }
+
+    /* Eyebrows : fine ligne dessinée + lettre par lettre quand entre en vue.
+       On cible toute classe finissant en __eyebrow + .lecture-row__eyebrow,
+       et on ajoute data-anim-eyebrow par JS pour activer l'effet. */
+    [data-anim-eyebrow] {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.85rem;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+    [data-anim-eyebrow]::before {
+      content: '';
+      display: inline-block;
+      width: 0;
+      height: 1px;
+      background: currentColor;
+      opacity: 0.55;
+      transition: width 1.2s cubic-bezier(0.19, 1, 0.22, 1) 0.15s;
+    }
+    [data-anim-eyebrow].is-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    [data-anim-eyebrow].is-in::before {
+      width: clamp(22px, 3vw, 42px);
+    }
+    /* L'eyebrow de cinemo a déjà ses propres hairlines avant/après — on ne
+       touche pas à son rendu. */
+    .cinemo__eyebrow[data-anim-eyebrow] { display: inline-block; gap: 0; }
+    .cinemo__eyebrow[data-anim-eyebrow]::before { display: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      [data-anim-title] { visibility: visible !important; }
+      .aw-i { transform: none !important; transition: none !important; }
+      [data-anim-eyebrow] { opacity: 1; transform: none; transition: none; }
+      [data-anim-eyebrow]::before { width: clamp(22px, 3vw, 42px); transition: none; }
+    }
+
+
+    /* ───────────────────────────────────────────────────────────
+       CURSEUR INK-DOT — petit point qui suit la souris en lerp,
+       grandit en cercle vide au-dessus des éléments interactifs.
+       Activé uniquement quand .has-ink-cursor est sur <body>
+       (ajouté en JS si hover:hover + pointer:fine + non-reduced). */
+    .ink-cursor {
+      position: fixed;
+      top: 0; left: 0;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--ink, #14110b);
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate3d(-100px, -100px, 0) translate(-50%, -50%) scale(1);
+      transition:
+        width 0.45s cubic-bezier(0.19, 1, 0.22, 1),
+        height 0.45s cubic-bezier(0.19, 1, 0.22, 1),
+        background 0.35s ease,
+        border-color 0.35s ease,
+        opacity 0.35s ease,
+        mix-blend-mode 0.35s ease;
+      mix-blend-mode: difference;
+      opacity: 0;
+    }
+    .ink-cursor.is-ready { opacity: 0.85; }
+    .ink-cursor.is-hover {
+      width: 44px; height: 44px;
+      background: transparent;
+      border: 1px solid #fdfcf9;
+    }
+    .ink-cursor.is-pressed {
+      width: 28px; height: 28px;
+    }
+    body.has-ink-cursor,
+    body.has-ink-cursor a,
+    body.has-ink-cursor button,
+    body.has-ink-cursor [role="button"] { cursor: none; }
+    @media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+      .ink-cursor { display: none !important; }
+    }
+
 
     /* ── Section LECTURES (zigzag éditorial, hover/tap toggle) ───── */
     .lectures        { padding: clamp(4rem, 8vh, 8rem) clamp(1.25rem, 4vw, 4rem); background: #faf7f0; }
@@ -777,6 +1033,27 @@
       fill: none;
       stroke-linecap: round; stroke-linejoin: round;
       opacity: 0.88;
+    }
+    /* Icon stroke draw-in : la longueur du path est mesurée en JS et stockée
+       dans --len ; on déclenche le tracé en bougeant --off de --len à 0 quand
+       le parent .amenities__grid reçoit .is-grid-in. Stagger par nth-child. */
+    .amenity__icon path {
+      stroke-dasharray: var(--len, 200);
+      stroke-dashoffset: var(--off, 200);
+      transition: stroke-dashoffset 1.6s cubic-bezier(0.65, 0, 0.35, 1);
+    }
+    .amenities__grid.is-grid-in .amenity__icon path { --off: 0; }
+    .amenities__grid.is-grid-in .amenity:nth-child(1) .amenity__icon path { transition-delay: 0.05s; }
+    .amenities__grid.is-grid-in .amenity:nth-child(2) .amenity__icon path { transition-delay: 0.14s; }
+    .amenities__grid.is-grid-in .amenity:nth-child(3) .amenity__icon path { transition-delay: 0.23s; }
+    .amenities__grid.is-grid-in .amenity:nth-child(4) .amenity__icon path { transition-delay: 0.32s; }
+    .amenities__grid.is-grid-in .amenity:nth-child(5) .amenity__icon path { transition-delay: 0.41s; }
+    .amenities__grid.is-grid-in .amenity:nth-child(6) .amenity__icon path { transition-delay: 0.50s; }
+    .amenities__grid.is-grid-in .amenity:nth-child(7) .amenity__icon path { transition-delay: 0.59s; }
+    .amenities__grid.is-grid-in .amenity:nth-child(8) .amenity__icon path { transition-delay: 0.68s; }
+    .amenities__grid.is-grid-in .amenity:nth-child(9) .amenity__icon path { transition-delay: 0.77s; }
+    @media (prefers-reduced-motion: reduce) {
+      .amenity__icon path { stroke-dasharray: none; stroke-dashoffset: 0; transition: none; }
     }
     .amenity__title {
       font-family: var(--display); font-weight: 500;
@@ -1224,6 +1501,52 @@
     </section>
 
     <!-- ─────────────────────────────────────────────────────────
+         04c · CINÉMA — plan unique, vidéo full-bleed, texte révélé
+    ────────────────────────────────────────────────────────── -->
+    <section class="cinemo" id="cinema" data-section="cinema">
+      <!-- Unsharp mask SVG (kernel 3x3, somme=1) référencé par la vidéo. -->
+      <svg class="cinemo__svgdefs" aria-hidden="true" focusable="false" width="0" height="0">
+        <defs>
+          <filter id="cinemo-sharpen" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+            <feConvolveMatrix
+              order="3"
+              preserveAlpha="true"
+              kernelMatrix="0 -0.6 0 -0.6 3.4 -0.6 0 -0.6 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+
+      <div class="cinemo__media">
+        <video
+          class="cinemo__video"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+        >
+          <source src="assets/videos/1.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+      <div class="cinemo__inner">
+        <span class="cinemo__eyebrow">05 · Mouvement</span>
+        <h2 class="cinemo__title">
+          <span class="cinemo__mask"><span class="cinemo__word">L'architecture</span></span>
+          <span class="cinemo__mask"><span class="cinemo__word">en</span></span>
+          <span class="cinemo__mask"><span class="cinemo__word"><em>mouvement.</em></span></span>
+        </h2>
+        <p class="cinemo__lede">
+          Un battement de paupières&nbsp;— et la maison change de visage.
+          La lumière glisse, la matière respire, le geste d'Erpicum se lit
+          dans la durée plutôt que dans l'instantané.
+        </p>
+        <span class="cinemo__hairline"></span>
+      </div>
+    </section>
+
+    <!-- ─────────────────────────────────────────────────────────
          05 · GALERIE — 18 vues, lightbox
     ────────────────────────────────────────────────────────── -->
     <section class="gallery" id="galerie" data-section="galerie">
@@ -1254,7 +1577,7 @@
     <section class="location" id="localisation" data-section="localisation">
       <figure class="location__media reveal" data-photo-anim>
         <img
-          src="images/8715417_2_20260122143307.jpg"
+          src="assets/images/8715417_2_20260122143307.jpg"
           alt="Maison Erpicum dans son écrin paysager, Uccle"
           loading="lazy"
           data-parallax="0.25"
@@ -1302,7 +1625,7 @@
         <div class="contact__grid">
           <figure class="contact__portrait reveal" data-photo-anim>
             <img
-              src="images/agent-jean-marc-delcroix.jpg"
+              src="assets/images/agent-jean-marc-delcroix.jpg"
               alt="Jean-Marc Delcroix — Christie's International Real Estate"
               loading="lazy"
             />
@@ -1567,6 +1890,315 @@
           }
         });
       });
+    })();
+  </script>
+
+  <!-- ── CINÉMA : déclenche l'animation des mots quand la section entre en vue.
+       Une fois activée, on ne ré-observe pas (l'effet n'a lieu qu'à l'arrivée). -->
+  <script>
+    (function () {
+      const sec = document.querySelector('.cinemo');
+      if (!sec) return;
+      if (!('IntersectionObserver' in window)) {
+        sec.classList.add('is-active');
+        return;
+      }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            sec.classList.add('is-active');
+            io.unobserve(sec);
+          }
+        });
+      }, { threshold: 0.28 });
+      io.observe(sec);
+    })();
+  </script>
+
+  <!-- ── MASK-REVEAL UNIFIÉ : titres + eyebrows ────────────────────
+       Étiquette les éléments cibles avec data-anim-title /
+       data-anim-eyebrow, découpe les titres en mots (en préservant
+       les <em>), puis ajoute .is-in quand l'élément entre en vue. -->
+  <script>
+    (function () {
+      const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // 1) Marquer les titres concernés
+      const titleSelectors = [
+        '.hero__title',
+        '.specs__title',
+        '.lectures__title',
+        '.spaces__title',
+        '.amenities__title',
+        '.gallery__title',
+        '.location__title',
+        '.contact__title'
+      ];
+      const titles = document.querySelectorAll(titleSelectors.join(','));
+      titles.forEach((t) => t.setAttribute('data-anim-title', ''));
+
+      // 2) Marquer les eyebrows
+      const eyebrowSelectors = [
+        '.amenities__eyebrow',
+        '.films-fs__eyebrow',
+        '.contact__eyebrow',
+        '.lecture-row__eyebrow',
+        '.cinemo__eyebrow'
+      ];
+      document.querySelectorAll(eyebrowSelectors.join(',')).forEach((e) => {
+        e.setAttribute('data-anim-eyebrow', '');
+      });
+
+      // 3) Découper chaque titre en mots, en respectant les <em>/<br>/<span>
+      function makeWord(text) {
+        const mask = document.createElement('span');
+        mask.className = 'aw';
+        const inner = document.createElement('span');
+        inner.className = 'aw-i';
+        inner.textContent = text;
+        mask.appendChild(inner);
+        return mask;
+      }
+      function splitNode(node) {
+        const out = [];
+        Array.from(node.childNodes).forEach((child) => {
+          if (child.nodeType === 3) {
+            // text node : split en mots + conserver les espaces
+            const parts = child.textContent.split(/(\s+)/);
+            parts.forEach((p) => {
+              if (!p) return;
+              if (/^\s+$/.test(p)) {
+                out.push(document.createTextNode(' '));
+              } else {
+                out.push(makeWord(p));
+              }
+            });
+          } else if (child.nodeType === 1) {
+            // element : on clone le tag (em, span, br…) et on recurse à l'intérieur
+            const tag = child.tagName.toLowerCase();
+            if (tag === 'br') {
+              out.push(document.createElement('br'));
+              return;
+            }
+            const clone = child.cloneNode(false);
+            const sub = splitNode(child);
+            sub.forEach((s) => clone.appendChild(s));
+            out.push(clone);
+          }
+        });
+        return out;
+      }
+
+      titles.forEach((t) => {
+        const split = splitNode(t);
+        t.innerHTML = '';
+        split.forEach((s) => t.appendChild(s));
+        // index --i sur chaque mot pour la cascade
+        t.querySelectorAll('.aw').forEach((w, i) => w.style.setProperty('--i', i));
+        t.classList.add('is-prepared');
+      });
+
+      // 4) Reveal : reduced-motion → on les marque immédiatement.
+      if (reduced) {
+        titles.forEach((t) => t.classList.add('is-in'));
+        document.querySelectorAll('[data-anim-eyebrow]').forEach((e) => e.classList.add('is-in'));
+        return;
+      }
+
+      // 4a) Hero : on déclenche au load (pas de scroll requis)
+      const hero = document.querySelector('.hero__title[data-anim-title]');
+      if (hero) {
+        requestAnimationFrame(() => requestAnimationFrame(() => hero.classList.add('is-in')));
+      }
+
+      // 4b) Autres titres + eyebrows : IntersectionObserver
+      if (!('IntersectionObserver' in window)) {
+        titles.forEach((t) => t.classList.add('is-in'));
+        document.querySelectorAll('[data-anim-eyebrow]').forEach((e) => e.classList.add('is-in'));
+        return;
+      }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-in');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.18, rootMargin: '0px 0px -8% 0px' });
+      titles.forEach((t) => { if (t !== hero) io.observe(t); });
+      document.querySelectorAll('[data-anim-eyebrow]').forEach((e) => io.observe(e));
+    })();
+  </script>
+
+  <!-- ── AMENITIES : icônes Lucide tracées en stroke draw-in.
+       Mesure la longueur de chaque path via getTotalLength(),
+       pose --len/--off en inline-style, puis ajoute .is-grid-in
+       sur la grille quand elle entre dans le viewport (CSS prend
+       le relais pour le stagger). -->
+  <script>
+    (function () {
+      const grid = document.querySelector('.amenities__grid');
+      if (!grid) return;
+      const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const paths = grid.querySelectorAll('.amenity__icon path');
+      paths.forEach((p) => {
+        let len = 200;
+        try {
+          const got = p.getTotalLength();
+          if (got && isFinite(got)) len = Math.ceil(got);
+        } catch (_) { /* ignore */ }
+        p.style.setProperty('--len', len);
+        p.style.setProperty('--off', len);
+      });
+      if (reduced || !('IntersectionObserver' in window)) {
+        grid.classList.add('is-grid-in');
+        return;
+      }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            grid.classList.add('is-grid-in');
+            io.unobserve(grid);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+      io.observe(grid);
+    })();
+  </script>
+
+  <!-- ── INK CURSOR : point ink qui suit la souris en lerp,
+       grandit en cercle ouvert au-dessus des éléments interactifs.
+       Inactif sur tactile, pointer coarse ou reduced-motion. -->
+  <script>
+    (function () {
+      const finePointer = matchMedia('(hover: hover) and (pointer: fine)').matches;
+      const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!finePointer || reduced) return;
+
+      const cursor = document.createElement('div');
+      cursor.className = 'ink-cursor';
+      document.body.appendChild(cursor);
+      document.body.classList.add('has-ink-cursor');
+
+      let tx = -100, ty = -100;     // target (souris)
+      let cx = -100, cy = -100;     // current (lerp)
+      let ready = false;
+      const LERP = 0.22;
+
+      window.addEventListener('mousemove', (e) => {
+        tx = e.clientX; ty = e.clientY;
+        if (!ready) {
+          cx = tx; cy = ty;
+          cursor.classList.add('is-ready');
+          ready = true;
+        }
+      }, { passive: true });
+      window.addEventListener('mousedown', () => cursor.classList.add('is-pressed'));
+      window.addEventListener('mouseup',   () => cursor.classList.remove('is-pressed'));
+      window.addEventListener('mouseleave', () => cursor.classList.remove('is-ready'));
+      window.addEventListener('mouseenter', () => { if (ready) cursor.classList.add('is-ready'); });
+
+      function frame() {
+        cx += (tx - cx) * LERP;
+        cy += (ty - cy) * LERP;
+        cursor.style.transform =
+          'translate3d(' + cx.toFixed(2) + 'px, ' + cy.toFixed(2) + 'px, 0) translate(-50%, -50%)';
+        requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+
+      // Détection hover : on délègue au document plutôt que de poser N listeners.
+      const HOVER_SEL = [
+        'a[href]', 'button', '[role="button"]',
+        '.amenity', '.lecture-row', '.ff-card', '.space',
+        '.gallery__item', '.lightbox__btn', '.lightbox__close',
+        '.cta', '.nav__link', '.nav__cta', '.contact__link',
+        '.contact__phone-cta', '.scrub__cta'
+      ].join(',');
+
+      document.addEventListener('mouseover', (e) => {
+        if (e.target && e.target.closest && e.target.closest(HOVER_SEL)) {
+          cursor.classList.add('is-hover');
+        }
+      });
+      document.addEventListener('mouseout', (e) => {
+        if (e.target && e.target.closest && e.target.closest(HOVER_SEL)) {
+          // ne retire que si on quitte vers un non-hover element
+          const to = e.relatedTarget;
+          if (!to || !to.closest || !to.closest(HOVER_SEL)) {
+            cursor.classList.remove('is-hover');
+          }
+        }
+      });
+    })();
+  </script>
+
+  <!-- ── LIGHTBOX CROSSFADE : intercepte les changements de src de
+       l'image (déclenchés par script.js → openLB/navLB) via
+       MutationObserver, et fait un fondu enchaîné avec une copie
+       absolue de l'ancienne image qui s'efface. -->
+  <script>
+    (function () {
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      // Attendre que script.js ait créé la lightbox (il l'append en JS).
+      function init() {
+        const lbImg = document.querySelector('.lightbox .lightbox__img');
+        if (!lbImg) return setTimeout(init, 200);
+        const lightbox = lbImg.closest('.lightbox');
+
+        // Prépare le calque .lightbox__img-ghost : copie absolue derrière.
+        const css = document.createElement('style');
+        css.textContent =
+          '.lightbox__img { transition: opacity 0.55s cubic-bezier(0.19, 1, 0.22, 1), transform var(--t-fast) var(--ease-out) !important; }' +
+          '.lightbox__img-ghost {' +
+          '  position: absolute; top: 50%; left: 50%;' +
+          '  transform: translate(-50%, -50%) scale(1);' +
+          '  max-width: 92vw; max-height: 88vh;' +
+          '  object-fit: contain; border-radius: 2px;' +
+          '  opacity: 1;' +
+          '  transition: opacity 0.55s cubic-bezier(0.19, 1, 0.22, 1);' +
+          '  pointer-events: none;' +
+          '}' +
+          '.lightbox__img-ghost.is-fading { opacity: 0; }';
+        document.head.appendChild(css);
+
+        let prevSrc = lbImg.getAttribute('src') || '';
+        const mo = new MutationObserver((mutations) => {
+          mutations.forEach((m) => {
+            if (m.type !== 'attributes' || m.attributeName !== 'src') return;
+            const newSrc = lbImg.getAttribute('src') || '';
+            if (!newSrc || newSrc === prevSrc) return;
+            // Si la lightbox vient juste de s'ouvrir (ancien vide), pas de ghost.
+            if (prevSrc) {
+              const ghost = document.createElement('img');
+              ghost.className = 'lightbox__img-ghost';
+              ghost.src = prevSrc;
+              ghost.alt = '';
+              lightbox.appendChild(ghost);
+              // Fade-out à la frame suivante pour que la transition s'arme.
+              requestAnimationFrame(() => requestAnimationFrame(() => ghost.classList.add('is-fading')));
+              setTimeout(() => { if (ghost.parentNode) ghost.parentNode.removeChild(ghost); }, 700);
+            }
+            // Force un fade-in propre de la nouvelle image (la classe is-open
+            // de script.js gère déjà opacity:1, on s'appuie sur la transition).
+            lbImg.style.opacity = '0';
+            const onLoad = () => {
+              lbImg.style.opacity = '';
+              lbImg.removeEventListener('load', onLoad);
+            };
+            lbImg.addEventListener('load', onLoad);
+            prevSrc = newSrc;
+          });
+        });
+        mo.observe(lbImg, { attributes: true, attributeOldValue: false, attributeFilter: ['src'] });
+      }
+      // Lance dès que possible mais après le DOMContentLoaded de script.js
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
     })();
   </script>
 
