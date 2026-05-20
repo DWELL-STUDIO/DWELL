@@ -1,19 +1,12 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#f4f1ec" />
+  <meta name="theme-color" content="#ffffff" />
   <title>Maison Erpicum — Christie's International Real Estate</title>
   <meta name="description" content="Villa contemporaine signée Bruno Erpicum, quartier Prince d'Orange à Uccle. 622 m² habitables, 1.900 m² de terrain paysager, 5 chambres, piscines intérieure et extérieure." />
-
-  <!-- Google Fonts : Cormorant Garamond (display, terminaisons sharper) + Inter Tight (body, géométrique) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter+Tight:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
-    rel="stylesheet"
-  />
 
   <link rel="stylesheet" href="style.css" />
 
@@ -24,18 +17,103 @@
 
   <!-- Animations dynamiques + composant slider avant/après -->
   <style>
-    /* ── Typographie unifiée : Inter Tight (Apple-style / SF inspired) ──
-       Override des 3 variables font de style.css pour utiliser Inter Tight
-       partout (designed by Rasmus Andersson, très proche de San Francisco). */
-    :root {
-      --display:      'Inter Tight', 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
-      --sans:         'Inter Tight', 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
-      --serif-italic: 'Inter Tight', 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+    /* ── Typographie Christie's : Gilroy (sans, body + display) + Playfair Display (italique éditorial) ── */
+    @font-face {
+      font-family: 'Gilroy'; font-style: normal; font-weight: 300; font-display: swap;
+      src: url('assets/fonts/gilroy/Gilroy-Light.ttf') format('truetype');
     }
-    body { font-family: 'Inter Tight', 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; }
-    /* Les éléments en italique gardent leur italique, mais en Inter Tight italique */
+    @font-face {
+      font-family: 'Gilroy'; font-style: normal; font-weight: 400; font-display: swap;
+      src: url('assets/fonts/gilroy/Gilroy-Regular.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Gilroy'; font-style: normal; font-weight: 500; font-display: swap;
+      src: url('assets/fonts/gilroy/Gilroy-Medium.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Gilroy'; font-style: normal; font-weight: 600; font-display: swap;
+      src: url('assets/fonts/gilroy/Gilroy-SemiBold.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Gilroy'; font-style: normal; font-weight: 700; font-display: swap;
+      src: url('assets/fonts/gilroy/Gilroy-Bold.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Playfair Display'; font-style: normal; font-weight: 400; font-display: swap;
+      src: url('assets/fonts/playfair/PlayfairDisplay-Regular.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Playfair Display'; font-style: italic; font-weight: 400; font-display: swap;
+      src: url('assets/fonts/playfair/PlayfairDisplay-Italic.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Playfair Display'; font-style: normal; font-weight: 500; font-display: swap;
+      src: url('assets/fonts/playfair/PlayfairDisplay-Medium.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Playfair Display'; font-style: italic; font-weight: 500; font-display: swap;
+      src: url('assets/fonts/playfair/PlayfairDisplay-MediumItalic.ttf') format('truetype');
+    }
+
+    /* ── Override des tokens du style.css partagé pour respecter la charte
+       Christie's International Real Estate : palette charcoal / blanc /
+       gris froid + accent or, typographie Gilroy + Playfair Display.    */
+    :root {
+      /* Typographie de marque */
+      --display:      'Gilroy', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      --sans:         'Gilroy', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      --serif-italic: 'Playfair Display', Georgia, 'Times New Roman', serif;
+
+      /* Palette de marque — White, Charcoal, Medium/Light Gray, Gold (Brand Guidelines p.8) */
+      --paper:       #ffffff;   /* fond principal — Christie's privilégie le blanc */
+      --paper-2:     #ffffff;
+      --canvas:      #f4f4f5;   /* secondaire neutre froid */
+      --beige:       #e6e7e8;   /* gris très clair, remplace le beige minéral */
+      --stone:       #76787b;   /* Medium Gray brand */
+      --stone-2:     #384249;   /* Charcoal brand — gris profond */
+      --ink:         #1a1a1a;   /* noir doux, ≈ 100% Black brand */
+      --moss:        #c9ac77;   /* Gold brand — accent secondaire parcimonieux */
+      --line:        rgba(56, 66, 73, 0.10);
+      --line-strong: rgba(56, 66, 73, 0.20);
+      --paper-rgb:   255, 255, 255;
+      --ink-rgb:     26, 26, 26;
+    }
+    body { font-family: var(--sans); }
+    /* Italiques éditoriaux → Playfair Display italique (élégance Christie's) */
     em, i, .stmt__title em, .editorial__title em, .strip__title em, .scrub__title em,
-    .location__title em, .lectures__title em, .ff-slide__hero em { font-style: italic; }
+    .location__title em, .lectures__title em, .ff-slide__hero em {
+      font-style: italic;
+      font-family: var(--serif-italic);
+      font-weight: 400;
+      color: var(--stone-2);
+    }
+
+    /* ── Logos officiels Christie's International Real Estate Belgium ──
+       Brand Guidelines : largeur minimale 120px. Ratio du lockup ≈ 2.43:1,
+       donc une hauteur de 50px ≈ 121px de large (conforme).               */
+    .nav__brand { gap: 0; }
+    .nav__brand-logo {
+      display: block;
+      width: auto;
+      height: 50px;
+      transition: opacity var(--t-fast) var(--ease-out);
+    }
+    .nav__brand-logo--white { display: none; }
+    /* Au-dessus du hero (vidéo sombre) : logo blanc. Après scroll (fond blanc) : logo noir. */
+    .nav.is-scrolled .nav__brand-logo--black { display: block; }
+    .nav.is-scrolled .nav__brand-logo--white { display: none; }
+    .nav:not(.is-scrolled) .nav__brand-logo--black { display: none; }
+    .nav:not(.is-scrolled) .nav__brand-logo--white { display: block; }
+    .foot__brand-logo {
+      display: block;
+      width: auto;
+      height: 72px;
+      opacity: 0.95;
+    }
+    @media (max-width: 540px) {
+      .nav__brand-logo { height: 38px; }
+      .foot__brand-logo { height: 52px; }
+    }
 
     @keyframes erp-kb-in   { 0% { transform: scale(1.04) translate3d(0,0,0); } 100% { transform: scale(1.14) translate3d(-1.5%, -1%, 0); } }
     @keyframes erp-kb-pan  { 0% { transform: scale(1.08) translate3d(0,0,0); } 100% { transform: scale(1.18) translate3d(2%, -1.5%, 0); } }
@@ -311,21 +389,21 @@
 
     /* ── Section FILMS — 2 vidéos en grille large sur fond clair, autoplay-loop muet ── */
     .films-fs {
-      background: #f4f1ec;            /* fond clair (cream chaud) */
+      background: var(--canvas);      /* fond clair neutre (Christie's : gris très clair) */
       color: var(--ink);
       padding: clamp(7rem, 14vh, 12rem) clamp(0.5rem, 1.2vw, 1.4rem);
     }
     .films-fs__head { max-width: 70ch; margin: 0 auto clamp(4rem, 8vh, 6rem); text-align: center; }
     .films-fs__eyebrow {
       display: inline-block;
-      font-family: 'Inter Tight', 'Inter', sans-serif;
+      font-family: var(--sans);
       font-size: clamp(1.4rem, 2.6vw, 2.4rem);
       letter-spacing: 0.32em; text-transform: uppercase; font-weight: 500;
       color: rgba(20, 17, 11, 0.78);
       margin-bottom: 0;
     }
     .films-fs__title {
-      font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+      font-family: var(--serif-italic);
       font-weight: 300; font-size: clamp(2.2rem, 5vw, 4.2rem);
       letter-spacing: -0.02em; line-height: 1.05;
       margin: 0 0 0.8rem; color: var(--ink);
@@ -383,19 +461,19 @@
     }
     .ff-card__num {
       display: block;
-      font-family: 'Inter Tight', 'Inter', sans-serif;
+      font-family: var(--sans);
       font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase;
       color: rgba(253, 252, 249, 0.7);
       margin-bottom: 0.55rem;
     }
     .ff-card__title {
-      font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+      font-family: var(--serif-italic);
       font-weight: 300; font-size: clamp(1.1rem, 1.7vw, 1.5rem);
       letter-spacing: -0.01em; line-height: 1.15;
       margin: 0 0 0.35rem;
     }
     .ff-card__desc {
-      font-family: 'Inter Tight', 'Inter', sans-serif;
+      font-family: var(--sans);
       font-size: 0.82rem; line-height: 1.5;
       color: rgba(253, 252, 249, 0.72);
       margin: 0;
@@ -432,12 +510,13 @@
       width: 100%; height: 100%; object-fit: cover; display: block;
       transform: translateZ(0) scale(1.08);
       animation: cinemoKB 18s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
-      /* Couleurs/netteté d'avant : SVG unsharp mask + boosts couleur. */
+      /* Rendu naturel, aligné charte Christie's : on garde l'unsharp mask
+         et un léger contraste, sans sursaturer (palette neutre / charcoal). */
       filter:
         url(#cinemo-sharpen)
-        saturate(1.34)
-        contrast(1.24)
-        brightness(1.04);
+        saturate(1.02)
+        contrast(1.08)
+        brightness(1.01);
       pointer-events: none;
       will-change: transform;
       backface-visibility: hidden;
@@ -459,7 +538,7 @@
     }
     .cinemo__eyebrow {
       display: inline-block;
-      font-family: 'Inter Tight', 'Inter', sans-serif;
+      font-family: var(--sans);
       font-size: clamp(0.72rem, 0.92vw, 0.85rem);
       letter-spacing: 0.42em;
       text-transform: uppercase;
@@ -482,7 +561,7 @@
       transform-origin: center;
     }
     .cinemo__title {
-      font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+      font-family: var(--serif-italic);
       font-weight: 300;
       font-size: clamp(2.6rem, 8.2vw, 7.4rem);
       line-height: 0.98;
@@ -492,7 +571,7 @@
     }
     .cinemo__title em {
       font-style: italic;
-      font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+      font-family: var(--serif-italic);
       color: rgba(253, 252, 249, 0.6);
     }
     .cinemo__mask {
@@ -508,7 +587,7 @@
       will-change: transform;
     }
     .cinemo__lede {
-      font-family: 'Inter Tight', 'Inter', sans-serif;
+      font-family: var(--sans);
       font-size: clamp(0.95rem, 1.18vw, 1.05rem);
       line-height: 1.65;
       max-width: 50ch;
@@ -897,7 +976,7 @@
       background: rgba(20, 17, 11, 0.92);
       border: 1px solid rgba(20, 17, 11, 0.92);
       border-radius: 999px;
-      font-family: 'Inter Tight', 'Inter', sans-serif;
+      font-family: var(--sans);
       font-size: 0.74rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500;
       color: #fdfcf9;
       cursor: pointer;
@@ -990,7 +1069,7 @@
     }
     .amenities__eyebrow {
       display: inline-block;
-      font-family: 'Inter Tight', 'Inter', sans-serif;
+      font-family: var(--sans);
       font-size: 0.72rem; letter-spacing: 0.28em; text-transform: uppercase;
       font-weight: 500;
       color: rgba(20, 17, 11, 0.55);
@@ -1062,7 +1141,7 @@
       margin: 0; color: var(--ink);
     }
     .amenity__desc {
-      font-family: 'Inter Tight', 'Inter', sans-serif;
+      font-family: var(--sans);
       font-size: 0.86rem; line-height: 1.5;
       color: rgba(20, 17, 11, 0.62);
       margin: 0;
@@ -1088,9 +1167,9 @@
        Barre fine, fixe, qui s'opacifie au scroll.
   ────────────────────────────────────────────────────────────── -->
   <header class="nav" data-nav>
-    <a class="nav__brand" href="#top">
-      <span class="nav__brand-mark">Christie's</span>
-      <span class="nav__brand-sub">International Real Estate</span>
+    <a class="nav__brand" href="#top" aria-label="Christie's International Real Estate Belgium — accueil">
+      <img src="assets/brand/cire-belgium-black.svg" alt="Christie's International Real Estate" class="nav__brand-logo nav__brand-logo--black" width="240" height="99" />
+      <img src="assets/brand/cire-belgium-white.svg" alt="" aria-hidden="true" class="nav__brand-logo nav__brand-logo--white" width="240" height="99" />
     </a>
     <nav class="nav__links" aria-label="Navigation principale" data-nav-links>
       <!-- Pilule liquid glass (positionnée en JS, suit le hover / section active) -->
@@ -1677,8 +1756,7 @@
   ────────────────────────────────────────────────────────── -->
   <footer class="foot">
     <div class="foot__brand">
-      <span>Christie's</span>
-      <span>International Real Estate · Belgium</span>
+      <img src="assets/brand/cire-belgium-white.svg" alt="Christie's International Real Estate Belgium" class="foot__brand-logo" width="280" height="115" />
     </div>
     <div class="foot__legal">
       <span>Réf. 12-0193</span>
